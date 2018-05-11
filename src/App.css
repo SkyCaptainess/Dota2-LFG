@@ -1,4 +1,56 @@
-div {
-  border: 1px solid red;
-  margin: 50px;
+body {
 }
+
+.App {
+  margin: 0px 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.GroupMaker {
+  margin-top: 20px;;
+  width: 60%;
+  text-align: center;
+}
+
+.GroupMaker p {
+  font-size: 18px;
+  color: #222;
+}
+
+.GroupMaker form {
+  font-family: 'Cabin', sans-serif;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid chocolate;
+  border-radius: 3px;
+}
+
+.GMLabel {
+  color: #222;
+  border-bottom: 2px solid dodgerblue;
+  width: 100px;
+  margin-bottom: 12px;
+}
+
+.PlayerLocationSelect .GMLabel {
+  width: 150px;
+}
+
+.LFHeroes {
+  background-color: mediumseagreen;
+  font-style: italic;
+  width: 210px;
+  text-align: center;
+  padding: 5px 2px;
+  border: 1px solid black;
+}
+
+.formGroup {
+  width: 200px;
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
