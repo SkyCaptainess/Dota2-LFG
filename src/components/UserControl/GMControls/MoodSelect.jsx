@@ -8,13 +8,14 @@ class MoodSelect extends Component {
         <ControlLabel className="GMLabel">Mood</ControlLabel>
         <FormControl componentClass="select">
           <option value="Looking for friends">Looking for Friends</option>
-          <option value="Winners only">Winners only</option>
+          <option vlaue="Looking for teammates">Looking for Teammates</option>
+          <option value="Winners only">Winners Only</option>
           <option value="Whatever">Whatever</option>
-          <option value="All random">All random</option>
-          <option value="Crazy strats">Crazy strats</option>
-          <option value="Meta worship">Meta worship</option>
-          <option value="Short games">Short games</option>
-          <option value="Marathon games">Marathon games</option>
+          <option value="All random">All Random</option>
+          <option value="Crazy strats">Crazy Strats</option>
+          <option value="Meta worship">Meta Worship</option>
+          <option value="Short games">Short Games</option>
+          <option value="Marathon games">Marathon Games</option>
         </FormControl>
       </FormGroup>
     );
