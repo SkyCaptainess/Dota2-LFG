@@ -5,6 +5,7 @@ import RegionSelect from './GMControls/RegionSelect.jsx';
 import MoodSelect from './GMControls/MoodSelect.jsx';
 import LFHeroes from './GMControls/LFHeroes.jsx';
 import PlayerLocationSelect from './GMControls/PlayerLocationSelect';
+import Options from './GMControls/Options'
 
 class GroupMaker extends Component {
 
@@ -14,19 +15,21 @@ class GroupMaker extends Component {
 
   render() {
     return (
-      <div className="GroupMaker">
+      <section className="GroupMaker">
         <p>Make Your Perfect Group</p>
         <form inline>
-          <div id="gmTopRow">
-            <ModeSelect/>
-            <RegionSelect/>
-            <PlayerLocationSelect/>
-            <MoodSelect/>
-          </div>
-          <LFHeroes/>
+        <div>
+          <ModeSelect/>
+          <RegionSelect/>
+          <PlayerLocationSelect/>
+          <MoodSelect/>
+        </div>
+        <Options/>
+        <LFHeroes/>
+        
           
         </form>
-      </div>
+      </section>
     );
   }
 }

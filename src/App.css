@@ -28,9 +28,11 @@ body {
 
 .GMLabel {
   color: #222;
+  font-size: 17px;
   border-bottom: 2px solid dodgerblue;
   width: 100px;
   margin-bottom: 12px;
+  padding-bottom: 4px;
 }
 
 .PlayerLocationSelect .GMLabel {
@@ -38,19 +40,42 @@ body {
 }
 
 .LFHeroes {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  text-align: center;
+}
+
+.LFHeroesButton {
   background-color: mediumseagreen;
   font-style: italic;
-  width: 210px;
-  text-align: center;
-  padding: 5px 2px;
-  border: 1px solid black;
+  padding: 7px;
+  border: 2px solid #222;
+  color: black;
 }
 
 .formGroup {
-  width: 200px;
+  width: auto;
   margin: auto;
   padding: 5px;
   text-align: center;
   display: inline-block;
 }
+
+.Options {
+  margin-top: 8px;
+}
+
+input[type=checkbox] {
+  margin-right: 8px;
+  height: 20px;
+  width: 17px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.ranked {
+  font-weight: bold;
+}
+
 

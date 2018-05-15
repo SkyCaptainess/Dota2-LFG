@@ -5,6 +5,7 @@ import Nav from './components/Navigation/Nav';
 import Filter from './components/UserControl/Filter';
 import GroupMaker from './components/UserControl/GroupMaker';
 import MiniProfile from './components/UserControl/MiniProfile';
+import './CSS/Reset.css'
 import './App.css'
 
 class App extends Component {

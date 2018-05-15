@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import Group from '../Group/Group';
 
 class Groups extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      groups: [<Group/>,<Group/>]
+    }
+  }
   render() {
     return (
       <div className="Groups">
-        Groups
+        {this.state.groups}
       </div>
     );
   }

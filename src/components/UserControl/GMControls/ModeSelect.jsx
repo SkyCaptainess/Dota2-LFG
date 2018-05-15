@@ -7,9 +7,27 @@ class ModeSelect extends Component {
       <FormGroup className="formGroup" controlId="ModeSelect">
         <ControlLabel className="GMLabel">Mode</ControlLabel>
         <FormControl componentClass="select">
+        <optgroup label="Unranked">
           <option value="All Pick">All Pick</option>
-          <option value="Ranked">Ranked</option>
-          <option vlaue="Turbo">Turbo</option>
+          <option value="Turbo">Turbo</option>
+          <option value="Single Draft">Single Draft</option>
+          <option value="Ability Draft">Ability Draft</option>
+          <option value="All Random">All Random</option>
+          <option value="Random Draft">Random Draft</option>
+          <option value="Captains Mode">Captains Mode</option>
+          <option value="Captains Draft">Captains Draft</option>
+          <option value="Least Played">Least Played</option>
+          <option value="All Random Deathmatch">All Random Deathmatch</option>
+        </optgroup>
+        <optgroup label="Ranked">
+          <option value="RANKED - All Pick">All Pick</option>
+          <option value="RANKED - Captains Mode">Captains Mode</option>
+          <option value="RANKED - Random Draft">Random Draft</option>
+        </optgroup>
+        <optgroup label="Battlepass required">
+          <option value="Battlepass - Ranked Roles">Ranked Roles</option>
+          <option value="Battlepass - Mutation">Mutation</option>
+        </optgroup>
         </FormControl>
       </FormGroup>
     );
