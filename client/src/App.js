@@ -10,8 +10,8 @@ import './App.css'
 
 class App extends Component {
   componentDidMount() {
-    this.callApi()
-    .then(res => console.log(res));
+    // this.callApi()
+    // .then(res => console.log(res));
   }
 
   callApi = async () => {
