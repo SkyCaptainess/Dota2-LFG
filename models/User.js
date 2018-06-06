@@ -2,10 +2,28 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-  username: {
+  steamid: {
     type: String,
-    required: true,
-    unique: true
+    required: true
+  },
+  personaname: {
+    type: String,
+    required: true
+  },
+  avatar: {
+    type: String
+  },
+  avatarmedium: {
+    type: String
+  },
+  avatarfull: {
+    type: String
+  },
+  loccountrycode: {
+    type: String
+  },
+  locstatecode: {
+    type: String
   },
   registeredAt: {
     type: Date,
@@ -16,8 +34,13 @@ const UserSchema = mongoose.Schema({
 
 UserSchema.methods.serialize = function () {
   return {
-    username: this.username,
-    registeredAt: this.registeredAt
+    username: this.personaname,
+    registeredAt: this.registeredAt,
+    avatar: this.avatar,
+    avatarMedium: this.avatarmedium,
+    avatarFull: this.avatarfull,
+    country: this.loccountrycode,
+    state: this.locstatecode
   };
 };
 

@@ -3,8 +3,20 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-
+const SteamStrategy = require('passport-steam');
+const passport = require('passport');
+const {router: usersRouter} = require('./api/users/router');
+const UserManagement = require('./api/users/ManageUsers');
 mongoose.Promise = global.Promise;
+
+passport.use(new SteamStrategy({
+    returnURL: 'https://dota2lfg-flooyd.c9users.io:8080/auth/steam/return',
+    realm: 'https://dota2lfg-flooyd.c9users.io:8080/',
+    apiKey: process.env.DOTA2_API_KEY
+}, (identifier, profile, done) => {
+  profile.identifier = identifier;
+  return done(null, profile);
+}));
 
 const {
   PORT,
@@ -27,10 +39,23 @@ app.use(function (req, res, next) {
 });
 
 
-
+app.use(passport.initialize());
 app.use(express.static('public'));
-//app.use('/api/users/', usersRouter);
-console.log(process.env.DOTA2_API_KEY);
+app.use('/api/users/', usersRouter);
+
+app.get('/auth/steam',
+  passport.authenticate('steam', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/auth/steam/return');
+  });
+  
+app.get('/auth/steam/return',
+  passport.authenticate('steam', { failureRedirect: '/', session: false }),
+  function(req, res) {
+    //UserManagement.createUser(req.user);
+    console.log(req.user._json);
+    res.json({"auth": "true"})
+  });
 
 let server;
 
