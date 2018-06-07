@@ -16,7 +16,6 @@ class GroupMaker extends Component {
   render() {
     return (
       <section className="GroupMaker">
-        <p>Make Your Perfect Group</p>
         <form inline>
         <div>
           <ModeSelect/>

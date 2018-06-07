@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Footer from './components/Footer/Footer';
-import Groups from './components/Groups/Groups';
+import GroupList from './components/Groups/GroupList';
 import Nav from './components/Navigation/Nav';
 import Filter from './components/UserControl/Filter';
 import GroupMaker from './components/UserControl/GroupMaker';
 import MiniProfile from './components/UserControl/MiniProfile';
-import './CSS/Reset.css'
-import './App.css'
+import './css/reset.css'
+import './css/app.css'
 
 class App extends Component {
   componentDidMount() {
@@ -23,10 +23,12 @@ class App extends Component {
     return (
       <div className="App">
         <Nav/>
-        <GroupMaker/>
-        <MiniProfile/>
+        <div className="topRow">
+          <GroupMaker/>
+          <MiniProfile/>
+        </div>
         <Filter/>
-        <Groups/>
+        <GroupList/>
         <Footer/>
       </div>
     );

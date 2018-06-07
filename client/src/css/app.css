@@ -1,33 +1,39 @@
+
 body {
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
 }
 
 .App {
   margin: 0px 20px;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
-
 .GroupMaker {
-  margin-top: 20px;;
+  border: 2px solid #92bb35;
   width: 60%;
-  text-align: center;
+  display: inline-block;
+}
+
+.topRow {
+  display: flex;
 }
 
 .GroupMaker p {
   font-size: 18px;
-  color: #222;
 }
 
 .GroupMaker form {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   padding: 10px;
-  border: 2px solid chocolate;
   border-radius: 3px;
 }
 
 .GMLabel {
-  color: #222;
+
   font-size: 17px;
   border-bottom: 2px solid dodgerblue;
   width: 100px;
@@ -47,11 +53,11 @@ body {
 }
 
 .LFHeroesButton {
-  background-color: mediumseagreen;
+  background-color: #A83806;
+  color: white;
   font-style: italic;
   padding: 7px;
-  border: 2px solid #222;
-  color: black;
+  border: 1px solid white;
 }
 
 .formGroup {
@@ -72,10 +78,6 @@ input[type=checkbox] {
   width: 17px;
   vertical-align: middle;
   cursor: pointer;
-}
-
-.ranked {
-  font-weight: bold;
 }
 
 

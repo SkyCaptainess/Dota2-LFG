@@ -4,7 +4,13 @@ const mongoose = require('mongoose');
 const UserSchema = mongoose.Schema({
   steamid: {
     type: String,
-    required: true
+    required: true,
+    unique: true
+  },
+  steamid32: {
+    type: String,
+    required: true,
+    unique: true
   },
   personaname: {
     type: String,

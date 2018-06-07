@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './../../css/miniProfile.css';
 
 class MiniProfile extends Component {
   render() {
     return (
       <div className="MiniProfile">
-        MiniProfile
+        <p>MiniProfile</p>
       </div>
     );
   }

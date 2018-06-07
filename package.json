@@ -22,10 +22,15 @@
   "homepage": "https://github.com/flooyd/dota2lfg#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.2",
     "mongoose": "^5.1.4",
     "morgan": "^1.9.0",
-    "passport-steam": "^1.0.10"
+    "node-int64": "^0.4.0",
+    "passport": "^0.4.0",
+    "passport-steam": "^1.0.10",
+    "steamid": "^1.1.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1"

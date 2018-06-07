@@ -1,0 +1,36 @@
+
+.nav {
+  margin: 0px -20px;;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.navOptions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.brand {
+  display: inline;
+  font-family: 'Cabin', sans-serif;
+  font-size: 24px;
+  color: #EB4B4B;
+  padding: 15px;
+}
+
+.about {
+  font-size: 18px;
+  color: 
+}
+
+.nav img {
+  cursor: pointer;
+  margin-left: 50px;
+}
