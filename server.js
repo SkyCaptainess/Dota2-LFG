@@ -16,7 +16,6 @@ const {
 } = require('./config');
 
 mongoose.Promise = global.Promise;
-
 //steam strategy from passport-steam to save time creating my own
 //OpenID implementation
 passport.use(new SteamStrategy({
