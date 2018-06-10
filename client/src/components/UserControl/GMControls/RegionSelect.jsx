@@ -4,12 +4,12 @@ import {FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 class Region extends Component {
   render() {
     return (
-      <FormGroup className="formGroup" controlId="RegionSelect">
+      <FormGroup className="formGroup" controlId="region">
         <ControlLabel className="GMLabel">Region</ControlLabel>
-        <FormControl componentClass="select">
+        <FormControl componentClass="select" onChange={e => this.props.onChange(e.target)}>
           <option value="North America">North America</option>
           <option value="Europe">Europe</option>
-          <option value="Turbo">China</option>
+          <option value="China">China</option>
         </FormControl>
       </FormGroup>
     );

@@ -4,9 +4,9 @@ import {FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 class PlayerLocationSelect extends Component {
   render() {
     return (
-      <FormGroup className="formGroup PlayerLocationSelect" controlId="PlayerLocationSelect">
+      <FormGroup className="formGroup PlayerLocationSelect" controlId="location">
         <ControlLabel className="GMLabel">Player Location</ControlLabel>
-        <FormControl componentClass="select">
+        <FormControl componentClass="select" onChange={e => this.props.onChange(e.target)}>
           <option value="AL">Alabama</option>
 	        <option value="AK">Alaska</option>
 	        <option value="AZ">Arizona</option>

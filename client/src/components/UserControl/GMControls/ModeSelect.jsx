@@ -4,9 +4,9 @@ import {FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 class ModeSelect extends Component {
   render() {
     return (
-      <FormGroup className="formGroup" controlId="ModeSelect">
+      <FormGroup className="formGroup" controlId="mode">
         <ControlLabel className="GMLabel">Mode</ControlLabel>
-        <FormControl componentClass="select">
+        <FormControl componentClass="select" onChange={e => this.props.onChange(e.target)}>
         <optgroup label="Unranked">
           <option value="All Pick">All Pick</option>
           <option value="Turbo">Turbo</option>

@@ -8,7 +8,7 @@ class Options extends Component {
   render() {
     return (
       <div className="Options">
-        <FormGroup className="formGroup" controlId="Options">
+        <FormGroup className="formGroup" controlId="options">
           <Checkbox name="mic" onClick={e => this.onCheckboxClicked(e.target)}>Mic required</Checkbox>
         </FormGroup>
         <FormGroup className="formGroup" controlId="Options">
