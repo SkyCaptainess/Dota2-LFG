@@ -14,6 +14,12 @@ const OD = require('./dota/opendota');
 
 //for api testing...
 OD.getAllMatches(22572901)
+.then(res => {
+  console.log(res[0]);
+})
+.catch(err => {
+  console.log(err);
+})
 
 const {
   PORT,
