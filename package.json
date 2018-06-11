@@ -30,6 +30,7 @@
     "node-int64": "^0.4.0",
     "passport": "^0.4.0",
     "passport-steam": "^1.0.10",
+    "request": "^2.87.0",
     "steamid": "^1.1.0"
   },
   "devDependencies": {

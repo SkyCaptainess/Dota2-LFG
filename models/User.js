@@ -46,7 +46,8 @@ UserSchema.methods.serialize = function () {
     avatarMedium: this.avatarmedium,
     avatarFull: this.avatarfull,
     country: this.loccountrycode,
-    state: this.locstatecode
+    state: this.locstatecode,
+    steamid32: this.steamid32
   };
 };
 

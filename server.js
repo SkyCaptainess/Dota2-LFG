@@ -10,11 +10,16 @@ const {router: usersRouter} = require('./api/users/router');
 const UserManagement = require('./api/users/UserManagement');
 const User = require('./models/User');
 const SteamID = require('steamid');
+const OD = require('./dota/opendota');
+
+//for api testing...
+OD.getAllMatches(22572901)
+
 const {
   PORT,
   DATABASE_URL
 } = require('./config');
-
+console.log(process.env.REALM);
 mongoose.Promise = global.Promise;
 //steam strategy from passport-steam to save time creating my own
 //OpenID implementation
@@ -59,6 +64,7 @@ app.get('/auth/steam',
 app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/', session: false }),
   function(req, res) {
+    console.log('hi');
     let user = req.user._json;
     //Since JavaScript does not support 64 bit integers, I found a
     //module on npm that converts the Steam64 ID to Steam32 ID, which 
@@ -67,7 +73,20 @@ app.get('/auth/steam/return',
     user.steamid32 = sid.accountid;
     UserManagement.createUser(req.user._json)
     .then(result => {
-      res.json(result.serialize());
+      /*check UserManagement.js. Need to know if it is user's first time visiting so that I can make
+      the initial api calls */
+      if(result.created) {
+        //API calls
+        res.json({
+          status: 'created',
+          result
+        })
+      } else {
+        res.json({
+          status: 'updated',
+          result: result.serialize()
+        })
+      }
     })
   });
 
