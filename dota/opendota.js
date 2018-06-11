@@ -13,10 +13,11 @@ const getAllMatches = steamid32 => {
           .then(recentMatches => {
             let fetchedMatches = JSON.parse(recentMatches);
             fetchedMatches.forEach(m => {
-              matchesToSave.push(m);
+              //matchesToSave.push(m);
             })
             
             if(matchesToSave.length > 0) {
+              console.log(matchesToSave.length);
               resolve(matchesToSave);
             } else {
               reject("No matches");
@@ -40,7 +41,7 @@ const getRecentMatches = steamid32 => {
 };
 
 const getMatches = steamid32 => {
-  const url = `https://api.opendota.com/api/players/${steamid32}/matches?api_key=${process.env.OPENDOTA_API_KEY}`;
+  const url = `https://api.opendota.com/api/players/${steamid32}/matches?api_key=${process.env.OPENDOTA_API_KEY}&significant=0`;
   return new Promise((resolve, reject) => {
     request(url, (err, res, body) => {
       if (err) {

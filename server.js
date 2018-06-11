@@ -6,20 +6,32 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const SteamStrategy = require('passport-steam');
 const passport = require('passport');
-const {router: usersRouter} = require('./api/users/router');
+const {
+  router: usersRouter
+} = require('./api/users/router');
 const UserManagement = require('./api/users/UserManagement');
-const User = require('./models/User');
+const {
+  Match
+} = require('./models/Match');
 const SteamID = require('steamid');
 const OD = require('./dota/opendota');
 
 //for api testing...
 OD.getAllMatches(22572901)
-.then(res => {
-  console.log(res[0]);
-})
-.catch(err => {
-  console.log(err);
-})
+  .then(res => {
+    res.forEach(m => m.steamid32 = 22572901);
+    Match.insertMany(res)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    console.log('done');
+  })
+  .catch(err => {
+    console.log(err);
+  })
 
 const {
   PORT,
@@ -30,10 +42,10 @@ mongoose.Promise = global.Promise;
 //steam strategy from passport-steam to save time creating my own
 //OpenID implementation
 passport.use(new SteamStrategy({
-    //I have env variables on c9.io, my home desktop, and on heroku
-    returnURL: `${process.env.REALM}/auth/steam/return`,
-    realm: process.env.REALM,
-    apiKey: process.env.DOTA2_API_KEY
+  //I have env variables on c9.io, my home desktop, and on heroku
+  returnURL: `${process.env.REALM}/auth/steam/return`,
+  realm: process.env.REALM,
+  apiKey: process.env.DOTA2_API_KEY
 }, (identifier, profile, done) => {
   profile.identifier = identifier;
   return done(null, profile);
@@ -62,14 +74,19 @@ app.use('/api/users/', usersRouter);
 //called when the user clicks the steam login button, redirecting them
 //to steamcommunity.com
 app.get('/auth/steam',
-  passport.authenticate('steam', { failureRedirect: '/' }),
-  function(req, res) {
+  passport.authenticate('steam', {
+    failureRedirect: '/'
+  }),
+  function (req, res) {
     res.redirect('/auth/steam/return');
   });
-  
+
 app.get('/auth/steam/return',
-  passport.authenticate('steam', { failureRedirect: '/', session: false }),
-  function(req, res) {
+  passport.authenticate('steam', {
+    failureRedirect: '/',
+    session: false
+  }),
+  function (req, res) {
     console.log('hi');
     let user = req.user._json;
     //Since JavaScript does not support 64 bit integers, I found a
@@ -78,22 +95,22 @@ app.get('/auth/steam/return',
     let sid = new SteamID(user.steamid);
     user.steamid32 = sid.accountid;
     UserManagement.createUser(req.user._json)
-    .then(result => {
-      /*check UserManagement.js. Need to know if it is user's first time visiting so that I can make
-      the initial api calls */
-      if(result.created) {
-        //API calls
-        res.json({
-          status: 'created',
-          result
-        })
-      } else {
-        res.json({
-          status: 'updated',
-          result: result.serialize()
-        })
-      }
-    })
+      .then(result => {
+        /*check UserManagement.js. Need to know if it is user's first time visiting so that I can make
+        the initial api calls */
+        if (result.created) {
+          //API calls
+          res.json({
+            status: 'created',
+            result
+          })
+        } else {
+          res.json({
+            status: 'updated',
+            result: result.serialize()
+          })
+        }
+      })
   });
 
 let server;
