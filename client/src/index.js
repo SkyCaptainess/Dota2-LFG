@@ -5,10 +5,13 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 import {Provider} from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <CookiesProvider>
+      <App/>
+    </CookiesProvider>
   </Provider>,
   document.getElementById('root')
 );

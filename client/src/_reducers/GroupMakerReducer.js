@@ -3,10 +3,8 @@ import {
 } from '../_actions';
 
 const initialState = {
-  mode: 'All Pick',
-  region: 'North America',
-  location: '',
-  mood: 'Looking For Friends'
+  username: null,
+  profilePic: null
 };
 
 export const GroupMakerReducer = (state=initialState, action) => {

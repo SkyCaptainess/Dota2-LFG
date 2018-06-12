@@ -16,8 +16,8 @@ class GroupMaker extends Component {
   handleChange = target => {
     console.log(target);
     this.props.dispatch(changeField(target.id, target.value));
-    
   }
+  
   render() {
     //using this for now instead of redux dev tools
     console.log(this.props);

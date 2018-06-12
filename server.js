@@ -9,41 +9,27 @@ const passport = require('passport');
 const {
   router: usersRouter
 } = require('./api/users/router');
-const UserManagement = require('./api/users/UserManagement');
+const {
+  router: steamRouter
+} = require('./api/auth/steam');
 const {
   Match
 } = require('./models/Match');
-const SteamID = require('steamid');
-const OD = require('./dota/opendota');
 
-//for api testing...
-OD.getAllMatches(22572901)
-  .then(res => {
-    res.forEach(m => m.steamid32 = 22572901);
-    Match.insertMany(res)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log(err);
-    })
-    console.log('done');
-  })
-  .catch(err => {
-    console.log(err);
-  })
+
 
 const {
   PORT,
   DATABASE_URL
 } = require('./config');
-console.log(process.env.REALM);
+
+
 mongoose.Promise = global.Promise;
 //steam strategy from passport-steam to save time creating my own
 //OpenID implementation
 passport.use(new SteamStrategy({
   //I have env variables on c9.io, my home desktop, and on heroku
-  returnURL: `${process.env.REALM}/auth/steam/return`,
+  returnURL: `${process.env.REALM}/api/auth/steam/return`,
   realm: process.env.REALM,
   apiKey: process.env.DOTA2_API_KEY
 }, (identifier, profile, done) => {
@@ -69,49 +55,7 @@ app.use(passport.initialize());
 app.use(express.static('public'));
 
 app.use('/api/users/', usersRouter);
-
-//Steam OpenID is kicked off here. On the client, this will be
-//called when the user clicks the steam login button, redirecting them
-//to steamcommunity.com
-app.get('/auth/steam',
-  passport.authenticate('steam', {
-    failureRedirect: '/'
-  }),
-  function (req, res) {
-    res.redirect('/auth/steam/return');
-  });
-
-app.get('/auth/steam/return',
-  passport.authenticate('steam', {
-    failureRedirect: '/',
-    session: false
-  }),
-  function (req, res) {
-    console.log('hi');
-    let user = req.user._json;
-    //Since JavaScript does not support 64 bit integers, I found a
-    //module on npm that converts the Steam64 ID to Steam32 ID, which 
-    //is required for the Dota 2 API.
-    let sid = new SteamID(user.steamid);
-    user.steamid32 = sid.accountid;
-    UserManagement.createUser(req.user._json)
-      .then(result => {
-        /*check UserManagement.js. Need to know if it is user's first time visiting so that I can make
-        the initial api calls */
-        if (result.created) {
-          //API calls
-          res.json({
-            status: 'created',
-            result
-          })
-        } else {
-          res.json({
-            status: 'updated',
-            result: result.serialize()
-          })
-        }
-      })
-  });
+app.use('/api/auth/steam', steamRouter);
 
 let server;
 
