@@ -21,11 +21,12 @@ const getExpiryDate = () => {
   expiryDate.setMonth(expiryDate.getMonth() + 1);
 }
 
+//redirect from proxy to react
 const setCookiesAndRedirect = (res, result) => {
           let token = createToken(result.steamid32);
-          res.cookie('token', {token}, { expires: getExpiryDate()});
+          res.cookie('token', {token}, { expires: getExpiryDate(), httpOnly: true});
           res.cookie('user', JSON.stringify(result), { expires: getExpiryDate()});
-          res.redirect('https://dota2lfg-flooyd.c9users.io:8081');
+          res.redirect('http://localhost:3001');
 }
 
 
