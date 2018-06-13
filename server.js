@@ -59,14 +59,18 @@ app.use('/api/auth/steam', steamRouter);
 
 //app.use(express.static('public'));
 
-app.use(express.static(path.resolve(__dirname + '/client/build')));
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
-app.get('/heroku', (req, res) => {
-  res.send('hi');
+// Answer API requests.
+app.get('/api', function (req, res) {
+  res.set('Content-Type', 'application/json');
+  res.send('{"message":"Hello from the custom server!"}');
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname +  '/client/build', 'index.html'));
+// All remaining requests return the React app, so it can handle routing.
+app.get('*', function(request, response) {
+  response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 });
 
 
