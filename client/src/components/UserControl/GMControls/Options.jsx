@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, FormGroup, Checkbox} from 'react-bootstrap';
+import {FormGroup, Checkbox} from 'react-bootstrap';
 
 class Options extends Component {
   onCheckboxClicked = (target) => {

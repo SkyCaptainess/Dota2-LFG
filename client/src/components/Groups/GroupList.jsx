@@ -5,7 +5,7 @@ class Groups extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      groups: [<Group/>,<Group/>]
+      groups: [<Group key={1}/>,<Group key={2}/>]
     }
   }
   render() {

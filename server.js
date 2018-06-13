@@ -17,14 +17,13 @@ const {
   Match
 } = require('./models/Match');
 
-
 const {
   PORT,
   DATABASE_URL
 } = require('./config');
 
-
 mongoose.Promise = global.Promise;
+console.log(process.env.STEAM_RETURN)
 //steam strategy from passport-steam to save time creating my own
 //OpenID implementation
 passport.use(new SteamStrategy({
@@ -58,15 +57,9 @@ app.use('/api/auth/steam', steamRouter);
 
 app.use(express.static(path.resolve(__dirname + '/client/build')));
 
-app.get('/heroku', (req, res) => {
-  res.send("Hello!");
-});
-
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname +  '/client/build', 'index.html'));
 });
-
-
 
 let server;
 

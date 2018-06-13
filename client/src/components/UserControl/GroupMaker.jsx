@@ -23,7 +23,7 @@ class GroupMaker extends Component {
     console.log(this.props);
     return (
       <section className="GroupMaker">
-        <form inline>
+        <form inline="true">
           <div>
             <ModeSelect onChange={this.handleChange}/>
             <RegionSelect onChange={this.handleChange}/>

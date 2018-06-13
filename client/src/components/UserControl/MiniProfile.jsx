@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import './../../css/miniProfile.css';
-import {connect} from 'react-redux';
-import { withCookies, Cookies } from 'react-cookie';
-import {instanceOf} from 'prop-types';
+import { withCookies} from 'react-cookie';
 
 class MiniProfile extends Component {
   render() {
     const {cookies} = this.props;
-    const img = cookies.get('user').avatarfull
-    const username = cookies.get('user').personaname
-    return (
+    const user = cookies.get('user');
+    let content;
+    
+    if (user) {
+      content =
       <div className="MiniProfile">
-        <p>{username}</p>
-        <img src={img} alt="User's profile picture"/>
+        <p>{user.personaname}</p>
+        <img src={user.avatarfull} alt="User's profile"/>
       </div>
-    );
+    } else {
+      content =
+      <div className="MiniProfile">
+        Login pls :D
+      </div>
+    }
+    
+    return (content);
   }
 }
 
