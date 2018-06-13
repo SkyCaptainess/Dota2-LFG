@@ -1,6 +1,7 @@
 'use strict';
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -52,10 +53,19 @@ app.use(function (req, res, next) {
 });
 
 app.use(passport.initialize());
-app.use(express.static('public'));
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/steam', steamRouter);
+
+app.use(express.static(path.resolve(__dirname + '/client/build')));
+
+app.get('/heroku', (req, res) => {
+  res.json("Hello!");
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname +  '/client/build', 'index.html'));
+});
 
 let server;
 
