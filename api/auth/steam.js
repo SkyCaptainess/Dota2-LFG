@@ -19,6 +19,7 @@ const createToken = steamid32 => {
 const getExpiryDate = () => {
   let expiryDate = new Date();
   expiryDate.setMonth(expiryDate.getMonth() + 1);
+  return expiryDate;
 }
 
 //redirect from proxy to react

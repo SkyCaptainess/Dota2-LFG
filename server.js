@@ -18,7 +18,6 @@ const {
 } = require('./models/Match');
 
 
-
 const {
   PORT,
   DATABASE_URL
@@ -57,12 +56,10 @@ app.use(passport.initialize());
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/steam', steamRouter);
 
-app.use(express.static('public'));
-
 app.use(express.static(path.resolve(__dirname + '/client/build')));
 
 app.get('/heroku', (req, res) => {
-  res.json("Hello!");
+  res.send("Hello!");
 });
 
 app.get('*', (req, res) => {
