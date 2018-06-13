@@ -62,7 +62,7 @@ app.use('/api/auth/steam', steamRouter);
 app.use(express.static(path.resolve(__dirname + '/client/build')));
 
 app.get('/heroku', (req, res) => {
-  res.json("Hello!");
+  res.send('hi');
 });
 
 app.get('*', (req, res) => {
