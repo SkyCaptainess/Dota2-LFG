@@ -26,7 +26,7 @@ const setCookiesAndRedirect = (res, result) => {
           let token = createToken(result.steamid32);
           res.cookie('token', {token}, { expires: getExpiryDate(), httpOnly: true});
           res.cookie('user', JSON.stringify(result), { expires: getExpiryDate()});
-          res.redirect('http://localhost:3001');
+          res.redirect(process.env.STEAM_RETURN);
 }
 
 
