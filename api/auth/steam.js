@@ -24,7 +24,6 @@ const getExpiryDate = () => {
 
 //redirect from proxy to react
 const setCookiesAndRedirect = (res, result) => {
-  console.log(process.env.STEAM_RETURN)
           let token = createToken(result.steamid32);
           res.cookie('token', {token}, { expires: getExpiryDate(), httpOnly: true});
           res.cookie('user', JSON.stringify(result), { expires: getExpiryDate()});
@@ -49,7 +48,6 @@ router.get('/return',
     session: false
   }),
   function (req, res) {
-    console.log('helllloooo');
     let user = req.user._json;
     //Since JavaScript does not support 64 bit integers, I found a
     //module on npm that converts the Steam64 ID to Steam32 ID, which 
@@ -65,13 +63,13 @@ router.get('/return',
           .then(matches => {
             matches = JSON.parse(matches);
             matches.forEach(m => m.steamid32 = result.steamid32);
-            Match.insertMany(matches)
+            Match.create(matches)
             .then(matches => {
               setCookiesAndRedirect(res,result);
             })
           });
         } else {
-          setCookiesAndRedirect(res, result);
+          setCookiesAndRedirect(res, result.serialize());
         }
       })
   });

@@ -10,10 +10,10 @@ const MatchSchema = mongoose.Schema({
     type: Number
   },
   player_slot: {
-    type: String
+    type: Number
   },
   team: {
-
+    type: String
   },
   duration: {
     type: Number
@@ -50,19 +50,46 @@ const MatchSchema = mongoose.Schema({
   },
   party_size: {
     type: Number
+  },
+  radiant_win: {
+    type: Boolean
+  },
+  win: {
+    type: Boolean
   }
   
 });
 
-MatchSchema.pre('save', function() {
-  if(this.player_slot.length === 1) {
+MatchSchema.pre('save', function(next) {
+  if(this.player_slot < 128) {
     this.team = 'Radiant';
-  } else if (this.player_slot.length === 3) {
+    if(this.radiant_win) {
+      this.win = true;
+    } else {
+      this.win = false;
+    }
+  } else if (this.player_slot > 127 ) {
     this.team = 'Dire'
+    if(this.radiant_win) {
+      this.win = false;
+    } else {
+      this.win = true;
+    }
   } else {
     this.team = 'error';
+    this.win = 'error';
   }
+  next();
 });
+
+MatchSchema.methods.serialize = function() {
+  return {
+    win: this.win,
+    radiant_win: this.radiant_win,
+    hero_id: this.hero_id,
+    team: this.team
+  }
+}
 
 const Match = mongoose.model('Match', MatchSchema);
 
