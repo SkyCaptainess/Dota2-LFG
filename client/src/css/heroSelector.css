@@ -1,0 +1,71 @@
+.heroSelector {
+    left: 0;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.LFHContainer {
+  background-color: #222;
+  border: 2px solid #EB4B4B;
+  border-radius: 2px;
+  width: 98%;
+  height: 90%;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.heroes {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.heroBox {
+  width: 50%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.heroBox .heroes p {
+  margin-bottom: 10px;
+  font-size: 20px;
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.agility {
+  color: #6CDB51;
+}
+
+.strength {
+  color: #DB4C26;
+}
+
+.intelligence {
+  color: #5ED6E9;
+}
+
+.heroSelector img {
+  border: 1px solid white;
+  margin: 5px 3px;
+}
+
+.LFHInstructions {
+  flex: 0 0 100%;
+  margin: 10px auto;
+  padding: 5px;
+  text-align: center;
+}
+
+.filters {
+  display: inline-block;
+  width: 45%;
+}
