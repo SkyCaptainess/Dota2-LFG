@@ -1,0 +1,14 @@
+.gmHeroRow {
+  margin-top: 10px;
+}
+
+.gmHeroRow img {
+  cursor: pointer;
+  opacity: .4;
+  border: 2px solid white;
+  margin: 0px 3px;
+}
+
+.gmHeroRow img:hover {
+  opacity: 1;
+}

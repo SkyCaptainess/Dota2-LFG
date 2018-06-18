@@ -5,3 +5,9 @@ export const changeField = (field, value) => ({
     value
 });
 
+export const TOGGLE_HERO_SELECTOR_VISIBILITY = 'TOGGLE_HERO_SELECTOR_VISIBILITY';
+export const toggleHeroSelectorVisibility = (visibility) => ({
+  type: TOGGLE_HERO_SELECTOR_VISIBILITY,
+  visibility
+})
+

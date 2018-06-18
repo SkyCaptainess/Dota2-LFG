@@ -15,6 +15,7 @@ body {
   border: 2px solid #92bb35;
   width: 60%;
   display: inline-block;
+  border-radius: 2px;
 }
 
 .topRow {
@@ -61,7 +62,7 @@ body {
 }
 
 .formGroup {
-  width: auto;
+  min-width: 200px;
   margin: auto;
   padding: 5px;
   text-align: center;
