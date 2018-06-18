@@ -34,7 +34,7 @@ class HeroSelector extends Component {
   }
   
   getImages(heroes) {
-    let images = [];
+    let images = [<img src="/images/question_mark.png"/>];
     heroes.forEach(h => {
       images.push(<img src={`/images/heroes/${h.name}_sb.png`} 
                   alt={`Portrait of ${h.localized_name}`}
@@ -73,6 +73,7 @@ class HeroSelector extends Component {
       <section style={this.getVisibility()} className="heroSelector">
         <div className="LFHContainer">
           <p className="LFHInstructions">Choose up to 5 heroes. Use the filters or just start typing a name!</p>
+          
           <div className="heroBox">
             <div className="heroes">
               <p className="agility">AGILITY</p>
