@@ -7,13 +7,7 @@ class GroupList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      groups: [<Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>,
-      <Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>,
-      <Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>,
-      <Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>,
-      <Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>,
-      <Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>,
-      <Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>]
+      groups: [<Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>]
     }
   }
   render() {

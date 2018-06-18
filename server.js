@@ -16,6 +16,7 @@ const {
 const {
   Match
 } = require('./models/Match');
+let {heroes} = require('./dota/parameters');
 
 const {
   PORT,
@@ -56,6 +57,13 @@ app.use('/api/users/', usersRouter);
 app.use('/api/auth/steam', steamRouter);
 
 app.use(express.static(path.resolve(__dirname + '/client/build')));
+
+app.get('/heroes', (req, res) => {
+  Object.keys(heroes).forEach(h =>{
+    heroes[h].name = heroes[h].name.replace('npc_dota_hero_', '');
+  })
+  res.json(heroes);
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname +  '/client/build', 'index.html'));

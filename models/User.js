@@ -8,7 +8,7 @@ const UserSchema = mongoose.Schema({
     unique: true
   },
   steamid32: {
-    type: String,
+    type: Number,
     required: true,
     unique: true
   },

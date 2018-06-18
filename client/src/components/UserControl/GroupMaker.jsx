@@ -7,6 +7,7 @@ import LFHeroes from './GMControls/LFHeroes.jsx';
 import PlayerLocationSelect from './GMControls/PlayerLocationSelect';
 import Options from './GMControls/Options'
 import {connect} from 'react-redux';
+import './../../css/groupMaker.css';
 
 import {
   changeField
