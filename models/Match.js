@@ -79,6 +79,9 @@ MatchSchema.pre('save', function(next) {
     this.team = 'error';
     this.win = 'error';
   }
+  if(this.leaver_status >= 2) {
+    this.win = 'false';
+  }
   next();
 });
 

@@ -11,9 +11,10 @@ const {
 } = require('../../dota/constants');
 const {Match} = require('../../models/Match');
 
-//very inefficient way of making a deep copy so that I can modify without affecting the imported objects
-let modes = JSON.parse(JSON.stringify(modesAll));
-let lobby_types = JSON.parse(JSON.stringify(lobby_typesAll));
+/*make copies so imported originals are not modified and can be used for different queries.
+These are the "balanced" modes and lobby types, aka those that factor into Valve's ranking system*/
+let modes = Object.assign({}, modesAll);
+let lobby_types = Object.assign({}, lobby_typesAll);
 
 let balancedModes = [];
 let balancedLobbyTypes = [];
@@ -41,10 +42,38 @@ router.get('/test', (req, res) => {
    let m = {
     count: 0
   };
+//   const OD = require ('./../../dota/opendota');
+
+//   OD.getMatches(22572901)
+//   .then(ms => {
+//     ms = JSON.parse(ms);
+//     ms = ms.map(mt => {
+//       if(mt.hero_id === 6) {
+//         return mt.match_id
+//       }
+//     })
+    
+//     ms = ms.filter(mt => {
+//       if(mt) {
+//         return mt
+//       }
+//     })
+//     return ms;
+//   })
+//   .then(ms => {
+//     Match.find({hero_id: 6, game_mode: {$in: balancedModes}}).distinct('match_id')
+//     .then(mm => {
+//       console.log(mm.length, ms.length)
+//       let array3 = mm.filter(function(obj) { return ms.indexOf(obj) == -1; });
+//       res.json(array3);
+//     })
+//   })
+// })
+  
   Match.aggregate([
     {$match: 
       {game_mode: {$in:balancedModes},
-       lobby_type: {$in:balancedLobbyTypes}  
+      lobby_type: {$in:balancedLobbyTypes}  
       },
     },
     {$group: {
@@ -66,6 +95,6 @@ router.get('/test', (req, res) => {
     m.matches = matches;
     res.json(m);
   })
-});
+})
 
 module.exports = {router};

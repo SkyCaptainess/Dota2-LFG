@@ -14,7 +14,7 @@ const getRecentMatches = steamid32 => {
 };
 
 const getMatches = steamid32 => {
-  const url = `https://api.opendota.com/api/players/${steamid32}/matches?api_key=${process.env.OPENDOTA_API_KEY}&significant=0`;
+  const url = `https://api.opendota.com/api/players/${steamid32}/matches?api_key=${process.env.OPENDOTA_API_KEY}`;
   return new Promise((resolve, reject) => {
     request(url, (err, res, body) => {
       if (err) {
