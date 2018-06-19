@@ -3,12 +3,13 @@ import '../../css/group.css'
 
 class Group extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="Group">
         <div className="groupTopRow">
           <div className="groupProfile">
-            <img className="groupProfilePic" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/10/10f08e42c4ac25b715fb0d87315171eaeccc5f73_medium.jpg"/>
+            <img className="groupProfilePic" 
+                 alt="Profile"
+                 src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/10/10f08e42c4ac25b715fb0d87315171eaeccc5f73_medium.jpg"/>
             <p className="groupUserName">Pupper</p>
           </div>
           <div className="groupMode">
