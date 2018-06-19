@@ -9,14 +9,17 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
+    overflow: hidden;
 }
+
 .LFHContainer {
   background-color: #222;
   border: 2px solid #EB4B4B;
   border-radius: 2px;
-  width: 98%;
+  width: 95%;
   height: 90%;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -28,15 +31,15 @@
 }
 
 .heroBox {
-  width: 50%;
+  width: 55%;
   display: inline-block;
   margin-left: 10px;
 }
 
 .heroBox .heroes p {
+  border-bottom: 2px solid white;
   margin-bottom: 10px;
   font-size: 20px;
-  border-bottom: 2px solid white;
   padding-bottom: 5px;
   font-weight: bold;
 }
@@ -56,16 +59,39 @@
 .heroSelector img {
   border: 1px solid white;
   margin: 5px 3px;
+  cursor: pointer;
 }
 
 .LFHInstructions {
-  flex: 0 0 100%;
+  flex: 0 0 50%;
   margin: 10px auto;
-  padding: 5px;
   text-align: center;
+}
+
+.heroSelector .emoticon {
+  border: none;
+  margin-left: 5px;
+  width: 32px;
+  height: 32px;
+}
+
+.bottomRow {
+  flex: 0 0 100%;
+}
+
+.emoticon3 {
+  float: left;
+}
+
+.emoticon4 {
+  float: right;
+}
+
+.selectedHeroes {
+  flex: 0 0 100%;
 }
 
 .filters {
   display: inline-block;
-  width: 45%;
+  width: 50%;
 }

@@ -7,13 +7,15 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const SteamStrategy = require('passport-steam');
 const passport = require('passport');
-const constants = require('./dota/constants');
 const {
   router: usersRouter
 } = require('./api/users/router');
 const {
   router: steamRouter
 } = require('./api/auth/steam');
+const {
+  router: matchesRouter
+} = require('./api/matchStats');
 const {
   Match
 } = require('./models/Match');
@@ -54,6 +56,7 @@ app.use(passport.initialize());
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/steam', steamRouter);
+app.use('/api/matches', matchesRouter)
 
 app.use(express.static(path.resolve(__dirname + '/client/build')));
 
