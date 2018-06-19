@@ -21,11 +21,11 @@ class HeroSelector extends Component {
     this.state = {
       selectedHeroes: {
         heroes: [
-        <img src="/images/question_mark.png" key="slot0" id="slot_0" onClick={e => this.handleRemoveHero(e)}/>,
-        <img src="/images/question_mark.png" key="slot1" id="slot_1" onClick={e => this.handleRemoveHero(e)}/>,
-        <img src="/images/question_mark.png" key="slot2" id="slot_2" onClick={e => this.handleRemoveHero(e)}/>,
-        <img src="/images/question_mark.png" key="slot3" id="slot_3" onClick={e => this.handleRemoveHero(e)}/>,
-        <img src="/images/question_mark.png" key="slot4" id="slot_4" onClick={e => this.handleRemoveHero(e)}/>
+        <img src="/images/question_mark.png" key="slot_0" id="slot_0?" onClick={e => this.handleRemoveHero(e)}/>,
+        <img src="/images/question_mark.png" key="slot_1" id="slot_1?" onClick={e => this.handleRemoveHero(e)}/>,
+        <img src="/images/question_mark.png" key="slot_2" id="slot_2?" onClick={e => this.handleRemoveHero(e)}/>,
+        <img src="/images/question_mark.png" key="slot_3" id="slot_3?" onClick={e => this.handleRemoveHero(e)}/>,
+        <img src="/images/question_mark.png" key="slot_4" id="slot_4?" onClick={e => this.handleRemoveHero(e)}/>
       ],
         slotsFree: [0,1,2,3,4]
       }
@@ -48,7 +48,14 @@ class HeroSelector extends Component {
 
   handleClick(e) {
     let id = e.target.id
-    if(this.state.selectedHeroes.slotsFree.length > 0) {
+    let selectedHeroes = this.state.selectedHeroes.heroes;
+    let heroAlreadySelected = false;
+    selectedHeroes.forEach(h => {
+      if(h.props.id.toString().split('_')[1] === id) {
+        heroAlreadySelected = true;
+      } 
+    })
+    if(this.state.selectedHeroes.slotsFree.length > 0 && heroAlreadySelected === false) {
       let heroName;
       let heroLocalizedName;
       heroes.forEach(h => {
@@ -57,10 +64,13 @@ class HeroSelector extends Component {
           heroName = h.name;
         }
       })
-      let selectedHeroes = this.state.selectedHeroes.heroes; 
       let slotsFree = this.state.selectedHeroes.slotsFree;
-      selectedHeroes[slotsFree[0]] = <img src={`/images/heroes/${heroName}_hphover.png`} 
-                                      key={id + slotsFree[0]} id={"slot_" + slotsFree[0]} onClick={e => this.handleRemoveHero(e)}/>
+      selectedHeroes[slotsFree[0]] = <img
+                                      alt={heroLocalizedName}
+                                      src={`/images/heroes/${heroName}_hphover.png`} 
+                                      key={'slot_' + slotsFree[0]} 
+                                      id={"selected_" + id} 
+                                      onClick={e => this.handleRemoveHero(e)}/>
       slotsFree.shift();
 
       this.setState({
@@ -75,25 +85,27 @@ class HeroSelector extends Component {
   handleRemoveHero(e) {
     console.log(e);
     let id = e.target.id.split('_')[1];
+    let selectedHeroes = this.state.selectedHeroes.heroes;
     let slotsFree = this.state.selectedHeroes.slotsFree;
-    let slotAlreadyFree = false;
-    for(let i = 0; i < slotsFree.length; i++) {
-      if (id == slotsFree[i]) {
-        slotAlreadyFree = true;
-        break;
+    selectedHeroes.forEach((hero, index, array) => {
+      if (hero.props.id.split('_')[1] == id) {
+        array[index] = <img src={'images/question_mark.png'} 
+                            key={'slot_' + index} 
+                            id={'slot_' + index + '?'} />;
+        slotsFree.push(index);
+        slotsFree.sort((a,b) => {
+          return a - b;
+        })
       }
-    }
-    if(!slotAlreadyFree) {
-      slotsFree.push(id);
-      slotsFree.sort((a,b) => {
-        return a - b;
-      });
-      console.log(slotsFree);
+    })
+      
       this.setState({
-        slotsFree
+        selectedHeroes: {
+          heroes: selectedHeroes,
+          slotsFree: slotsFree
+        }
       })
     }
-  }
   
   getImages(heroes) {
     let images = [];
