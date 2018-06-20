@@ -37,6 +37,7 @@ class GroupMaker extends Component {
   handleCreateGroup = () => {
     let group = {
       mode: this.props.mode,
+      mood: this.props.mood,
       region: this.props.region,
       location: this.props.location,
       micRequired: this.props.micRequired
