@@ -1,24 +1,85 @@
-.gmHeroRow {
-  margin-top: 10px;
+.GroupMaker {
+  border: 2px solid seagreen;
+  width: 60%;
+  display: inline-block;
+  border-radius: 2px;
 }
 
-.gmHeroRow img {
+.topRow {
+  padding-top: 100px;
+  display: flex;
+}
+
+.GroupMaker p {
+  font-size: 18px;
+}
+
+.GroupMaker form {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.GMLabel {
+  font-size: 17px;
+  border-bottom: 2px solid dodgerblue;
+  width: 100px;
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+}
+
+.PlayerLocationSelect .GMLabel {
+  width: 150px;
+}
+
+
+
+.formGroup {
+  min-width: 200px;
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
+.Options {
+  margin-top: 8px;
+}
+
+input[type=checkbox] {
+  margin-right: 8px;
+  height: 20px;
+  width: 17px;
+  vertical-align: middle;
   cursor: pointer;
-  opacity: .4;
-  border: 2px solid white;
-  margin: 0px 3px;
 }
 
-.gmHeroRow img:hover {
-  opacity: 1;
+.GMHeroes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 2px;
 }
-
-
 
 .GMHeroes img {
-  float: left;
   max-height: 33px;
   max-width: 59px;
   border: 1px solid white;
-  margin: 0px 5px;
+  margin: 0px 4px;
+  cursor: pointer;
+}
+
+.GMHeroes div {
+  margin-left: 20px;
+}
+
+
+.GMHeroes button {
+  padding: 8px 12px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  width: 225px;
+  border: 1px solid white;
 }

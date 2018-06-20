@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import {Button, FormGroup} from 'react-bootstrap';
 
 class LFHeroes extends Component {
-  onClickLFHeroes = () => {
-    this.props.onClick();
+  onCreateGroup = () => {
+    this.props.onCreateGroup();
   }
   
   render() {
     return (
-        <Button bsStyle="danger" onClick={this.onClickLFHeroes} className="LFHeroesButton">{this.props.LFHeroesText}</Button>
+        <Button bsStyle="success" onClick={this.onCreateGroup} className="createGroupButton">Create Group</Button>
     );
   }
 }

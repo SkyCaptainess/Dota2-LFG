@@ -50,6 +50,10 @@ class HeroSelector extends Component {
     this.props.onSubmitHeroes(false, finalHeroes);
   }
   
+  onCancel = () => {
+    this.props.onSubmitHeroes(true);
+  }
+  
   getVisibility() {
     let style = {
       display: 'none',
