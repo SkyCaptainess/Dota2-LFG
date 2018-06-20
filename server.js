@@ -58,58 +58,20 @@ app.use('/api/users/', usersRouter);
 app.use('/api/auth/steam', steamRouter);
 app.use('/api/matches', matchesRouter)
 
-app.use(express.static(path.resolve(__dirname + '/client/build')));
+//app.use(express.static('public'));
 
-app.get('/test', (req, res) => {
-  let modes = Object.assign({}, constants.modes)
-  let balancedArray = [];
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-  Object.keys(modes).forEach(k => {
-    if(!modes[k].balanced) {
-      delete modes[k];
-    } else {
-      balancedArray.push(modes[k].id);
-    }
-  });
-  
-  console.log(constants.modes);
-
-  let m = {
-    count: 0
-  };
-  Match.aggregate([
-    {$match: {game_mode: {$in:balancedArray}}},
-    {$group: {
-      _id: '$hero_id',
-      win: {
-        $sum: {$cond: ['$win', 1, 0]}
-      },
-      loss: {
-        $sum: {$cond: ['$win', 0, 1]}
-      },
-      total: {
-        $sum: 1
-      }
-    }}
-  ])
-  .then(matches => {
-    m.count = matches.length;
-    m.matches = matches;
-    res.json(m);
-  })
+// Answer API requests.
+app.get('/api', function (req, res) {
+  res.set('Content-Type', 'application/json');
+  res.send('{"message":"Hello from the custom server!"}');
 });
-
-app.get('/somehero', (req, res) => {
-  Match.find({hero_id: 27})
-  .then(matches => {
-    matches.forEach((match, index, _matches) => matches[index] = match.serialize());
-    res.json(matches);
-  })
-})
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname +  '/client/build', 'index.html'));
 });
+  
 
 let server;
 
