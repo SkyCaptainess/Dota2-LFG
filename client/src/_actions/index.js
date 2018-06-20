@@ -17,3 +17,9 @@ export const setHeroes = heroes => ({
   heroes
 })
 
+export const SELECT_SLOT = 'SELECT_SLOT'
+export const selectSlot = slot => ({
+  type: SELECT_SLOT,
+  slot
+})
+

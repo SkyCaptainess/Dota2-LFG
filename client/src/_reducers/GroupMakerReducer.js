@@ -1,12 +1,15 @@
 import {
   CHANGE_FIELD,
   TOGGLE_HERO_SELECTOR_VISIBILITY,
-  SET_HEROES
+  SET_HEROES,
+  SELECT_SLOT
 } from '../_actions';
 
 const initialState = {
   heroSelectorVisible: false,
-  heroes: [null, null, null, null, null]
+  heroes: [null, null, null, null, null],
+  micRequired: false,
+  selectedSlot: null
 };
 
 export const GroupMakerReducer = (state=initialState, action) => {
@@ -22,6 +25,10 @@ export const GroupMakerReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       heroes: action.heroes
     });
+  } else if (action.type === SELECT_SLOT) {
+    return Object.assign({}, state, {
+      selectedSlot: action.slot
+    })
   }
 
   return state;

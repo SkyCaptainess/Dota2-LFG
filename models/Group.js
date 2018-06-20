@@ -51,6 +51,11 @@ const GroupSchema = mongoose.Schema({
     type: Date,
     required: true,
     default: Date.now()
+  },
+  editedAt: {
+    type: Date,
+    required: true,
+    default: Date.now()
   }
 });
 

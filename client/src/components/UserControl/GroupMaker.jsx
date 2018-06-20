@@ -14,7 +14,8 @@ import './../../css/groupMaker.css';
 import {
   changeField,
   toggleHeroSelectorVisibility,
-  setHeroes
+  setHeroes,
+  selectSlot
 } from '../../_actions';
 
 class GroupMaker extends Component {
@@ -34,7 +35,17 @@ class GroupMaker extends Component {
   }
   
   handleCreateGroup = () => {
-    
+    let group = {
+      mode: this.props.mode,
+      region: this.props.region,
+      location: this.props.location,
+      micRequired: this.props.micRequired
+    }
+  }
+  
+  handleSelectHero = e => {
+    let id = e.target.id.split('_')[1];
+    this.props.dispatch(selectSlot(parseInt(id)));
   }
   
   getHeroesDiv = () => {
@@ -42,6 +53,13 @@ class GroupMaker extends Component {
     let heroImages = [];
     for (let i = 0; i < 5; i++) {
       let hero;
+      let selectedStyle = {}
+      if (this.props.selectedSlot === i) {
+        selectedStyle = {
+          border: '3px solid crimson',
+          borderRadius: '2px'
+        }
+      }
       if(this.props.heroes[i]) {
         atLeastOneHero = true;
         
@@ -51,14 +69,17 @@ class GroupMaker extends Component {
         
         hero = <img src={`/images/heroes/${hero.name}_hphover.png`} 
                 alt={hero.localized_name}
-                id={'gmhero_' + hero.id}
+                id={'gmhero_' + i}
                 key={'gmhero_' + i}
-                onClick={this.handleLFHeroesClicked}/>
+                onClick={e => this.handleSelectHero(e)}
+                style={selectedStyle}/>
       } else {
         hero = <img src="/images/question_mark.png" 
                 alt="Question Mark"
+                id={'gmhero_' + i}
                 key={'gmhero_' + i}
-                onClick={this.handleLFHeroesClicked}/>
+                onClick={e => this.handleSelectHero(e)}
+                style={selectedStyle}/>
       }
       heroImages.push(hero);
     }
@@ -89,7 +110,7 @@ class GroupMaker extends Component {
             <PlayerLocationSelect onChange={this.handleChange}/>
             <MoodSelect onChange={this.handleChange}/>
           </div>
-          <Options/>
+          <Options onChange={this.handleChange}/>
         </form>
         {this.getHeroesDiv()}
         <HeroSelector visible={this.props.heroSelectorVisible} onSubmitHeroes={this.handleSubmitHeroes}/>
@@ -104,7 +125,9 @@ export const mapStateToProps = state => ({
   location: state.location,
   mood: state.mood,
   heroSelectorVisible: state.heroSelectorVisible,
-  heroes: state.heroes
+  heroes: state.heroes,
+  micRequired: state.micRequired,
+  selectedSlot: state.selectedSlot
 });
 
 export default connect(mapStateToProps)(GroupMaker);

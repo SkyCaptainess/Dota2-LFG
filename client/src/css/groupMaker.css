@@ -64,8 +64,8 @@ input[type=checkbox] {
 }
 
 .GMHeroes img {
-  max-height: 33px;
-  max-width: 59px;
+  max-height: 40px;
+  max-width: 71px;
   border: 1px solid white;
   margin: 0px 4px;
   cursor: pointer;
