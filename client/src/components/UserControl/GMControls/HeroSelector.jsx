@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import heroes from '../../../dota-constants/heroes';
+import {Button} from 'react-bootstrap';
 import '../../../css/heroSelector.css';
+import {connect} from 'react-redux';
+import {
+  toggleHeroSelectorVisibility
+} from '../../../_actions';
 
 class HeroSelector extends Component {
   constructor(props) {
@@ -30,6 +35,20 @@ class HeroSelector extends Component {
       }
     }
   }
+
+  onSubmitHeroes = () => {
+    let finalHeroes = [];
+    this.state.selectedHeroes.heroes.forEach(h => {
+      let type = h.props.id.split('_')[0];
+      let heroId = h.props.id.split('_')[1];
+      if(type === 'slot') {
+        finalHeroes.push(null);
+      } else {
+        finalHeroes.push(heroId);
+      }
+    })
+    this.props.onSubmitHeroes(false, finalHeroes);
+  }
   
   getVisibility() {
     let style = {
@@ -45,7 +64,7 @@ class HeroSelector extends Component {
     return style;
   }
 
-  handleClick(e) {
+  handleAddHero(e) {
     let id = e.target.id
     let selectedHeroes = this.state.selectedHeroes.heroes;
     let heroAlreadySelected = false;
@@ -118,7 +137,7 @@ class HeroSelector extends Component {
                   alt={`Portrait of ${h.localized_name}`}
                   key={h.id + 'HeroImg'}
                   id={h.id}
-                  onClick={e => this.handleClick(e)}/>
+                  onClick={e => this.handleAddHero(e)}/>
                   );
     })
     
@@ -159,6 +178,10 @@ class HeroSelector extends Component {
           <div className="selectedHeroes">
             {this.state.selectedHeroes.heroes}
           </div>
+          <div className="options">
+            <Button bsStyle="danger" className="finishedButton" onClick={this.onCancel}>Cancel</Button>
+            <Button bsStyle="success" className="finishedButton" onClick={this.onSubmitHeroes}>Done</Button>
+          </div>
           <div className="heroBox">
             <div className="heroes">
               <p className="agility">AGILITY</p>
@@ -174,7 +197,7 @@ class HeroSelector extends Component {
             </div>
         </div>
         <div className="filters">
-          
+          Hiiiiiiii
         </div>
         <div className="bottomRow">
           <img className="emoticon emoticon3" alt="Anti-Mage laughing" src="/images/emoticons/am_laugh.gif"/>
@@ -187,4 +210,8 @@ class HeroSelector extends Component {
   }
 }
 
-export default HeroSelector;
+export const mapStateToProps = state => ({
+  heroSelectorVisible: state.heroSelectorVisible
+});
+
+export default connect(mapStateToProps)(HeroSelector);

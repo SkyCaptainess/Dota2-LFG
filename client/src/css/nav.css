@@ -5,9 +5,12 @@
   align-content: space-between;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  background-color: snow;
+  border-bottom: 2px solid white;
   color: white;
   margin-bottom: 15px;
+  position: fixed;
+  width: 100%;
 }
 
 .navOptions {
@@ -21,7 +24,7 @@
   display: inline;
   font-family: 'Cabin', sans-serif;
   font-size: 24px;
-  color: #EB4B4B;
+  color: crimson;
   padding: 15px;
 }
 

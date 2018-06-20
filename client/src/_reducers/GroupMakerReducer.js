@@ -1,10 +1,12 @@
 import {
   CHANGE_FIELD,
-  TOGGLE_HERO_SELECTOR_VISIBILITY
+  TOGGLE_HERO_SELECTOR_VISIBILITY,
+  SET_HEROES
 } from '../_actions';
 
 const initialState = {
-  heroSelectorVisible: false
+  heroSelectorVisible: false,
+  heroes: [null, null, null, null, null]
 };
 
 export const GroupMakerReducer = (state=initialState, action) => {
@@ -15,6 +17,10 @@ export const GroupMakerReducer = (state=initialState, action) => {
   } else if (action.type === TOGGLE_HERO_SELECTOR_VISIBILITY) {
     return Object.assign({}, state, {
       heroSelectorVisible: action.visibility
+    });
+  } else if (action.type === SET_HEROES) {
+    return Object.assign({}, state, {
+      heroes: action.heroes
     });
   }
 

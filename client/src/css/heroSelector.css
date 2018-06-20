@@ -88,9 +88,22 @@
 
 .selectedHeroes {
   flex: 0 0 100%;
+  text-align: center;
 }
 
 .filters {
   display: inline-block;
   width: 50%;
+}
+
+.options {
+  flex: 0 0 100%;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.finishedButton {
+  width: 150px;
+  margin: 0px 7px;
+  border: 1px solid white;
 }

@@ -12,3 +12,13 @@
 .gmHeroRow img:hover {
   opacity: 1;
 }
+
+
+
+.GMHeroes img {
+  float: left;
+  max-height: 33px;
+  max-width: 59px;
+  border: 1px solid white;
+  margin: 0px 5px;
+}

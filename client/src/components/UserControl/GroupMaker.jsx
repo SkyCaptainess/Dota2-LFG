@@ -11,7 +11,8 @@ import './../../css/groupMaker.css';
 
 import {
   changeField,
-  toggleHeroSelectorVisibility
+  toggleHeroSelectorVisibility,
+  setHeroes
 } from '../../_actions';
 
 class GroupMaker extends Component {
@@ -22,8 +23,16 @@ class GroupMaker extends Component {
   handleChange = target => {
     this.props.dispatch(changeField(target.id, target.value));
   }
+
+  handleSubmitHeroes = (cancel,heroes) => {
+    this.props.dispatch(toggleHeroSelectorVisibility(!this.props.heroSelectorVisible));
+    if(!cancel) {
+      this.props.dispatch(setHeroes(heroes));
+    }
+  }
   
   render() {
+    console.log(this.props);
     return (
       <section className="GroupMaker">
         <form inline="true">
@@ -34,9 +43,17 @@ class GroupMaker extends Component {
             <MoodSelect onChange={this.handleChange}/>
           </div>
           <Options/>
-          <LFHeroes onClick={this.handleLFHeroesClicked}/>
+          
         </form>
-        <HeroSelector visible={this.props.heroSelectorVisible}/>
+        <div className="GMHeroes">
+          <img src="/images/question_mark.png" alt="Question Mark"/>
+          <img src="/images/question_mark.png" alt="Question Mark"/>
+          <img src="/images/question_mark.png" alt="Question Mark"/>
+          <img src="/images/question_mark.png" alt="Question Mark"/>
+          <img src="/images/question_mark.png" alt="Question Mark"/>
+          <LFHeroes onClick={this.handleLFHeroesClicked}/>
+        </div>
+        <HeroSelector visible={this.props.heroSelectorVisible} onSubmitHeroes={this.handleSubmitHeroes}/>
       </section>
     );
   }
@@ -47,7 +64,8 @@ export const mapStateToProps = state => ({
   region: state.region,
   location: state.location,
   mood: state.mood,
-  heroSelectorVisible: state.heroSelectorVisible
+  heroSelectorVisible: state.heroSelectorVisible,
+  heroes: state.heroes
 });
 
 export default connect(mapStateToProps)(GroupMaker);
