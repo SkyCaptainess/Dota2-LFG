@@ -3,6 +3,7 @@ import {FormGroup, Checkbox} from 'react-bootstrap';
 
 class Options extends Component {
   onCheckboxClicked = (target) => {
+    console.log('hi');
     let t = {
       id: target.name,
       value: target.checked
@@ -14,9 +15,6 @@ class Options extends Component {
       <div className="Options">
         <FormGroup className="formGroup" controlId="options">
           <Checkbox name="micRequired" onClick={e => this.onCheckboxClicked(e.target)}>Mic required</Checkbox>
-        </FormGroup>
-        <FormGroup className="formGroup" controlId="Options">
-          <Checkbox name="oneTwoThree" onClick={e => this.onCheckboxClicked(e.target)}>Looking for 1, 2, and 3</Checkbox>
         </FormGroup>
         <FormGroup className="formGroup" controlId="Options">
           <Checkbox name="username" onClick={e => this.onCheckboxClicked(e.target)}>Show username</Checkbox>

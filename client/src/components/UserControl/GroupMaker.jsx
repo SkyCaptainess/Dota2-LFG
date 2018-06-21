@@ -40,7 +40,7 @@ class GroupMaker extends Component {
       mood: this.props.mood,
       region: this.props.region,
       location: this.props.location,
-      micRequired: this.props.micRequired
+      micRequired: this.props.micRequired,
     }
   }
   

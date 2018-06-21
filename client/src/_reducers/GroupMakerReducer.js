@@ -9,7 +9,11 @@ const initialState = {
   heroSelectorVisible: false,
   heroes: [null, null, null, null, null],
   micRequired: false,
-  selectedSlot: null
+  selectedSlot: null,
+  mode: 'All Pick',
+  region: 'North America',
+  location: 'Prefer not to say',
+  mood: 'Looking for friends 😍'
 };
 
 export const GroupMakerReducer = (state=initialState, action) => {

@@ -30,7 +30,7 @@
 }
 
 .heroBox {
-  width: 55%;
+  width: 53%;
   display: inline-block;
   margin-left: 10px;
 }
@@ -55,9 +55,11 @@
   color: #5ED6E9;
 }
 
-.heroSelector img {
+.heroSelector .heroes img {
+  max-width: 59px;
+  max-height: 33px;
   border: 1px solid white;
-  margin: 5px 3px;
+  margin: 2px;
   cursor: pointer;
 }
 
@@ -91,9 +93,16 @@
   text-align: center;
 }
 
+.selectedHeroes img {
+  margin: 0px 5px;
+  border: 2px solid white;
+}
+
 .filters {
   display: inline-block;
-  width: 50%;
+  width: 43%;
+  border: 2px solid white;
+  margin-right: 10px;
 }
 
 .options {
