@@ -16,9 +16,6 @@ class GroupList extends Component {
       })
       const response = await fetch('/api/groups');
       const groups = await response.json()
-      for (let i = 0; i < 1; i++) {
-        this.props.dispatch(createGroup(groups[i]));
-      }
       this.props.dispatch(addAllGroups(groups));
     } catch (error) {
       console.error(error);
