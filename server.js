@@ -26,6 +26,7 @@ const {
   PORT,
   DATABASE_URL
 } = require('./config');
+const compression = require('compression');
 
 mongoose.Promise = global.Promise;
 console.log(process.env.STEAM_RETURN)
@@ -44,6 +45,8 @@ passport.use(new SteamStrategy({
 // Logging
 app.use(morgan('common'));
 
+//170kb -> 3kb :D :D :D
+app.use(compression());
 // CORS
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

@@ -29,3 +29,10 @@ export const createGroup = group => ({
   group
 })
 
+export const ADD_ALL_GROUPS = 'ADD_ALL_GROUPS'
+export const addAllGroups = groups => ({
+  type: ADD_ALL_GROUPS,
+  groups
+})
+
+

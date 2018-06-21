@@ -40,4 +40,12 @@ router.post('/', (req, res) => {
   })
 });
 
+router.get('/', (req, res) => {
+  console.log(req.cookies);
+  Group.find().sort({createdAt: -1})
+  .then(groups => {
+    res.json(groups);
+  })
+})
+
 module.exports = {router};

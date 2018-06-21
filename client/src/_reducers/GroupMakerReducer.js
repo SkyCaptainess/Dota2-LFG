@@ -3,7 +3,8 @@ import {
   TOGGLE_HERO_SELECTOR_VISIBILITY,
   SET_HEROES,
   SELECT_SLOT,
-  CREATE_GROUP
+  CREATE_GROUP,
+  ADD_ALL_GROUPS
 } from '../_actions';
 
 const initialState = {
@@ -38,7 +39,11 @@ export const GroupMakerReducer = (state=initialState, action) => {
   } else if (action.type === CREATE_GROUP) {
     return Object.assign({}, state, {
       groups: [action.group, ...state.groups]
-    })
+    });
+  } else if (action.type === ADD_ALL_GROUPS) {
+    return Object.assign({}, state, {
+      groups: action.groups
+    });
   }
 
   return state;
