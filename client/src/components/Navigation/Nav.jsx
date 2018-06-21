@@ -8,7 +8,7 @@ class Nav extends Component {
         <p className="brand">Dota 2 LFG</p>
         <div className="navOptions">
           <p className="about">About</p>
-          <img src="images/steambutton.png" alt="Steam login button"/>
+          <a href="/api/auth/steam"><img src="images/steambutton.png" alt="Steam login button"/></a>
         </div>
       </section>
     );
