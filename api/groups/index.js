@@ -23,6 +23,7 @@ router.post('/', (req, res) => {
   let group = req.body
   group.steamid32 = steamid32;
   group.username = 'Pupper';
+  group.createdAt = Date.now();
   Object.keys(group).forEach((k, i, _group) => {
     if(group[k].selected === true) {
       console.log('HELLO!!!')
