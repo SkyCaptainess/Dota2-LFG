@@ -1,5 +1,5 @@
 .Group {
-  width: 49%;
+  width: 100%;
   margin: 15px 0px;
   border: 3px solid crimson;
   border-radius: 5px;
@@ -48,15 +48,29 @@
 }
 
 .groupProfile {
-  display: flex;
-  max-width: 200px;
   overflow: hidden;
+  min-width: 275px;
+  max-width: 305px;
+  overflow: hidden;
+  text-align: left;
+  background-color: snow;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid black;
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
 }
 
+.groupProfile img {
+  float: left;
+  margin-right: 5px;
+}
 
-.groupUserName {
-  margin-left: 6px;
-  align-self: baseline;
+.groupProfile p {
+  display: block;
+  padding: 7px 0px;
+  text-align: left;
 }
 
 .groupMode p {

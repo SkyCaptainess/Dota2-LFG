@@ -67,10 +67,13 @@ class Group extends Component {
             <img className="groupProfilePic" 
                  alt="Profile"
                  src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/10/10f08e42c4ac25b715fb0d87315171eaeccc5f73_medium.jpg"/>
-            <p className="groupUserName">{username}</p>
+            <div>
+              <p className="groupUserName">{username}</p>
+              <p>{mode}</p>
+            </div>
           </div>
           <div className="groupMode">
-            <p>{mode}</p>
+            
           </div>
           <div className="groupInfo">
             <p>{mood}</p>
