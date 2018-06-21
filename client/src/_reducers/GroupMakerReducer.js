@@ -2,7 +2,8 @@ import {
   CHANGE_FIELD,
   TOGGLE_HERO_SELECTOR_VISIBILITY,
   SET_HEROES,
-  SELECT_SLOT
+  SELECT_SLOT,
+  CREATE_GROUP
 } from '../_actions';
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
   mode: 'All Pick',
   region: 'North America',
   location: 'Prefer not to say',
-  mood: 'Looking for friends 😍'
+  mood: 'Looking for friends 😍',
+  groups: []
 };
 
 export const GroupMakerReducer = (state=initialState, action) => {
@@ -32,6 +34,10 @@ export const GroupMakerReducer = (state=initialState, action) => {
   } else if (action.type === SELECT_SLOT) {
     return Object.assign({}, state, {
       selectedSlot: action.slot
+    })
+  } else if (action.type === CREATE_GROUP) {
+    return Object.assign({}, state, {
+      groups: [action.group, ...state.groups]
     })
   }
 

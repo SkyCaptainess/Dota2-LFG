@@ -15,7 +15,8 @@ import {
   changeField,
   toggleHeroSelectorVisibility,
   setHeroes,
-  selectSlot
+  selectSlot,
+  createGroup
 } from '../../_actions';
 
 class GroupMaker extends Component {
@@ -35,7 +36,6 @@ class GroupMaker extends Component {
   }
 
   prepareGroup = () => {
-    console.log(this.props.selectedSlot);
     let group = {
         mode: this.props.mode,
         mood: this.props.mood,
@@ -58,7 +58,7 @@ class GroupMaker extends Component {
           hero_id: parseInt(this.props.heroes[4], 10) || null
         }
       }
-
+    console.log(group);
     let slot;
     if(this.props.selectedSlot !== undefined) {
        slot = `slot${this.props.selectedSlot}`;
@@ -84,7 +84,7 @@ class GroupMaker extends Component {
         method: 'POST'
       })
       const responseJson = await response.json();
-      console.log(responseJson);
+      this.props.dispatch(createGroup(responseJson));
     } catch(error) {
       console.error(error);
     }
@@ -92,7 +92,6 @@ class GroupMaker extends Component {
 
   handleSelectHero = e => {
     let id = e.target.id.split('_')[1];
-    console.log(id);
     this.props.dispatch(selectSlot(parseInt(id, 10)));
   }
   
@@ -175,7 +174,8 @@ export const mapStateToProps = state => ({
   heroSelectorVisible: state.heroSelectorVisible,
   heroes: state.heroes,
   micRequired: state.micRequired,
-  selectedSlot: state.selectedSlot
+  selectedSlot: state.selectedSlot,
+  groups: state.groups
 });
 
 export default connect(mapStateToProps)(GroupMaker);

@@ -1,10 +1,20 @@
 .Group {
   width: 49%;
   margin: 15px 0px;
-  border: 2px solid #EB4B4B;
+  border: 3px solid crimson;
+  border-radius: 5px;
   display: inline-block;
   min-height: 250px;
   border-radius: 2px;
+  background-color:rgb(225, 225, 225);
+  color: black;
+  font-size: 17px;
+}
+
+.Group img {
+  border: 2px solid black;
+  max-width: 64px;
+  max-height: 64px;
 }
 
 .groupTopRow {
@@ -21,8 +31,15 @@
   margin-left: 6px;
 }
 
+.groupInfo {
+  background-color: snow;
+  color: black;
+  border: 1px solid black;
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+}
+
 .groupInfo p {
   text-align: left;
-  margin-top: 3px;
-  margin-bottom: 2px;
+  border-bottom: 1px solid black;
+  padding: 6px;
 }

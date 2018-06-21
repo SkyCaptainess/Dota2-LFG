@@ -6,14 +6,20 @@ import '../../css/groupList.css'
 class GroupList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      groups: [<Group key={1}/>,<Group key={2}/>, <Group key={3}/>, <Group key={4}/>]
-    }
+  }
+
+  getGroups = () => {
+    let groups = [];
+    this.props.groups.forEach(group => {
+      groups.push(<Group group={group} key={group._id}/>)
+    })
+
+    return groups;
   }
   render() {
     return (
       <div className="GroupList">
-        {this.state.groups}
+        {this.getGroups()}
       </div>
     );
   }
@@ -21,10 +27,7 @@ class GroupList extends Component {
 
 
 export const mapStateToProps = state => ({
-  mode: state.mode,
-  region: state.region,
-  location: state.location,
-  mood: state.mood
+  groups: state.groups
 });
 
 export default connect(mapStateToProps)(GroupList);

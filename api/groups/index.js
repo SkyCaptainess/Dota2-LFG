@@ -30,6 +30,7 @@ router.post('/', (req, res) => {
       group[k].steamid32 = steamid32;
     }
   })
+  console.log(group);
   Group.create(group)
   .then(_group => {
     res.json(_group);

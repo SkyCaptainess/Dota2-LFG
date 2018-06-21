@@ -23,3 +23,9 @@ export const selectSlot = slot => ({
   slot
 })
 
+export const CREATE_GROUP = 'CREATE_GROUP'
+export const createGroup = group => ({
+  type: CREATE_GROUP,
+  group
+})
+
