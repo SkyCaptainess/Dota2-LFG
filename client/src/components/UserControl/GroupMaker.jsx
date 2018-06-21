@@ -58,14 +58,10 @@ class GroupMaker extends Component {
           hero_id: parseInt(this.props.heroes[4], 10) || null
         }
       }
-    console.log(group);
-    let slot;
+      
     if(this.props.selectedSlot !== undefined) {
-       slot = `slot${this.props.selectedSlot}`;
-    }
-
-    if(slot) {
-      group[slot].selected = true;
+       const slot = `slot${this.props.selectedSlot}`;
+       group[slot].selected = true;
     }
 
     return group;

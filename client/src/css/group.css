@@ -3,7 +3,7 @@
   margin: 15px 0px;
   border: 3px solid crimson;
   border-radius: 5px;
-  display: inline-block;
+  position: relative;
   min-height: 250px;
   border-radius: 2px;
   background-color:rgb(225, 225, 225);
@@ -23,12 +23,49 @@
   justify-content: space-between;
 }
 
+.groupBottomRow {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.groupHeroes {
+  background-color: #444;
+  border: 2px solid crimson;
+  padding: 4px;
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+}
+
+.groupHeroes img {
+  max-width: 89px;
+  max-height: 50px;
+  padding: 1px;
+  border: 2px solid white;
+  margin: 5px 3px;
+}
+
 .groupProfile {
   display: flex;
+  max-width: 200px;
+  overflow: hidden;
 }
+
 
 .groupUserName {
   margin-left: 6px;
+  align-self: baseline;
+}
+
+.groupMode p {
+  background-color: snow;
+  color: black;
+  border: 1px solid black;
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+  padding: 6px;
+  min-width: 200px;
 }
 
 .groupInfo {
@@ -36,10 +73,11 @@
   color: black;
   border: 1px solid black;
   box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+  min-width: 200px;
+  text-align: center;
 }
 
 .groupInfo p {
-  text-align: left;
   border-bottom: 1px solid black;
   padding: 6px;
 }
