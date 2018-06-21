@@ -27,6 +27,10 @@ const GroupSchema = mongoose.Schema({
     type: Boolean,
     required: true
   },
+  slot0: {
+    type: GroupUser,
+    required: true
+  },
   slot1: {
     type: GroupUser,
     required: true
@@ -40,10 +44,6 @@ const GroupSchema = mongoose.Schema({
     required: true
   },
   slot4: {
-    type: GroupUser,
-    required: true
-  },
-  slot5: {
     type: GroupUser,
     required: true
   },

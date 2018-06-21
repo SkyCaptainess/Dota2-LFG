@@ -36,17 +36,37 @@ class GroupMaker extends Component {
   
   handleCreateGroup = () => {
     let group = {
+    values: {
       mode: this.props.mode,
       mood: this.props.mood,
       region: this.props.region,
       location: this.props.location,
       micRequired: this.props.micRequired,
-    }
-  }
-  
+      slot0: {
+        hero_id: parseInt(this.props.heroes[0], 10) || null
+      },
+      slot1: {
+        hero_id: parseInt(this.props.heroes[1], 10) || null
+      },
+      slot2: {
+        hero_id: parseInt(this.props.heroes[2], 10) || null
+      },
+      slot3: {
+        hero_id: parseInt(this.props.heroes[3], 10) || null
+      },
+      slot4: {
+        hero_id: parseInt(this.props.heroes[4], 10) || null
+      }
+    },
+    selectedSlot: this.props.selectedSlot
+  };
+  console.log(group);
+}
+
   handleSelectHero = e => {
     let id = e.target.id.split('_')[1];
-    this.props.dispatch(selectSlot(parseInt(id)));
+    console.log(id);
+    this.props.dispatch(selectSlot(parseInt(id, 10)));
   }
   
   getHeroesDiv = () => {
@@ -65,7 +85,7 @@ class GroupMaker extends Component {
         atLeastOneHero = true;
         
         hero = heroes.find(h => {
-          return h.id == this.props.heroes[i];
+          return h.id.toString() === this.props.heroes[i];
         })
         
         hero = <img src={`/images/heroes/${hero.name}_hphover.png`} 

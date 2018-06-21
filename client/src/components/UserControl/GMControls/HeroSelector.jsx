@@ -3,9 +3,6 @@ import heroes from '../../../dota-constants/heroes';
 import {Button} from 'react-bootstrap';
 import '../../../css/heroSelector.css';
 import {connect} from 'react-redux';
-import {
-  toggleHeroSelectorVisibility
-} from '../../../_actions';
 
 class HeroSelector extends Component {
   constructor(props) {

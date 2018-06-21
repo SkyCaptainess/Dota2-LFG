@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, FormGroup} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 class LFHeroes extends Component {
   onCreateGroup = () => {

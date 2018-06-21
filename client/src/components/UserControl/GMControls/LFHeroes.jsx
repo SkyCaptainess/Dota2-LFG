@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Button, FormGroup} from 'react-bootstrap';
+import React, {Component} from 'react';
+import {Button} from 'react-bootstrap';
 
 class LFHeroes extends Component {
   onClickLFHeroes = () => {
@@ -7,9 +7,7 @@ class LFHeroes extends Component {
   }
   
   render() {
-    return (
-        <Button bsStyle="danger" onClick={this.onClickLFHeroes} className="LFHeroesButton">{this.props.LFHeroesText}</Button>
-    );
+        return <Button bsStyle="danger" onClick={this.onClickLFHeroes} className="LFHeroesButton">{this.props.LFHeroesText}</Button>
   }
 }
 
