@@ -9,9 +9,9 @@ import './css/reset.css'
 import './css/app.css'
 
 class App extends Component {
-  componentDidMount() {
-    // this.callApi()
-    // .then(res => console.log(res));
+  async componentDidMount() {
+    const body = await this.callApi();
+    console.log(body);
   }
 
   callApi = async () => {

@@ -33,35 +33,62 @@ class GroupMaker extends Component {
       this.props.dispatch(setHeroes(heroes));
     }
   }
-  
-  handleCreateGroup = () => {
+
+  prepareGroup = () => {
+    console.log(this.props.selectedSlot);
     let group = {
-    values: {
-      mode: this.props.mode,
-      mood: this.props.mood,
-      region: this.props.region,
-      location: this.props.location,
-      micRequired: this.props.micRequired,
-      slot0: {
-        hero_id: parseInt(this.props.heroes[0], 10) || null
-      },
-      slot1: {
-        hero_id: parseInt(this.props.heroes[1], 10) || null
-      },
-      slot2: {
-        hero_id: parseInt(this.props.heroes[2], 10) || null
-      },
-      slot3: {
-        hero_id: parseInt(this.props.heroes[3], 10) || null
-      },
-      slot4: {
-        hero_id: parseInt(this.props.heroes[4], 10) || null
+        mode: this.props.mode,
+        mood: this.props.mood,
+        region: this.props.region,
+        location: this.props.location,
+        micRequired: this.props.micRequired,
+        'slot0': {
+          hero_id: parseInt(this.props.heroes[0], 10) || null
+        },
+        'slot1': {
+          hero_id: parseInt(this.props.heroes[1], 10) || null
+        },
+        'slot2': {
+          hero_id: parseInt(this.props.heroes[2], 10) || null
+        },
+        'slot3': {
+          hero_id: parseInt(this.props.heroes[3], 10) || null
+        },
+        'slot4': {
+          hero_id: parseInt(this.props.heroes[4], 10) || null
+        }
       }
-    },
-    selectedSlot: this.props.selectedSlot
-  };
-  console.log(group);
-}
+
+    let slot;
+    if(this.props.selectedSlot !== undefined) {
+       slot = `slot${this.props.selectedSlot}`;
+    }
+
+    if(slot) {
+      group[slot].selected = true;
+    }
+
+    return group;
+  }
+  
+  handleCreateGroup = async  () => {
+    const group = this.prepareGroup();
+    try {
+      const response = await fetch('/api/groups', {
+        body: JSON.stringify(group),
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'content-type': 'application/json'
+        },
+        method: 'POST'
+      })
+      const responseJson = await response.json();
+      console.log(responseJson);
+    } catch(error) {
+      console.error(error);
+    }
+  }
 
   handleSelectHero = e => {
     let id = e.target.id.split('_')[1];

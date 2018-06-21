@@ -17,6 +17,9 @@ const {
   router: matchesRouter
 } = require('./api/matchStats');
 const {
+  router: groupsRouter
+} = require('./api/groups')
+const {
   Match
 } = require('./models/Match');
 const {
@@ -56,7 +59,8 @@ app.use(passport.initialize());
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/steam', steamRouter);
-app.use('/api/matches', matchesRouter)
+app.use('/api/matches', matchesRouter);
+app.use('/api/groups', groupsRouter);
 
 //app.use(express.static('public'));
 
@@ -65,7 +69,7 @@ app.use(express.static(path.resolve(__dirname + '/client/build')));
 // Answer API requests.
 app.get('/api', function (req, res) {
   res.set('Content-Type', 'application/json');
-  res.send('{"message":"Hello from the custom server!"}');
+  res.json('{"message":"Hello from the custom server!"}');
 });
 
 app.get('*', (req, res) => {

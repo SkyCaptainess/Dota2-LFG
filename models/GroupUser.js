@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const GroupUserSchema = mongoose.Schema({
   steamid32: {
-    type: Number,
-    unique: true
+    type: Number
+    //unique: true;
   },
   username: {
     type: String
@@ -15,6 +15,6 @@ const GroupUserSchema = mongoose.Schema({
 
 const GroupUser = mongoose.model('GroupUser', GroupUserSchema);
 
-export default {
+module.exports = {
   GroupUser
 }
