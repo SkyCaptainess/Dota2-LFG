@@ -11,14 +11,14 @@ const UserManagement = {
   //User is created if it is their first time logging in. This same method
   //will also be used to update the persona -username- (once per day or so).
   createUser: user => {
-    const query = user.steamid
+    const query = user.steamid32
     const update = user //I will use this to update username etc
     const options = { upsert: true, new: false, setDefaultsOnInsert: true };
 
     /*return promise as the page should not be sent until after the user
     is created so that a JWT can be generated*/
     return new Promise((resolve, reject) => {
-      User.findOneAndUpdate(query, update, options, (err, result) => {
+      User.findOneAndUpdate({steamid32: user.steamid32}, update, options, (err, result) => {
         if (err) {
           reject(err);
         } else {

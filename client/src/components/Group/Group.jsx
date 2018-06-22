@@ -7,7 +7,6 @@ class Group extends Component {
     let {slot0, slot1, slot2, slot3, slot4} = this.props.group;
     let slots = [slot0, slot1, slot2, slot3, slot4];
     let heroes = [];
-    console.log(slots);
     slots.forEach(slot =>{
       heroes.push({
         hero_id: slot.hero_id,
@@ -32,7 +31,6 @@ class Group extends Component {
             return h;
           }
         }).name
-        console.log(heroName);
         img = `/images/heroes/${heroName}_hphover.png`;
       } else {
         img = '/images/question_mark.png';
@@ -59,14 +57,15 @@ class Group extends Component {
    
     let {createdAt, editedAt, mood, mode, region, location,
       micRequired, slot0, slot1, slot2, slot3, slot4,
-      username} = this.props.group;
+      username, groupAvatar} = this.props.group;
+
     return (
       <div className="Group">
         <div className="groupTopRow">
           <div className="groupProfile">
             <img className="groupProfilePic" 
                  alt="Profile"
-                 src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/10/10f08e42c4ac25b715fb0d87315171eaeccc5f73_medium.jpg"/>
+                 src={groupAvatar}/>
             <div>
               <p className="groupUserName">{username}</p>
               <p>{mode}</p>

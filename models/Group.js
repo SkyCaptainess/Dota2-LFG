@@ -5,8 +5,7 @@ const GroupUser = require('./GroupUser');
 const GroupSchema = mongoose.Schema({
   steamid32: {
     type: Number,
-    required: true,
-    //unique: true
+    required: true
   },
   username: {
     type: String,
@@ -30,6 +29,9 @@ const GroupSchema = mongoose.Schema({
   micRequired: {
     type: Boolean,
     required: true
+  },
+  groupAvatar: {
+    type: String
   },
   slot0: {
     type: GroupUser,

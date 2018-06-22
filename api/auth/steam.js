@@ -9,8 +9,8 @@ const jwt = require('jsonwebtoken');
 const OD = require('../../dota/opendota');
 const {Match} = require('../../models/Match')
 
-const createToken = steamid32 => {
-  const token = jwt.sign({steamid32}, process.env.SECRET, {
+const createToken = userValues => {
+  const token = jwt.sign(userValues, process.env.SECRET, {
           expiresIn: '30 days'// expires in 24 hours
         });
   return token;
@@ -24,8 +24,13 @@ const getExpiryDate = () => {
 
 //redirect from proxy to react
 const setCookiesAndRedirect = (res, result) => {
-          let token = createToken(result.steamid32);
-          res.cookie('token', {token}, { expires: getExpiryDate(), httpOnly: true});
+          let token = createToken({
+            steamid32: result.steamid32,
+            username: result.username,
+            avatarFull: result.avatarFull,
+            avatarMedium: result.avatarMedium
+          });
+          res.cookie('token', token, { expires: getExpiryDate(), httpOnly: true});
           res.cookie('user', JSON.stringify(result), { expires: getExpiryDate()});
           res.redirect(process.env.STEAM_RETURN);
 }

@@ -27,6 +27,8 @@ const {
   DATABASE_URL
 } = require('./config');
 const compression = require('compression');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 mongoose.Promise = global.Promise;
 console.log(process.env.STEAM_RETURN)

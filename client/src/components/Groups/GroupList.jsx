@@ -14,7 +14,10 @@ class GroupList extends Component {
       this.setState({
         loading: true
       })
-      const response = await fetch('/api/groups');
+      const response = await fetch('/api/groups', {
+        method: 'GET',
+        credentials: 'same-origin',
+      });
       const groups = await response.json()
       this.props.dispatch(addAllGroups(groups));
     } catch (error) {
