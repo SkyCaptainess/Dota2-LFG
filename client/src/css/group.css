@@ -19,6 +19,7 @@
 
 .groupTopRow {
   display: flex;
+  flex-wrap: wrap;
   margin: 8px;
   justify-content: space-between;
 }

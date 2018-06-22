@@ -4,11 +4,13 @@ import {
   SET_HEROES,
   SELECT_SLOT,
   CREATE_GROUP,
-  ADD_ALL_GROUPS
+  ADD_ALL_GROUPS,
+  TOGGLE_LOGIN_MODAL_VISIBILITY
 } from '../_actions';
 
 const initialState = {
   heroSelectorVisible: false,
+  loginModalVisible: false,
   heroes: [null, null, null, null, null],
   micRequired: false,
   selectedSlot: undefined,
@@ -44,6 +46,10 @@ export const GroupMakerReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       groups: action.groups
     });
+  } else if (action.type === TOGGLE_LOGIN_MODAL_VISIBILITY) {
+    return Object.assign({}, state, {
+      loginModalVisible: action.visibility
+    })
   }
 
   return state;

@@ -7,7 +7,9 @@ import CreateGroupButton from './GMControls/CreateGroupButton.jsx';
 import PlayerLocationSelect from './GMControls/PlayerLocationSelect';
 import Options from './GMControls/Options'
 import HeroSelector from './GMControls/HeroSelector';
+import LoginModal from './../auth/LoginModal';
 import {connect} from 'react-redux';
+import {withCookies} from 'react-cookie';
 import heroes from '../../dota-constants/heroes.js'
 import './../../css/groupMaker.css';
 
@@ -16,7 +18,8 @@ import {
   toggleHeroSelectorVisibility,
   setHeroes,
   selectSlot,
-  createGroup
+  createGroup,
+  toggleLoginModalVisibility,
 } from '../../_actions';
 
 class GroupMaker extends Component {
@@ -69,6 +72,12 @@ class GroupMaker extends Component {
   
   handleCreateGroup = async  () => {
     const group = this.prepareGroup();
+    const {cookies} = this.props;
+    const user = cookies.get('user');
+    if(!user) {
+      this.props.dispatch(toggleLoginModalVisibility(!this.props.loginModalVisible));
+      return;
+    }
     try {
       const response = await fetch('/api/groups', {
         body: JSON.stringify(group),
@@ -157,6 +166,7 @@ class GroupMaker extends Component {
         </form>
         {this.getHeroesDiv()}
         <HeroSelector visible={this.props.heroSelectorVisible} onSubmitHeroes={this.handleSubmitHeroes}/>
+        <LoginModal wherePrompted="groupMaker" visible={this.props.loginModalVisible}/>
       </section>
     );
   }
@@ -171,10 +181,11 @@ export const mapStateToProps = state => ({
   heroes: state.heroes,
   micRequired: state.micRequired,
   selectedSlot: state.selectedSlot,
-  groups: state.groups
+  groups: state.groups,
+  loginModalVisible: state.loginModalVisible
 });
 
-export default connect(mapStateToProps)(GroupMaker);
+export default connect(mapStateToProps)(withCookies(GroupMaker));
 
 /*
 mode
