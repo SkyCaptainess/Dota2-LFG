@@ -24,16 +24,20 @@ class Group extends Component {
       let img;
       let id;
       let style;
+      let alt;
       let key = `${this.props.group.steamid32}_${i}`
       if(hero.hero_id) {
         let heroName = _heroes.find(h => {
-          if (h.id == hero.hero_id) {
+          if (h.id === hero.hero_id) {
             return h;
           }
+          return '';
         }).name
         img = `/images/heroes/${heroName}_hphover.png`;
+        alt = {heroName}
       } else {
         img = '/images/question_mark.png';
+        alt = 'Question Mark';
       }
       
       if(hero.steamid32) {
@@ -48,15 +52,14 @@ class Group extends Component {
         }
       }
       
-      heroImages.push(<img src={img} key={key} style={style}/>)
+      heroImages.push(<img src={img} alt={alt} id={id} key={key} style={style}/>)
     })
     return heroImages;
   }
   
   render() {
    
-    let {createdAt, editedAt, mood, mode, region, location,
-      micRequired, slot0, slot1, slot2, slot3, slot4,
+    let {mood, mode, region, location,
       username, groupAvatar} = this.props.group;
 
     return (

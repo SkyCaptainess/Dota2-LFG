@@ -152,7 +152,6 @@ class GroupMaker extends Component {
   }
   
   render() {
-    console.log(this.props);
     return (
       <section className="GroupMaker">
         <form inline="true">

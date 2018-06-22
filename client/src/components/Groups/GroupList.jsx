@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import Group from '../Group/Group';
 import {connect} from 'react-redux';
-import {addAllGroups, createGroup} from './../../_actions'
+import {addAllGroups} from './../../_actions'
 import '../../css/groupList.css'
 
 class GroupList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount = async () => {
     try {
       this.setState({
@@ -34,7 +30,7 @@ class GroupList extends Component {
     })
 
     if(groups.length === 0) {
-      return <p className="groupListLoading">Loading Groups!😊</p>
+      return <p className="groupListLoading">Loading Groups!</p>
     }
 
     return groups;

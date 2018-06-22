@@ -7,8 +7,8 @@ class MoodSelect extends Component {
       <FormGroup className="formGroup" controlId="mood">
         <ControlLabel className="GMLabel">Looking for</ControlLabel>
         <FormControl componentClass="select" onChange={e => this.props.onChange(e.target)}>
-          <option value="Friends 😍">Friends 😍</option>
-          <option vlaue="Teammates 👩‍👩‍👧‍👦">Teammates 👩‍👩‍👧‍👦</option>
+          <option value="Looking for Friends 😍">Friends 😍</option>
+          <option value="Looking for Teammates 👩‍👩‍👧‍👦">Teammates 👩‍👩‍👧‍👦</option>
           <option value="Winners Only 😎">Winners Only 😎</option>
           <option value="LGBTQIA 🌈">LGBTQIA 🌈</option>
           <option value="All Random 🎲">All Random 🎲</option>

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 import '../../css/loginModal.css'
-import {connect} from 'redux';
 
 class LoginModal extends Component {
   handleLogin = () => {
     if(window.location.href.includes('local')) {
       window.location.href = "http://localhost:3000/api/auth/steam"
-    } else {
+    } else if(window.location.href.includes('heroku')) {
       window.location.href = "https://evening-shelf-99951.herokuapp.com/api/auth/steam"
+    } else {
+      window.location.href="https://dota2lfg-flooyd.c9users.io:8080/api/auth/steam"
+     
     }
   }
 
@@ -22,7 +24,7 @@ class LoginModal extends Component {
       style.display = 'initial';
     }
     return (
-      <section style={style} role="region" className="loginModal">
+      <section style={style} className="loginModal">
         <div className="loginInfo">
           <p className="pudge">You'll never find the perfect Pudge that way...</p>
           <p className="noTechnology">It would be nice if you could create a group without logging in, but the technology just isn't there yet.

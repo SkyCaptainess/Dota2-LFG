@@ -9,16 +9,6 @@ import './css/reset.css'
 import './css/app.css'
 
 class App extends Component {
-  async componentDidMount() {
-    const body = await this.callApi();
-    console.log(body);
-  }
-
-  callApi = async () => {
-    const response = await fetch('/api');
-    const body = await response.json();
-    return body;
-  }
   render() {
     return (
       <div className="App">
