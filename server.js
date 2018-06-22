@@ -67,9 +67,9 @@ app.use('/api/auth/steam', steamRouter);
 app.use('/api/matches', matchesRouter);
 app.use('/api/groups', groupsRouter);
 
-//app.use(express.static('public'));
+app.use(express.static('public', {maxAge: '1d'}));
 
-app.use(express.static(path.resolve(__dirname + '/client/build')));
+app.use(express.static(path.resolve(__dirname + '/client/build'), {maxAge: '1d'}));
 
 // Answer API requests.
 app.get('/api', function (req, res) {

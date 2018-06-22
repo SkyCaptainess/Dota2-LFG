@@ -13,7 +13,8 @@ const createToken = steamid32 => {
 }
 
 const validateJWT = (req, res, next) => {
-  const verified = jwt.verify(req.cookies.token, process.env.SECRET, (err, decoded) => {
+  console.log(req.cookies.token.token);
+  const verified = jwt.verify(req.cookies.token.token, process.env.SECRET, (err, decoded) => {
     if(err) {
       console.error(err);
     } else {
