@@ -58,7 +58,7 @@ class GroupHero extends Component {
         this.getHero()
     );
     } else {
-      return;
+      return ('')
     }
     
   }
