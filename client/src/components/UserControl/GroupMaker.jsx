@@ -5,7 +5,6 @@ import MoodSelect from './GMControls/MoodSelect.jsx';
 import LFHeroes from './GMControls/LFHeroes.jsx';
 import CreateGroupButton from './GMControls/CreateGroupButton.jsx';
 import PlayerLocationSelect from './GMControls/PlayerLocationSelect';
-import Options from './GMControls/Options'
 import HeroSelector from './GMControls/HeroSelector';
 import LoginModal from './../auth/LoginModal';
 import {connect} from 'react-redux';

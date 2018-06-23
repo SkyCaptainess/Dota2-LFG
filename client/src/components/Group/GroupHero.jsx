@@ -5,7 +5,7 @@ import _heroes from '../../dota-constants/heroes.js'
 class GroupHero extends Component {
 
   getHero = () => {
-    let {hero_id, selected, username, steamid32} = this.props.slot;
+    let {hero_id, steamid32} = this.props.slot;
     let id, key;
     let onClick;
     let className;
@@ -39,7 +39,7 @@ class GroupHero extends Component {
       });
 
       src=`/images/heroes/${name}_hphover.png`;
-      alt=`${name}`
+      alt=`${localized_name}`
     } else {
       src='/images/question_mark.png';
       alt='Question mark';
