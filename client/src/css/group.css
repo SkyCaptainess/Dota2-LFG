@@ -1,12 +1,12 @@
 .Group {
-  width: 49%;
-  margin: 15px 0px;
+  margin: 15px auto;
   border: 3px solid crimson;
   border-radius: 5px;
+  width: 515px;
   position: relative;
-  min-height: 250px;
+  min-height: 375px;
   border-radius: 2px;
-  background-color:rgb(225, 225, 225);
+  background-color:rgb(244, 244, 244);
   color: black;
   font-size: 17px;
 }
@@ -40,18 +40,17 @@
   box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
 }
 
-.groupHeroes img {
+.groupHeroes .heroImg {
   max-width: 89px;
   max-height: 50px;
-  padding: 1px;
-  border: 2px solid white;
+  border: 3px solid dodgerblue;
   margin: 5px 3px;
 }
 
 .groupProfile {
+  font-size: 16px;
   overflow: hidden;
-  min-width: 275px;
-  max-width: 305px;
+  width: 280px;
   overflow: hidden;
   text-align: left;
   background-color: snow;
@@ -70,17 +69,11 @@
 
 .groupProfile p {
   display: block;
-  padding: 7px 0px;
+  padding: 5px 0px;
   text-align: left;
-}
-
-.groupMode p {
-  background-color: snow;
-  color: black;
-  border: 1px solid black;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
-  padding: 6px;
-  min-width: 200px;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
 }
 
 .groupInfo {
@@ -90,9 +83,20 @@
   box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
   min-width: 200px;
   text-align: center;
+  font-size: 16px;
 }
 
 .groupInfo p {
   border-bottom: 1px solid black;
   padding: 6px;
+}
+
+.groupHeroes .selectableSlot {
+  cursor: pointer;
+  opacity: .5;
+  border: 3px solid white;
+}
+.groupHeroes .selectableSlot:hover {
+  border: 3px solid crimson;
+  opacity: 1;
 }

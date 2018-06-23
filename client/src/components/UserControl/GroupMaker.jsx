@@ -108,8 +108,7 @@ class GroupMaker extends Component {
       let selectedStyle = {}
       if (this.props.selectedSlot === i) {
         selectedStyle = {
-          border: '3px solid crimson',
-          borderRadius: '2px'
+          border: '2px solid dodgerblue',
         }
       }
       if(this.props.heroes[i]) {
@@ -141,7 +140,7 @@ class GroupMaker extends Component {
         text = "Change heroes";      
       }
       return (<div className="GMHeroes">
-        <div>
+        <div className="heroImages">
           {heroImages}
         </div>
         <div>
@@ -161,7 +160,7 @@ class GroupMaker extends Component {
             <PlayerLocationSelect onChange={this.handleChange}/>
             <MoodSelect onChange={this.handleChange}/>
           </div>
-          <Options onChange={this.handleChange}/>
+          
         </form>
         {this.getHeroesDiv()}
         <HeroSelector visible={this.props.heroSelectorVisible} onSubmitHeroes={this.handleSubmitHeroes}/>

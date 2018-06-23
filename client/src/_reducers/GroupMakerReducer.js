@@ -12,7 +12,6 @@ const initialState = {
   heroSelectorVisible: false,
   loginModalVisible: false,
   heroes: [null, null, null, null, null],
-  micRequired: false,
   selectedSlot: undefined,
   mode: 'All Pick',
   region: 'North America',
