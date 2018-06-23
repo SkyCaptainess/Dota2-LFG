@@ -26,10 +26,6 @@ const GroupSchema = mongoose.Schema({
   location: {
     type: String
   },
-  micRequired: {
-    type: Boolean,
-    required: true
-  },
   groupAvatar: {
     type: String
   },
