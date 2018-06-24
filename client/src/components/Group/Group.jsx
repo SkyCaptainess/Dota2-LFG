@@ -17,7 +17,7 @@ class Group extends Component {
                  src={groupAvatar}/>
             <div>
               <p className="groupUserName">{username}</p>
-              <p>{mode}</p>
+              <p className="groupMode">{mode}</p>
             </div>
           </div>
           <div className="groupMode">

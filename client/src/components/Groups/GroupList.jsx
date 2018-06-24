@@ -26,7 +26,6 @@ class GroupList extends Component {
     let groups = [];
 
     this.props.groups.forEach(group => {
-      console.log(group._id)
       groups.push(<Group group={group} key={group._id}/>)
     })
 
@@ -36,6 +35,7 @@ class GroupList extends Component {
 
     return groups;
   }
+
   render() {
     return (
       <div className="GroupList">

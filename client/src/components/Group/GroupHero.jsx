@@ -34,22 +34,38 @@ class GroupHero extends Component {
     id = _id;
     key = _id;
 
-    let src = "";
-    let alt = "";
-
+    let src = '';
+    let alt = '';
+    
+    let color = '';
     if(hero_id) {
-      let {name, localized_name} = _heroes.find(h => {
+      let {name, localized_name, primary_attr} = _heroes.find(h => {
         return h.id === hero_id
       });
 
+      console.log(name, localized_name, primary_attr);
+
       src=`/images/heroes/${name}_hphover.png`;
       alt=`${localized_name}`
+
+      if(primary_attr === 'int') {
+        color = 'dodgerblue';
+      } else if(primary_attr === 'str') {
+        color = 'crimson';
+      } else {
+        color ='seagreen';
+      }
     } else {
       src='/images/question_mark.png';
       alt='Question mark';
     }
+    
+    style.border = '3px solid white'
+    if(hero_id && steamid32) {
+      style.border = `3px solid ${color}`
+    }
 
-    return <img className={className} src={src} alt={alt} key={key} id={id} onClick={onClick}/>
+    return <img style={style} className={className} src={src} alt={alt} key={key} id={id} onClick={onClick}/>
   }
 
  handleClick =  async () => {
@@ -75,7 +91,7 @@ class GroupHero extends Component {
 
       //Fetch does not throw error on status codes like 401 :(
       if(response.status === 401) {
-        throw 'error';
+        throw {error: 'not authorized (401)'};
       } else {
         const editedHero = await response.json();
         return editedHero;

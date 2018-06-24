@@ -6,7 +6,6 @@ import LFHeroes from './GMControls/LFHeroes.jsx';
 import CreateGroupButton from './GMControls/CreateGroupButton.jsx';
 import PlayerLocationSelect from './GMControls/PlayerLocationSelect';
 import HeroSelector from './GMControls/HeroSelector';
-import LoginModal from './../auth/LoginModal';
 import {connect} from 'react-redux';
 import {withCookies} from 'react-cookie';
 import heroes from '../../dota-constants/heroes.js'

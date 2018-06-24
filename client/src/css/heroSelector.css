@@ -14,6 +14,7 @@
 
 .LFHContainer {
   background-color: #222;
+  border: 2px solid crimson;
   border-radius: 2px;
   width: 95%;
   height: 90%;
@@ -27,6 +28,11 @@
 .heroes {
   margin-bottom: 10px;
   text-align: left;
+  background-color: rgba(240, 240, 240);
+  margin-top: 10px;
+  border: 2px solid black;
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+  padding: 5px;
 }
 
 .heroBox {
@@ -36,7 +42,7 @@
 }
 
 .heroBox .heroes p {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid black;
   margin-bottom: 10px;
   font-size: 20px;
   padding-bottom: 5px;
@@ -58,7 +64,7 @@
 .heroSelector .heroes img {
   max-width: 59px;
   max-height: 33px;
-  border: 1px solid white;
+  border: 1px solid black;
   margin: 2px;
   cursor: pointer;
 }
@@ -67,6 +73,7 @@
   flex: 0 0 50%;
   margin: 10px auto;
   text-align: center;
+  color: white;
 }
 
 .heroSelector .emoticon {
@@ -95,7 +102,7 @@
 
 .selectedHeroes img {
   margin: 0px 5px;
-  border: 2px solid white;
+  border: 3px solid white;
 }
 
 .filters {
@@ -115,4 +122,17 @@
   width: 150px;
   margin: 0px 7px;
   border: 1px solid white;
+}
+
+.agiHeroes {
+  border-color: seagreen;
+}
+
+.strHeroes {
+  border-color: crimson;
+}
+
+.intHeroes {
+  border-color: dodgerblue;
+
 }

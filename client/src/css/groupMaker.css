@@ -102,10 +102,18 @@ input[type=checkbox] {
 }
 
 
-
-
 .GMHeroes button {
   padding: 8px 12px;
   width: 225px;
   border: 1px solid black;
+}
+
+.GMHeroes button:hover {
+  border: 1px solid black;
+  color: white;
+  background-color: green;
+}
+
+.GMHeroes .lfHeroesButton:hover {
+  background-color: red;
 }

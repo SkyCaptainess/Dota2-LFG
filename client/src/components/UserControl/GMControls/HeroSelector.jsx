@@ -184,17 +184,17 @@ class HeroSelector extends Component {
             <Button bsStyle="success" className="finishedButton" onClick={this.onSubmitHeroes}>Done</Button>
           </div>
           <div className="heroBox">
-            <div className="heroes">
+          <div className="heroes strHeroes">
+            <p className="strength">STRENGTH</p>
+              {this.getStrengthHeroes()}
+            </div>
+            <div className="heroes agiHeroes">
               <p className="agility">AGILITY</p>
               {this.getAgilityHeroes()}
             </div>
-            <div className="heroes">
+            <div className="heroes intHeroes">
             <p className="intelligence">INTELLIGENCE</p>
               {this.getIntelligenceHeroes()}
-            </div>
-            <div className="heroes">
-            <p className="strength">STRENGTH</p>
-              {this.getStrengthHeroes()}
             </div>
         </div>
         <div className="filters">

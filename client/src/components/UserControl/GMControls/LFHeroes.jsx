@@ -7,7 +7,7 @@ class LFHeroes extends Component {
   }
   
   render() {
-        return <Button bsStyle="danger" onClick={this.onClickLFHeroes} className="LFHeroesButton">{this.props.LFHeroesText}</Button>
+        return <Button bsStyle="danger" onClick={this.onClickLFHeroes} className="lfHeroesButton">{this.props.LFHeroesText}</Button>
   }
 }
 
