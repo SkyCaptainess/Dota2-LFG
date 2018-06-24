@@ -1,9 +1,10 @@
 .GroupMaker {
-  border: 4px solid seagreen;
+  box-shadow: -10px 10px 1px 0px rgba(0,0,0, .4);
   background-color: rgb(225, 225, 225);
   width: 60%;
   display: inline-block;
-  border-radius: 2px;
+  border-radius: 5px;
+  border-color: black;
   padding: 5px;
 }
 
@@ -27,12 +28,12 @@ form > div {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   padding: 5px;
-  border-radius: 3px;
+ 
 }
 
 .GMLabel {
   font-size: 18px;
-  border-bottom: 2px solid dodgerblue;
+  border-bottom: 2px solid purple;
   width: 100px;
   margin-bottom: 12px;
   padding-bottom: 4px;
@@ -92,7 +93,7 @@ input[type=checkbox] {
 
 .GMHeroes .heroImages {
   background-color: #444;
-  border: 2px solid crimson;
+  border: 2px solid purple;
   padding: 4px;
   box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
 }
@@ -103,17 +104,15 @@ input[type=checkbox] {
 
 
 .GMHeroes button {
+  border-radius: 5px;
   padding: 8px 12px;
   width: 225px;
   border: 1px solid black;
+  box-shadow: -3px 3px 1px 0px rgba(0,0,0,0.51);
 }
 
 .GMHeroes button:hover {
   border: 1px solid black;
   color: white;
-  background-color: green;
-}
-
-.GMHeroes .lfHeroesButton:hover {
-  background-color: red;
+  box-shadow: none;
 }

@@ -1,14 +1,14 @@
 .Group {
-  margin: 15px 0px;
-  border: 3px solid purple;
-  border-radius: 5px;
+  margin-bottom: 25px;
+  border: 2px solid black;
   width: 515px;
   position: relative;
   min-height: 375px;
-  border-radius: 2px;
+  border-radius: 5px;
   background-color:rgb(244, 244, 244);
   color: black;
   font-size: 17px;
+  box-shadow: -10px 10px 1px 0px rgba(0,0,0, .4);
 }
 
 .Group img {

@@ -25,18 +25,19 @@ body {
 .Filter .btn {
   color: black;;
   vertical-align: top;
-  margin-top: 5px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   background-color: dodgerblue;
-  border: 1px solid white;
-  border-top: 1px solid white;
+  border: 1px solid black;
   border-top-style: double;
-  border-radius: 2px;
+  border-radius: 5px;
   width: 225px;
+  box-shadow: -3px 3px 1px 0px rgba(0,0,0,.4);
 }
 
 .Filter .btn:hover {
-  color: white;;
-  background-color: blue;
+  color: white;
+  box-shadow: none;
 }
 
 
