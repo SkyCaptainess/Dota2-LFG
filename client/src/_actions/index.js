@@ -12,9 +12,10 @@ export const toggleHeroSelectorVisibility = (visibility) => ({
 });
 
 export const TOGGLE_LOGIN_MODAL_VISIBILITY = 'TOGGLE_LOGIN_MODAL_VISIBILITY';
-export const toggleLoginModalVisibility = (visibility) => ({
+export const toggleLoginModalVisibility = (visibility, whereFrom) => ({
   type: TOGGLE_LOGIN_MODAL_VISIBILITY,
-  visibility
+  visibility,
+  whereFrom
 })
 
 export const SET_HEROES = 'SET_HEROES'

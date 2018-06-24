@@ -8,8 +8,6 @@ class Group extends Component {
    
     let {mood, mode, region, location,
       username, groupAvatar, slot0, slot1, slot2, slot3, slot4, steamid32} = this.props.group;
-      console.log(this.props.group);
-
     return (
       <div className="Group">
         <div className="groupTopRow">

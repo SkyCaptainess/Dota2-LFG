@@ -47,7 +47,8 @@ export const GroupMakerReducer = (state=initialState, action) => {
     });
   } else if (action.type === TOGGLE_LOGIN_MODAL_VISIBILITY) {
     return Object.assign({}, state, {
-      loginModalVisible: action.visibility
+      loginModalVisible: action.visibility,
+      whereFrom: action.whereFrom
     })
   }
 

@@ -24,7 +24,7 @@ const validateJWT = (req, res, next) => {
       console.log(decoded);
     }
   });
-
+  console.log('hello!');
   next();
 }
 

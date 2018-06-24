@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import '../../css/group.css'
-import _heroes from '../../dota-constants/heroes.js'
+import _heroes from '../../dota-constants/heroes.js';
+import {connect} from 'react-redux';
+import {
+  toggleLoginModalVisibility
+} from '../../_actions'
 
 class GroupHero extends Component {
 
@@ -48,8 +52,38 @@ class GroupHero extends Component {
     return <img className={className} src={src} alt={alt} key={key} id={id} onClick={onClick}/>
   }
 
-  handleClick = () => {
-    console.log('hello!');
+ handleClick =  async () => {
+    const editedHero = await this.putHero();
+    console.log(editedHero);
+  }
+
+  putHero = async () => {
+    try {
+      const response = await fetch('/api/groups', {
+        body: JSON.stringify({
+          hero_id: this.props.hero_id,
+          steamid32: this.props.steamid32,
+          slot_number: this.props.number
+        }),
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'content-type': 'application/json'
+        },
+        method: 'PUT'
+      });
+
+      //Fetch does not throw error on status codes like 401 :(
+      if(response.status === 401) {
+        throw 'error';
+      } else {
+        const editedHero = await response.json();
+        return editedHero;
+      }
+    } catch (error) {
+        this.props.dispatch(toggleLoginModalVisibility(true, 'editHero'));
+        return('Hello! Thanks for looking at the console. Click the steam button :D');
+    }
   }
 
   render() {
@@ -64,4 +98,4 @@ class GroupHero extends Component {
   }
 }
 
-export default GroupHero;
+export default connect()(GroupHero);

@@ -74,7 +74,7 @@ class GroupMaker extends Component {
     const {cookies} = this.props;
     const user = cookies.get('user');
     if(!user) {
-      this.props.dispatch(toggleLoginModalVisibility(!this.props.loginModalVisible));
+      this.props.dispatch(toggleLoginModalVisibility(true, 'groupMaker'));
       return;
     }
     try {
@@ -159,11 +159,9 @@ class GroupMaker extends Component {
             <PlayerLocationSelect onChange={this.handleChange}/>
             <MoodSelect onChange={this.handleChange}/>
           </div>
-          
         </form>
         {this.getHeroesDiv()}
         <HeroSelector visible={this.props.heroSelectorVisible} onSubmitHeroes={this.handleSubmitHeroes}/>
-        <LoginModal wherePrompted="groupMaker" visible={this.props.loginModalVisible}/>
       </section>
     );
   }

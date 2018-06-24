@@ -5,8 +5,8 @@
   align-content: space-between;
   justify-content: center;
   align-items: center;
-  background-color: snow;
-  border-bottom: 2px solid white;
+  background-color: #222;
+  border-bottom: 2px solid crimson;
   color: white;
   margin-bottom: 15px;
   position: fixed;
@@ -24,9 +24,11 @@
 .brand {
   display: inline;
   font-family: 'Cabin', sans-serif;
-  font-size: 24px;
-  color: crimson;
-  padding: 15px;
+  font-size: 26px;
+  font-style: bold;
+  color: snow;
+  margin-left: 20px;
+  
 }
 
 .about {
@@ -37,4 +39,22 @@
 .nav img {
   cursor: pointer;
   margin-left: 50px;
+}
+
+
+.L {
+  color:crimson;
+}
+
+.F {
+  color: seagreen;
+}
+
+.G {
+  color: dodgerblue;
+}
+
+.nav .e {
+  color: white;
+  font-size: 16px;
 }

@@ -5,6 +5,8 @@ import Nav from './components/Navigation/Nav';
 import Filter from './components/UserControl/Filter';
 import GroupMaker from './components/UserControl/GroupMaker';
 import MiniProfile from './components/UserControl/MiniProfile';
+import LoginModal from './components/auth/LoginModal';
+import {connect} from 'react-redux';
 import './css/reset.css'
 import './css/app.css'
 
@@ -13,6 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav/>
+        <LoginModal whereFrom={this.props.whereFrom} visible={this.props.loginModalVisible}/>
         <div className="topRow">
           <GroupMaker/>
           <MiniProfile/>
@@ -25,4 +28,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export const mapStateToProps = state => ({
+  loginModalVisible: state.loginModalVisible
+});
+
+export default connect(mapStateToProps)(App);
