@@ -87,7 +87,8 @@ router.get('/test', (req, res) => {
       total: {
         $sum: 1
       }
-    }}
+    }},
+    { $sort : { total: -1, win: -1} }
   ])
   .then(matches => {
     console.log(matches);

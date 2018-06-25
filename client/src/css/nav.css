@@ -33,12 +33,18 @@
 
 .about {
   font-size: 18px;
-  color: black;
+  color: snow;
 }
 
 .nav img {
   cursor: pointer;
   margin-left: 50px;
+  border: 2px solid snow;
+  border-radius: 10px;
+  border-top-color: purple;
+  border-right-color: crimson;
+  border-bottom-color: seagreen;
+  border-left-color: dodgerblue;
 }
 
 

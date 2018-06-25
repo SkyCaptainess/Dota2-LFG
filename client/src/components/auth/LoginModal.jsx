@@ -21,9 +21,12 @@ class LoginModal extends Component {
   }
 
   render() {
+    console.log(this.props);
     let style = {display: 'none'};
     let catchyPhrase = '';
     let more = '';
+    let src = '';
+    let alt = '';
     
     if(this.props.visible) {
       style.display = 'initial';
@@ -31,16 +34,20 @@ class LoginModal extends Component {
 
     if(this.props.whereFrom === 'groupMaker') {
       catchyPhrase = 'You\'ll never find the perfect pudge that way...'
+      more = 'You can\'t create a group without logging in! Unfortunately the technology just isn\'t there yet.';
+      src = '/images/emoticons/pudge_troll.gif';
+      alt = 'Pudge trolling you';
     } else if (this.props.whereFrom === 'editHero') {
-
+      catchyPhrase = 'If you were the shopkeeper, would you sell a Divine Rapier to someone without identification? I reckon you would be like nah, bro! You\'ll just go feed with it.'
+      more = 'Same concept here! Nobody wants feeders and bots in their group, so you\'ll have to login to join a group!'
     }
     return (
       <section style={style} className="loginModal">
         <div className="loginInfo">
           <p className="pudge">{catchyPhrase}</p>
-          <p className="noTechnology">Something about technology LOL
+          <p className="noTechnology">{more}
             <span>
-              <img src="/images/emoticons/pudge_troll.gif" alt="Pudge trolling you"/>
+              <img src={src} alt={alt}/>
             </span>
           </p>
           <p className="pleaseLogin">Login to create a group, join a group, view your stats (and others!), chat, make friends, and more!</p>

@@ -14,15 +14,10 @@ class GroupHero extends Component {
     let onClick;
     let className;
 
-    let style = {
-      opacity: '.4'
-    }
-
     //steamid32(group)_steamid32(slot)_slot#
     let _id;
 
     if(steamid32) {
-      style.opacity = '1';
       _id = `${this.props.steamid32}_${steamid32}_${this.props.number}`;
       className = "heroImg"
     } else {
@@ -60,12 +55,12 @@ class GroupHero extends Component {
       alt='Question mark';
     }
     
-    style.border = '3px solid white'
+    
     if(hero_id && steamid32) {
-      style.border = `3px solid ${color}`
-    }
+      //add class for color
+    } 
 
-    return <img style={style} className={className} src={src} alt={alt} key={key} id={id} onClick={onClick}/>
+    return <img className={className} src={src} alt={alt} key={key} id={id} onClick={onClick}/>
   }
 
  handleClick =  async () => {

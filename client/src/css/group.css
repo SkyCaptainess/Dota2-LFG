@@ -43,6 +43,7 @@
   max-width: 89px;
   max-height: 50px;
   margin: 5px 3px;
+  border: 3px solid white;
 }
 
 .groupProfile {
@@ -63,6 +64,7 @@
 .groupProfile img {
   float: left;
   margin-right: 5px;
+  border: 1px solid black;
 }
 
 .groupProfile p {
@@ -95,11 +97,12 @@
 
 .groupHeroes .selectableSlot {
   cursor: pointer;
-  opacity: .5;
+  opacity: .6;
+  border: 1px solid black;
   
 }
 .groupHeroes .selectableSlot:hover {
-  border: 3px solid crimson;
+  border: 1px solid white;
   opacity: 1;
 }
 
