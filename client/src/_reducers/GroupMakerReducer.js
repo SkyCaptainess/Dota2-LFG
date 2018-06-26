@@ -5,7 +5,8 @@ import {
   SELECT_SLOT,
   CREATE_GROUP,
   ADD_ALL_GROUPS,
-  TOGGLE_LOGIN_MODAL_VISIBILITY
+  TOGGLE_LOGIN_MODAL_VISIBILITY,
+  UPDATE_GROUP
 } from '../_actions';
 
 const initialState = {
@@ -34,6 +35,7 @@ export const GroupMakerReducer = (state=initialState, action) => {
       heroes: action.heroes
     });
   } else if (action.type === SELECT_SLOT) {
+    console.log('hi');
     return Object.assign({}, state, {
       selectedSlot: action.slot
     })
@@ -49,6 +51,17 @@ export const GroupMakerReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       loginModalVisible: action.visibility,
       whereFrom: action.whereFrom
+    })
+  } else if (action.type === UPDATE_GROUP) {
+    console.log('hi')
+    return Object.assign({}, state, {
+      groups: state.groups.map(group => {
+        if(group.steamid32 === action.group.steamid32) {
+          return action.group
+        } else {
+          return group
+        }
+      })
     })
   }
 

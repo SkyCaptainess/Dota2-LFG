@@ -5,7 +5,8 @@ const GroupUser = require('./GroupUser');
 const GroupSchema = mongoose.Schema({
   steamid32: {
     type: Number,
-    required: true
+    required: true,
+    unique: true
   },
   username: {
     type: String,

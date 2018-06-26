@@ -42,4 +42,10 @@ export const addAllGroups = groups => ({
   groups
 })
 
+export const UPDATE_GROUP = 'UPDATE_GROUP'
+export const updateGroup = group => ({
+  type: UPDATE_GROUP,
+  group
+})
+
 

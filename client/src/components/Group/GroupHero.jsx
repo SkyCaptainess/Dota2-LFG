@@ -3,7 +3,8 @@ import '../../css/group.css'
 import _heroes from '../../dota-constants/heroes.js';
 import {connect} from 'react-redux';
 import {
-  toggleLoginModalVisibility
+  toggleLoginModalVisibility,
+  updateGroup
 } from '../../_actions'
 
 class GroupHero extends Component {
@@ -64,8 +65,9 @@ class GroupHero extends Component {
   }
 
  handleClick =  async () => {
-    const editedHero = await this.putHero();
-    console.log(editedHero);
+    const editedGroup = await this.putHero();
+    console.log(editedGroup);
+    this.props.dispatch(updateGroup(editedGroup));
   }
 
   putHero = async () => {
@@ -86,7 +88,7 @@ class GroupHero extends Component {
 
       //Fetch does not throw error on status codes like 401 :(
       if(response.status === 401) {
-        throw {error: 'not authorized (401)'};
+        throw new Error('Not authorized');
       } else {
         const editedHero = await response.json();
         return editedHero;

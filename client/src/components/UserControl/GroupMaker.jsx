@@ -87,6 +87,9 @@ class GroupMaker extends Component {
         method: 'POST'
       })
       const responseJson = await response.json();
+      if(responseJson.code === 11000) {
+        throw new Error('Group already created');
+      }
       this.props.dispatch(createGroup(responseJson));
     } catch(error) {
       console.error(error);
