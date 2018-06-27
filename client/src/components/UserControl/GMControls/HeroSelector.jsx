@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import {select, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 import heroes from '../../../dota-constants/heroes';
 import {Button} from 'react-bootstrap';
 import '../../../css/heroSelector.css';
 import {connect} from 'react-redux';
+
+/*This component does WAY too much. I plan on refactoring it, but for the sake of time,
+it will have to be at a later date :)*/
 
 class HeroSelector extends Component {
   constructor(props) {
@@ -29,7 +33,8 @@ class HeroSelector extends Component {
         <img src="/images/question_mark.png" alt="Question Mark" key="slot_4" id="slot_4?" onClick={e => this.handleRemoveHero(e)}/>
       ],
         slotsFree: [0,1,2,3,4]
-      }
+      },
+      filteredHeroes: heroes
     }
   }
 
@@ -67,6 +72,9 @@ class HeroSelector extends Component {
 
   handleAddHero(e) {
     let id = e.target.id
+    let style = {border: '3px solid red'};
+    e.target.style.opacity = '.2';
+    e.target.style.cursor = 'initial';
     let selectedHeroes = this.state.selectedHeroes.heroes;
     let heroAlreadySelected = false;
     
@@ -107,6 +115,10 @@ class HeroSelector extends Component {
 
   handleRemoveHero(e) {
     let id = e.target.id.split('_')[1];
+    let removedHero = document.getElementById(id);
+    removedHero.style.opacity = '1';
+    removedHero.style.cursor = 'pointer';
+    console.log(removedHero);
     let selectedHeroes = this.state.selectedHeroes.heroes;
     let slotsFree = this.state.selectedHeroes.slotsFree;
     
@@ -144,9 +156,28 @@ class HeroSelector extends Component {
     
     return images;
   }
+
+  /*Not adding this until I refactor this component*/
+  filterHeroes(type, filter) {
+    console.log(filter);
+    console.log(type);
+    let filteredHeroes = [];
+    if(type === 'legs' || type === 'attackType') {
+      filteredHeroes = heroes.filter(h => {
+        if(type === 'legs' && h.legs.toString() === filter) {
+          return h;
+        }
+      })
+    } else {
+
+    }
+    this.setState({
+      filteredHeroes: filteredHeroes
+    })
+  }
   
   getAgilityHeroes() {
-    let agiHeroes = heroes.filter(h => {
+    let agiHeroes = this.state.filteredHeroes.filter(h => {
       return h.primary_attr === 'agi';
     });
     
@@ -154,7 +185,7 @@ class HeroSelector extends Component {
   }
   
   getIntelligenceHeroes() {
-    let intelligenceHeroes = heroes.filter(h => {
+    let intelligenceHeroes = this.state.filteredHeroes.filter(h => {
       return h.primary_attr === 'int';
     });
     
@@ -162,7 +193,7 @@ class HeroSelector extends Component {
   }
   
   getStrengthHeroes() {
-    let strengthHeroes = heroes.filter(h => {
+    let strengthHeroes = this.state.filteredHeroes.filter(h => {
       return h.primary_attr === 'str';
     });
     
@@ -197,9 +228,46 @@ class HeroSelector extends Component {
               {this.getIntelligenceHeroes()}
             </div>
         </div>
+        {/* This introduces too many issues and I will need to add it after I refactor the hero selector component
+
         <div className="filters">
-          Hiiiiiiii
-        </div>
+          <p>Filter Heroes</p>
+          <form>
+            <FormGroup controlId="attackType">
+              <ControlLabel>Attack type</ControlLabel>
+              <FormControl componentClass="select" placeholder="Melee and Ranged">
+                <option value="-">-</option>
+                <option value="melee">Melee</option>
+                <option value="ranged">Ranged</option>
+              </FormControl>
+            </FormGroup>
+            <FormGroup controlId="role">
+              <ControlLabel>Role</ControlLabel>
+              <FormControl componentClass="select" placeholder="All">
+                <option value="all">All</option>
+                <option value="Carry">Carry</option>
+                <option value="Disabler">Disabler</option>
+                <option value="Durable">Durable</option>
+                <option value="Escape">Escape</option>
+                <option value="Initiator">Initiator</option>
+                <option value="Jungler">Jungler</option>
+                <option value="Nuker">Nuker</option>
+                <option value="Pusher">Pusher</option>
+                <option value="Support">Support</option>
+              </FormControl>
+            </FormGroup>
+            <FormGroup controlId="legs">
+              <ControlLabel>Number of legs</ControlLabel>
+              <FormControl componentClass="select" placeholder="All" onChange={e => this.filterHeroes('legs', e.target.value)}>
+                <option value="all">I do not discriminate on the basis of legs</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8 (SPIDER WARNING!)</option>
+              </FormControl>
+            </FormGroup>
+          </form>
+        </div>*/}
         <div className="bottomRow">
           <img className="emoticon emoticon3" alt="Anti-Mage laughing" src="/images/emoticons/am_laugh.gif"/>
           <img className="emoticon emoticon4" alt="Puck being cheeky and sticking his tongue out" 
