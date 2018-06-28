@@ -1,7 +1,7 @@
 .GroupMaker {
-  box-shadow: -10px 10px 1px 0px rgba(0,0,0, .4);
+  box-shadow: -10px 10px 1px 0px rgba(0,0,0,.4);
   background-color: rgb(225, 225, 225);
-  width: 60%;
+  width: 59%;
   display: inline-block;
   border-radius: 5px;
   border-color: black;
@@ -9,8 +9,8 @@
 }
 
 .topRow {
-  padding-top: 100px;
   display: flex;
+  justify-content: space-between;
 }
 
 .GroupMaker p {
@@ -28,7 +28,6 @@ form > div {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   padding: 5px;
- 
 }
 
 .GMLabel {
@@ -38,6 +37,7 @@ form > div {
   margin-bottom: 12px;
   padding-bottom: 4px;
   color: black;
+  text-align: center;
 }
 
 .PlayerLocationSelect .GMLabel {

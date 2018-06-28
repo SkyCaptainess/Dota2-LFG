@@ -40,4 +40,27 @@ body {
   box-shadow: none;
 }
 
+.groupTabs {
+  text-align: left;
+  margin-top: 100px;
+}
+
+.groupTab:first-child {
+  margin-left: 10px;
+}
+
+.groupTab {
+  text-align: center;
+  background-color:gainsboro;
+  margin-left: 5px;
+  padding: 3px;
+  color: #222;
+  width: 125px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 15px;
+  border-bottom: 1px solid purple;
+  border-bottom-style: dotted;
+  display: inline-block;
+}
+
 

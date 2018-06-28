@@ -16,6 +16,7 @@ class GroupList extends Component {
       });
       const groups = await response.json()
       this.props.dispatch(addAllGroups(groups));
+      
     } catch (error) {
       console.error(error);
     }
