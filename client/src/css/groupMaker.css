@@ -70,7 +70,7 @@ input[type=checkbox] {
 
 .GMHeroes {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 10px;
   padding: 5px;
@@ -89,6 +89,7 @@ input[type=checkbox] {
   border: 2px solid white;
   margin: 5px 3px;
   cursor: pointer;
+  opacity: .4;
 }
 
 .GMHeroes .heroImages {
@@ -99,7 +100,8 @@ input[type=checkbox] {
 }
 
 .GMHeroes img:hover {
-  border: 2px solid crimson;
+  border: 2px solid white;
+  opacity: 1;
 }
 
 

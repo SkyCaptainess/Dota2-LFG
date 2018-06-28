@@ -36,7 +36,7 @@
   background-color: #444;
   border: 2px solid purple;
   padding: 4px;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.4);
 }
 
 .groupHeroes .heroImg {
@@ -58,7 +58,7 @@
   align-items: center;
   padding: 5px;
   border: 1px solid black;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.4);
 }
 
 .groupProfile img {
@@ -84,7 +84,7 @@
   background-color: snow;
   color: black;
   border: 1px solid black;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.4);
   min-width: 200px;
   text-align: center;
   font-size: 15px;
@@ -97,7 +97,7 @@
 
 .groupHeroes .selectableSlot {
   cursor: pointer;
-  opacity: .6;
+  opacity: .4;
   border: 1px solid black;
   
 }

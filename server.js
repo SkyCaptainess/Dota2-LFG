@@ -14,7 +14,7 @@ const {
   router: steamRouter
 } = require('./api/auth/steam');
 const {
-  router: matchesRouter
+  router: matchStatsRouter
 } = require('./api/matchStats');
 const {
   router: groupsRouter
@@ -64,7 +64,7 @@ app.use(passport.initialize());
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/steam', steamRouter);
-app.use('/api/matches', matchesRouter);
+app.use('/api/matchstats', matchStatsRouter);
 app.use('/api/groups', groupsRouter);
 
 app.use(express.static('public', {maxAge: '1d'}));

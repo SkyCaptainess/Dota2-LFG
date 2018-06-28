@@ -8,6 +8,7 @@
     "react-test-renderer": "^16.0.0"
   },
   "dependencies": {
+    "dota2-minimap-hero-sprites": "^2.0.0",
     "enzyme-adapter-react-16": "^1.0.1",
     "react": "^16.0.0",
     "react-bootstrap": "^0.32.1",

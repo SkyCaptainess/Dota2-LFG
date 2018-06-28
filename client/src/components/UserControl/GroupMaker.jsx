@@ -42,7 +42,6 @@ class GroupMaker extends Component {
         mood: this.props.mood,
         region: this.props.region,
         location: this.props.location,
-        micRequired: this.props.micRequired,
         'slot0': {
           hero_id: parseInt(this.props.heroes[0], 10) || null
         },
@@ -98,6 +97,7 @@ class GroupMaker extends Component {
 
   handleSelectHero = e => {
     let id = e.target.id.split('_')[1];
+    e.target.style.opacity = 1;
     this.props.dispatch(selectSlot(parseInt(id, 10)));
   }
   
@@ -106,12 +106,7 @@ class GroupMaker extends Component {
     let heroImages = [];
     for (let i = 0; i < 5; i++) {
       let hero;
-      let selectedStyle = {}
-      if (this.props.selectedSlot === i) {
-        selectedStyle = {
-          border: '2px solid dodgerblue',
-        }
-      }
+      
       if(this.props.heroes[i]) {
         atLeastOneHero = true;
         
@@ -124,14 +119,14 @@ class GroupMaker extends Component {
                 id={'gmhero_' + i}
                 key={'gmhero_' + i}
                 onClick={e => this.handleSelectHero(e)}
-                style={selectedStyle}/>
+                />
       } else {
         hero = <img src="/images/question_mark.png" 
                 alt="Question Mark"
                 id={'gmhero_' + i}
                 key={'gmhero_' + i}
                 onClick={e => this.handleSelectHero(e)}
-                style={selectedStyle}/>
+                />
       }
       heroImages.push(hero);
     }
@@ -176,7 +171,6 @@ export const mapStateToProps = state => ({
   mood: state.mood,
   heroSelectorVisible: state.heroSelectorVisible,
   heroes: state.heroes,
-  micRequired: state.micRequired,
   selectedSlot: state.selectedSlot,
   groups: state.groups,
   loginModalVisible: state.loginModalVisible

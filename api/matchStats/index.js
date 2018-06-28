@@ -10,6 +10,9 @@ const {
   lobby_types: lobby_typesAll
 } = require('../../dota/constants');
 const {Match} = require('../../models/Match');
+const {
+  validateJWT
+} = require('./../auth');
 
 /*make copies so imported originals are not modified and can be used for different queries.
 These are the "balanced" modes and lobby types, aka those that factor into Valve's ranking system*/
@@ -37,43 +40,19 @@ Object.keys(lobby_types).forEach(k => {
 
 console.log(lobby_typesAll);
 
-// Post to register a new user
-router.get('/test', (req, res) => {
-   let m = {
-    count: 0
-  };
-//   const OD = require ('./../../dota/opendota');
-
-//   OD.getMatches(22572901)
-//   .then(ms => {
-//     ms = JSON.parse(ms);
-//     ms = ms.map(mt => {
-//       if(mt.hero_id === 6) {
-//         return mt.match_id
-//       }
-//     })
-    
-//     ms = ms.filter(mt => {
-//       if(mt) {
-//         return mt
-//       }
-//     })
-//     return ms;
-//   })
-//   .then(ms => {
-//     Match.find({hero_id: 6, game_mode: {$in: balancedModes}}).distinct('match_id')
-//     .then(mm => {
-//       console.log(mm.length, ms.length)
-//       let array3 = mm.filter(function(obj) { return ms.indexOf(obj) == -1; });
-//       res.json(array3);
-//     })
-//   })
-// })
-  
+/* Gets top 3 heroes by games played. Might expand upon this later to give more options
+   based on query params */
+router.get('/top3heroes/totalgames', validateJWT,  (req, res) => {
+  if(!req.steamid32) {
+    return res.status(401).json({
+      error: 'Not authorized'
+    })
+  }
   Match.aggregate([
     {$match: 
       {game_mode: {$in:balancedModes},
-      lobby_type: {$in:balancedLobbyTypes}  
+      lobby_type: {$in:balancedLobbyTypes},
+      steamid32: req.steamid32  
       },
     },
     {$group: {
@@ -88,13 +67,11 @@ router.get('/test', (req, res) => {
         $sum: 1
       }
     }},
-    { $sort : { total: -1, win: -1} }
+    { $sort : { total: -1} },
+    { $limit: 3}
   ])
-  .then(matches => {
-    console.log(matches);
-    m.count = matches.length;
-    m.matches = matches;
-    res.json(m);
+  .then(stats => {
+    res.json(stats);
   })
 })
 

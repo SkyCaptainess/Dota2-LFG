@@ -17,7 +17,7 @@
   left: 25%;
   top: 30%;
   background-color: snow;
-  border: 4px solid crimson;
+  border: 2px solid purple;
   border-radius: 3px;
 }
 
@@ -39,4 +39,11 @@ span img {
  margin: 20px 10px;
  border: 1px solid black;
  color: black;
+ box-shadow: -4px 4px 1px 0px rgba(0,0,0, .4);
+}
+
+.btn:hover {
+  border: 1px solid black;
+  color: white;
+  box-shadow: none;
 }

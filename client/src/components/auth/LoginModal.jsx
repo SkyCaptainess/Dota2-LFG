@@ -33,7 +33,7 @@ class LoginModal extends Component {
     }
 
     if(this.props.whereFrom === 'groupMaker') {
-      catchyPhrase = 'You\'ll never find the perfect pudge that way...'
+      catchyPhrase = 'You\'ll never find the perfect Pudge that way...'
       more = 'You can\'t create a group without logging in! Unfortunately the technology just isn\'t there yet.';
       src = '/images/emoticons/pudge_troll.gif';
       alt = 'Pudge trolling you';
@@ -50,7 +50,9 @@ class LoginModal extends Component {
               <img src={src} alt={alt}/>
             </span>
           </p>
-          <p className="pleaseLogin">Login to create a group, join a group, view your stats (and others!), chat, make friends, and more!</p>
+          <p className="pleaseLogin">
+          Login to create a group, join a group, view others' stats and your own, chat, make friends, and more!
+          </p>
           <Button bsStyle="danger" onClick={this.handleCancelLogin}>Nevermind :(</Button>
           <Button bsStyle="success" onClick={this.handleLogin}>Okay, take me to steam!</Button>
         </div>

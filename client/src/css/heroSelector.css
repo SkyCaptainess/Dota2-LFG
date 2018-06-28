@@ -118,6 +118,12 @@
   width: 150px;
   margin: 0px 7px;
   border: 1px solid white;
+  box-shadow: -3px 3px 1px 0px rgba(0,0,0,.4);
+}
+
+.heroSelector .finishedButton:hover {
+  color: white;
+  box-shadow: none;
 }
 
 .agiHeroes {
