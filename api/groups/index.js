@@ -54,7 +54,15 @@ router.post('/', (req, res) => {
     })
 });
 
-router.put('/', validateJWT, (req, res) => {
+router.delete('/', (req, res) => {
+  
+})
+
+router.put('/editinfo', (req, res) => {
+  
+})
+
+router.put('/', (req, res) => {
   console.log(req.body);
   if (req.steamid32) {
     if (req.body.steamid32 === req.steamid32) {

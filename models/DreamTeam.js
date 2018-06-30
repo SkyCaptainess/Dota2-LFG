@@ -1,28 +1,18 @@
 'use strict';
 const mongoose = require('mongoose');
 
-const UserSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true
+const DreamTeamSchema = mongoose.Schema({
+  steamid32: {
+    type: Number,
+    required: true
   },
-  registeredAt: {
-    type: Date,
-    required: true,
-    default: Date.now
-  }
+  heroes: [{
+    hero_id: {type: Number}
+  }]
 });
 
-UserSchema.methods.serialize = function () {
-  return {
-    username: this.username,
-    registeredAt: this.registeredAt
-  };
-};
-
-const User = mongoose.model('User', UserSchema);
+const DreamTeam = mongoose.model('DreamTeam', DreamTeamSchema);
 
 module.exports = {
-  User
+  DreamTeam
 };
