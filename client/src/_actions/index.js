@@ -48,4 +48,10 @@ export const updateGroup = group => ({
   group
 })
 
+export const SET_CREATED_GROUP = 'SET_CREATED_GROUP';
+export const setCreatedGroup = createdGroup => ({
+  type: SET_CREATED_GROUP,
+  createdGroup
+})
+
 

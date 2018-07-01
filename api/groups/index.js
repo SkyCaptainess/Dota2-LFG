@@ -56,11 +56,15 @@ router.post('/', (req, res) => {
 
 router.delete('/', (req, res) => {
   
-})
+});
+
+router.put('/removeuser', (req, res) => {
+  console.log(req.steamid32, 'USER');
+});
 
 router.put('/editinfo', (req, res) => {
   
-})
+});
 
 router.put('/', (req, res) => {
   console.log(req.body);
@@ -73,7 +77,7 @@ router.put('/', (req, res) => {
               res.status(200).json(updatedGroup);
             })
             .catch(err => {
-              console.log(err);
+              res.status(301).json(err);
             })
         })
         .catch(err => {
@@ -87,7 +91,7 @@ router.put('/', (req, res) => {
               res.status(200).json(updatedGroup);
             })
             .catch(err => {
-              console.log(err);
+              res.status(301).json(err);
             })
         })
         .catch(err => {
@@ -110,13 +114,16 @@ const updateGroup = (groupSteamid32, userSteamid32, username, slotNumber) => {
       [`${slot}.selected`]: true
     }
 
-
     Group.findOneAndUpdate({
-        steamid32: groupSteamid32
+        steamid32: groupSteamid32, [`${slot}.steamid32`]: null
       }, update, {
         new: true
       })
       .then(_group => {
+        console.log(_group, 'HELLo');
+        if(!_group) {
+           throw new Error('taken');
+        }
         resolve(_group);
       })
       .catch(err => {

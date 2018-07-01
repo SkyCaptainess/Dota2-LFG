@@ -17,7 +17,7 @@ class App extends Component {
       <div className="App">
         <Nav/>
         <LoginModal whereFrom={this.props.whereFrom} visible={this.props.loginModalVisible}/>
-        <div class="groupTabs">
+        <div className="groupTabs">
           <GroupTab text="Group Maker"/>
           <GroupTab text="My Group"/>
           <GroupTab text="Joined Group"/>

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import Group from '../Group/Group';
 import {connect} from 'react-redux';
-import {addAllGroups} from './../../_actions'
+import {withCookies} from 'react-cookie';
+import {addAllGroups, setCreatedGroup} from './../../_actions'
 import '../../css/groupList.css'
 
 class GroupList extends Component {
   componentDidMount = async () => {
     try {
-      this.setState({
-        loading: true
-      })
       const response = await fetch('/api/groups', {
         method: 'GET',
         credentials: 'same-origin',
@@ -20,7 +18,19 @@ class GroupList extends Component {
     } catch (error) {
       console.error(error);
     }
-    
+  }
+  
+  componentDidUpdate = () => {
+    let user = this.props.cookies.get('user');
+    if(user && user.steamid32) {
+      let createdGroup = this.props.groups.find(g => {
+        return g.steamid32 === user.steamid32
+      })
+      
+      if(createdGroup && this.props.createdGroup === null) {
+        this.props.dispatch(setCreatedGroup(createdGroup))
+      }
+    }
   }
 
   getGroups = () => {
@@ -29,7 +39,7 @@ class GroupList extends Component {
     this.props.groups.forEach(group => {
       groups.push(<Group group={group} key={group._id}/>)
     })
-
+    
     if(groups.length === 0) {
       return <p className="groupListLoading">Loading Groups!</p>
     }
@@ -38,6 +48,7 @@ class GroupList extends Component {
   }
 
   render() {
+    console.log(this.props.createdGroup);
     return (
       <div className="GroupList">
         {this.getGroups()}
@@ -48,7 +59,8 @@ class GroupList extends Component {
 
 
 export const mapStateToProps = state => ({
-  groups: state.groups
+  groups: state.groups,
+  createdGroup: state.createdGroup
 });
 
-export default connect(mapStateToProps)(GroupList);
+export default connect(mapStateToProps)(withCookies(GroupList));

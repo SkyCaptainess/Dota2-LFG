@@ -111,3 +111,15 @@
     margin: 15px auto;
   }
 }
+
+.groupHeroes .seagreen {
+  border-color: seagreen;
+}
+
+.groupHeroes .crimson {
+  border-color: crimson;
+}
+
+.groupHeroes .dodgerblue {
+  border-color: dodgerblue;
+}

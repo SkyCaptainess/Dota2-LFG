@@ -6,7 +6,8 @@ import {
   CREATE_GROUP,
   ADD_ALL_GROUPS,
   TOGGLE_LOGIN_MODAL_VISIBILITY,
-  UPDATE_GROUP
+  UPDATE_GROUP,
+  SET_CREATED_GROUP
 } from '../_actions';
 
 const initialState = {
@@ -18,7 +19,8 @@ const initialState = {
   region: 'North America',
   location: 'Prefer not to say',
   mood: 'Looking for friends 😍',
-  groups: []
+  groups: [],
+  createdGroup: null
 };
 
 export const GroupMakerReducer = (state=initialState, action) => {
@@ -62,6 +64,10 @@ export const GroupMakerReducer = (state=initialState, action) => {
           return group
         }
       })
+    })
+  } else if (action.type === SET_CREATED_GROUP) {
+    return Object.assign({}, state, {
+      createdGroup: action.createdGroup
     })
   }
 

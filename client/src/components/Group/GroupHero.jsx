@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../css/group.css'
 import _heroes from '../../dota-constants/heroes.js';
 import {connect} from 'react-redux';
+import {withCookies} from 'react-cookie';
 import {
   toggleLoginModalVisibility,
   updateGroup
@@ -21,6 +22,7 @@ class GroupHero extends Component {
     if(steamid32) {
       _id = `${this.props.steamid32}_${steamid32}_${this.props.number}`;
       className = "heroImg"
+      onClick = this.handleClick
     } else {
       _id = `${this.props.steamid32}_${this.props.number}`
       onClick = this.handleClick;
@@ -57,17 +59,26 @@ class GroupHero extends Component {
     }
     
     
-    if(hero_id && steamid32) {
-      //add class for color
+    if(steamid32) {
+      if(this.props.cookies.get('user') && this.props.cookies.get('user').steamid32 === steamid32) {
+        className = className + ' ' + color;
+      }
     } 
 
     return <img className={className} src={src} alt={alt} key={key} id={id} onClick={onClick}/>
   }
 
  handleClick =  async () => {
-    const editedGroup = await this.putHero();
-    console.log(editedGroup);
-    this.props.dispatch(updateGroup(editedGroup));
+    const response = await this.putHero();
+    if(response === 301) {
+      
+    } else if (response === 401) {
+      this.props.dispatch(toggleLoginModalVisibility(true, 'editHero'));
+    } else if (response === 'unknown') {
+      
+    } else {
+      this.props.dispatch(updateGroup(response));
+    }
   }
 
   putHero = async () => {
@@ -85,17 +96,18 @@ class GroupHero extends Component {
         },
         method: 'PUT'
       });
+      
+      console.log(response);
 
       //Fetch does not throw error on status codes like 401 :(
-      if(response.status === 401) {
-        throw new Error('Not authorized');
+      if(response.status === 401 || response.status === 301) {
+        return response.status;
       } else {
-        const editedHero = await response.json();
-        return editedHero;
+        const editedGroup = await response.json();
+        return editedGroup;
       }
     } catch (error) {
-        this.props.dispatch(toggleLoginModalVisibility(true, 'editHero'));
-        return('Hello! Thanks for looking at the console. Click the steam button :D');
+      return 'unknown';
     }
   }
 
@@ -111,4 +123,4 @@ class GroupHero extends Component {
   }
 }
 
-export default connect()(GroupHero);
+export default connect()(withCookies(GroupHero));
