@@ -67,37 +67,25 @@ router.put('/editinfo', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-  console.log(req.body);
   if (req.steamid32) {
-    if (req.body.steamid32 === req.steamid32) {
-      removeUserFromGroup(req.steamid32, true)
-        .then(group => {
-          updateGroup(req.body.steamid32, req.steamid32, req.username, req.body.slot_number)
-            .then(updatedGroup => {
-              res.status(200).json(updatedGroup);
-            })
-            .catch(err => {
-              res.status(301).json(err);
-            })
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    } else {
-      removeUserFromGroup(req.steamid32, false)
-        .then(group => {
-          updateGroup(req.body.steamid32, req.steamid32, req.username, req.body.slot_number)
-            .then(updatedGroup => {
-              res.status(200).json(updatedGroup);
-            })
-            .catch(err => {
-              res.status(301).json(err);
-            })
-        })
-        .catch(err => {
-          console.log(err);
-        })
+    let groupLeader = false;
+    if(req.body.steamid32 === req.steamid32) {
+      groupLeader = true;
     }
+    
+    removeUserFromGroup(req.steamid32, groupLeader)
+    .then(group => {
+      updateGroup(req.body.steamid32, req.steamid32, req.username, req.body.slot_number)
+      .then(updatedGroup => {
+        res.status(200).json(updatedGroup);
+      })
+      .catch(err => {
+        res.status(301).json(err);
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    })
   } else {
     res.status(401).json({
       error: 'Not logged in - 404'

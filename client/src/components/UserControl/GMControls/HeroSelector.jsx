@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {select, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 import heroes from '../../../dota-constants/heroes';
 import {Button} from 'react-bootstrap';
 import '../../../css/heroSelector.css';
@@ -72,7 +71,6 @@ class HeroSelector extends Component {
 
   handleAddHero(e) {
     let id = e.target.id
-    let style = {border: '3px solid red'};
     e.target.style.opacity = '.2';
     e.target.style.cursor = 'initial';
     let selectedHeroes = this.state.selectedHeroes.heroes;
@@ -159,21 +157,7 @@ class HeroSelector extends Component {
 
   /*Not adding this until I refactor this component*/
   filterHeroes(type, filter) {
-    console.log(filter);
-    console.log(type);
-    let filteredHeroes = [];
-    if(type === 'legs' || type === 'attackType') {
-      filteredHeroes = heroes.filter(h => {
-        if(type === 'legs' && h.legs.toString() === filter) {
-          return h;
-        }
-      })
-    } else {
-
-    }
-    this.setState({
-      filteredHeroes: filteredHeroes
-    })
+    
   }
   
   getAgilityHeroes() {
@@ -280,7 +264,7 @@ class HeroSelector extends Component {
 }
 
 export const mapStateToProps = state => ({
-  heroSelectorVisible: state.heroSelectorVisible
+  heroSelectorVisible: state.misc.heroSelectorVisible
 });
 
 export default connect(mapStateToProps)(HeroSelector);

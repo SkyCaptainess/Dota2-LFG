@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import heroes from './../dota-constants/heroes';
 import '../css/dota2minimapheroes.css'
 
 

@@ -1,5 +1,10 @@
 import {createStore} from 'redux';
+import {combineReducers} from 'redux';
 
-import {GroupMakerReducer} from './_reducers/GroupMakerReducer';
+import {groupMakerReducer} from './_reducers/groupMakerReducer';
+import {groupReducer} from './_reducers/groupReducer';
+import {miscReducer} from './_reducers/miscReducer';
 
-export default createStore(GroupMakerReducer);
+const rootReducer = combineReducers({groupMaker: groupMakerReducer, group: groupReducer, misc: miscReducer})
+
+export default createStore(rootReducer);

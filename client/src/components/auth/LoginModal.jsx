@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import '../../css/loginModal.css'
-import { toggleLoginModalVisibility } from '../../_actions';
+import { toggleLoginModalVisibility } from '../../_actions/misc.js';
 
 class LoginModal extends Component {
   handleLogin = () => {

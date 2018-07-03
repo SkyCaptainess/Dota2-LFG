@@ -12,8 +12,8 @@ class GroupTab extends Component {
 }
 
 export const mapStateToProps = state => ({
-  loginModalVisible: state.loginModalVisible,
-  whereFrom: state.whereFrom
+  loginModalVisible: state.misc.loginModalVisible,
+  whereFrom: state.misc.whereFrom
 });
 
 export default connect(mapStateToProps)(GroupTab);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Group from '../Group/Group';
 import {connect} from 'react-redux';
 import {withCookies} from 'react-cookie';
-import {addAllGroups, setCreatedGroup} from './../../_actions'
+import {addAllGroups, setCreatedGroup} from './../../_actions/group.js'
 import '../../css/groupList.css'
 
 class GroupList extends Component {
@@ -59,8 +59,8 @@ class GroupList extends Component {
 
 
 export const mapStateToProps = state => ({
-  groups: state.groups,
-  createdGroup: state.createdGroup
+  groups: state.group.groups,
+  createdGroup: state.group.createdGroup
 });
 
 export default connect(mapStateToProps)(withCookies(GroupList));

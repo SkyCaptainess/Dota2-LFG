@@ -12,13 +12,19 @@ import heroes from '../../dota-constants/heroes.js'
 import './../../css/groupMaker.css';
 
 import {
-  changeField,
-  toggleHeroSelectorVisibility,
-  setHeroes,
-  selectSlot,
   createGroup,
-  toggleLoginModalVisibility,
-} from '../../_actions';
+} from '../../_actions/group.js';
+
+import {
+  changeField,
+  setHeroes,
+  selectSlot
+} from '../../_actions/index.js';
+
+import {
+  toggleHeroSelectorVisibility,
+  toggleLoginModalVisibility
+} from '../../_actions/misc.js';
 
 class GroupMaker extends Component {
   handleLFHeroesClicked = () => {
@@ -96,6 +102,7 @@ class GroupMaker extends Component {
   }
 
   handleSelectHero = e => {
+    console.log(this.props);
     let id = e.target.id.split('_')[1];
     e.target.style.opacity = 1;
     this.props.dispatch(selectSlot(parseInt(id, 10)));
@@ -165,15 +172,15 @@ class GroupMaker extends Component {
 }
 
 export const mapStateToProps = state => ({
-  mode: state.mode,
-  region: state.region,
-  location: state.location,
-  mood: state.mood,
-  heroSelectorVisible: state.heroSelectorVisible,
-  heroes: state.heroes,
-  selectedSlot: state.selectedSlot,
-  groups: state.groups,
-  loginModalVisible: state.loginModalVisible
+  mode: state.groupMaker.mode,
+  region: state.groupMaker.region,
+  location: state.groupMaker.location,
+  mood: state.groupMaker.mood,
+  heroSelectorVisible: state.misc.heroSelectorVisible,
+  heroes: state.groupMaker.heroes,
+  selectedSlot: state.groupMaker.selectedSlot,
+  groups: state.group.groups,
+  loginModalVisible: state.misc.loginModalVisible
 });
 
 export default connect(mapStateToProps)(withCookies(GroupMaker));

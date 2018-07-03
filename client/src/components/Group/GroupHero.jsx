@@ -5,8 +5,11 @@ import {connect} from 'react-redux';
 import {withCookies} from 'react-cookie';
 import {
   toggleLoginModalVisibility,
+} from '../../_actions/misc.js';
+
+import {
   updateGroup
-} from '../../_actions'
+} from '../../_actions/group.js'
 
 class GroupHero extends Component {
 
