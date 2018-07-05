@@ -25,7 +25,11 @@ const GroupSchema = mongoose.Schema({
     required: true
   },
   location: {
-    type: String
+    type: String,
+    validate: {
+      validator: validateState,
+      message: 'State validation failed'
+    }
   },
   groupAvatar: {
     type: String
@@ -61,6 +65,32 @@ const GroupSchema = mongoose.Schema({
     default: Date.now()
   }
 });
+
+function validateState (value) {
+  if(value === 'Prefer not to say' || value === 'Not in USA' || value === 'Canada' || value === 'Mexico') {
+    return true;
+  }
+  
+  let states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 
+  'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 
+  'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 
+  'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 
+  'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
+  
+  return states.includes(value);
+}
+
+function validateRegion (value) {
+  
+}
+
+function validateMood(value) {
+  
+}
+
+function validateMode(value) {
+  
+}
 
 const Group = mongoose.model('Group', GroupSchema);
 
