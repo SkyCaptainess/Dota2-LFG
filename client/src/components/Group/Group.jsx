@@ -8,6 +8,9 @@ class Group extends Component {
    
     let {mood, mode, region, location,
       username, groupAvatar, slot0, slot1, slot2, slot3, slot4, steamid32} = this.props.group;
+      if(location = 'Prefer not to say') {
+        location = 'Somewhere';
+      }
     return (
       <div className="Group">
         <div className="groupTopRow">

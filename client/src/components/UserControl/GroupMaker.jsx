@@ -27,6 +27,12 @@ import {
 } from '../../_actions/misc.js';
 
 class GroupMaker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedSlot: null
+    }
+  }
   handleLFHeroesClicked = () => {
     this.props.dispatch(toggleHeroSelectorVisibility(!this.props.heroSelectorVisible));
   }
@@ -43,11 +49,15 @@ class GroupMaker extends Component {
   }
 
   prepareGroup = () => {
+    let location = this.props.location;
+    if (this.props.region !== 'US East' || this.props.region !== 'US West') {
+      location = 'Prefer not to say';
+    }
     let group = {
         mode: this.props.mode,
         mood: this.props.mood,
         region: this.props.region,
-        location: this.props.location,
+        location: location,
         'slot0': {
           hero_id: parseInt(this.props.heroes[0], 10) || null
         },
@@ -68,6 +78,9 @@ class GroupMaker extends Component {
     if(this.props.selectedSlot !== undefined) {
        const slot = `slot${this.props.selectedSlot}`;
        group[slot].selected = true;
+    } else {
+      const slot = 'slot0';
+      group[slot].selected = true;
     }
 
     return group;
@@ -102,10 +115,18 @@ class GroupMaker extends Component {
   }
 
   handleSelectHero = e => {
-    console.log(this.props);
+    if(this.state.selectedSlot) {
+      this.state.selectedSlot.style.opacity = .4;
+    }
     let id = e.target.id.split('_')[1];
     e.target.style.opacity = 1;
     this.props.dispatch(selectSlot(parseInt(id, 10)));
+
+    this.setState({
+      selectedSlot: e.target
+    })
+
+    console.log(this.props);
   }
   
   getHeroesDiv = () => {
@@ -160,7 +181,11 @@ class GroupMaker extends Component {
           <div>
             <ModeSelect onChange={this.handleChange}/>
             <RegionSelect onChange={this.handleChange}/>
-            <PlayerLocationSelect onChange={this.handleChange}/>
+            {(this.props.region === 'US East') || (this.props.region === 'US West') ?
+              (<PlayerLocationSelect onChange={this.handleChange} />)
+              :
+              (null)  
+            }
             <MoodSelect onChange={this.handleChange}/>
           </div>
         </form>
@@ -171,17 +196,21 @@ class GroupMaker extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
-  mode: state.groupMaker.mode,
-  region: state.groupMaker.region,
-  location: state.groupMaker.location,
-  mood: state.groupMaker.mood,
-  heroSelectorVisible: state.misc.heroSelectorVisible,
-  heroes: state.groupMaker.heroes,
-  selectedSlot: state.groupMaker.selectedSlot,
-  groups: state.group.groups,
-  loginModalVisible: state.misc.loginModalVisible
-});
+
+export const mapStateToProps = state => {
+  const {mode, region, location, mood, heroes, selectedSlot} = state.groupMaker;
+  const {loginModalVisible, heroSelectorVisible} = state.misc;
+  return {
+    mode,
+    region,
+    location,
+    mood,
+    heroSelectorVisible,
+    heroes,
+    selectedSlot,
+    loginModalVisible
+  }
+}
 
 export default connect(mapStateToProps)(withCookies(GroupMaker));
 

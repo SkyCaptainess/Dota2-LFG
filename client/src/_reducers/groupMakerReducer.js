@@ -8,7 +8,7 @@ const initialState = {
   heroes: [null, null, null, null, null],
   selectedSlot: undefined,
   mode: 'All Pick',
-  region: 'North America',
+  region: 'US East',
   location: 'Prefer not to say',
   mood: 'Looking for friends 😍'
 };
