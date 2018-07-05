@@ -25,8 +25,8 @@ class ModeSelect extends Component {
           <option value="RANKED - Random Draft">Random Draft</option>
         </optgroup>
         <optgroup label="Battlepass required">
-          <option value="Battlepass - Ranked Roles">Ranked Roles</option>
-          <option value="Battlepass - Mutation">Mutation</option>
+          <option value="BP - Ranked Roles">Ranked Roles</option>
+          <option value="BP - Mutation">Mutation</option>
         </optgroup>
         </FormControl>
       </FormGroup>

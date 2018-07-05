@@ -14,7 +14,7 @@ class MoodSelect extends Component {
           <option value="All Random 🎲">All Random 🎲</option>
           <option value="Crazy Strats 🤪">Crazy Strats 🤪</option>
           <option value="Meta Worship 🤔">Meta Worship 🤔</option>
-          <option value="Short Games 🏎️">Short Games 🏎️</option>
+          <option value="Short Games 🏎">Short Games 🏎️</option>
           <option value="Marathon Games 😩">Marathon Games 😩</option>
           <option value="Whatever 🙄">Whatever 🙄</option>
         </FormControl>
