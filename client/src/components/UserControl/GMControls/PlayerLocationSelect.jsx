@@ -8,7 +8,9 @@ class PlayerLocationSelect extends Component {
         <ControlLabel className="GMLabel">Player Location</ControlLabel>
         <FormControl componentClass="select" onChange={e => this.props.onChange(e.target)}>
           <option value="Prefer not to say">Prefer not to say</option>
-          <option value="Not in USA">Not in USA</option>
+          <option value="Not in North America">Not in USA</option>
+          <option value="Canada">Canada</option>
+          <option value="Mexico">Mexico</option>
           <option value="AL">Alabama</option>
 	        <option value="AK">Alaska</option>
 	        <option value="AZ">Arizona</option>
