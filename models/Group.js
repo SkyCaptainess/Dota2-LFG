@@ -103,6 +103,7 @@ function validateRegion (value) {
 }
 
 function validateMood(value) {
+  console.log(value);
   let moods = ['Looking for Friends 😍', "Looking for Teammates 👩‍👩‍👧‍👦",'Winners Only 😎',
   'LGBTQIA 🌈', 'All Random 🎲', 'Crazy Strats 🤪', 'Meta Worship 🤔',
   'Short Games 🏎', 'Marathon Games 😩', 'Whatever 🙄'];

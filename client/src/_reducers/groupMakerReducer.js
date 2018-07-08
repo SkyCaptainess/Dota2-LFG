@@ -10,7 +10,7 @@ const initialState = {
   mode: 'All Pick',
   region: 'US East',
   location: 'Prefer not to say',
-  mood: 'Looking for friends 😍'
+  mood: 'Looking for Friends 😍'
 };
 
 export const groupMakerReducer = (state=initialState, action) => {
