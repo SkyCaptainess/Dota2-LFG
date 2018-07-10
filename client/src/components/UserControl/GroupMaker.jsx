@@ -178,7 +178,7 @@ class GroupMaker extends Component {
     return (
       <section className="GroupMaker">
         <form inline="true">
-          <div>
+          <div className="gmSelects">
             <ModeSelect onChange={this.handleChange}/>
             <RegionSelect onChange={this.handleChange}/>
             {(this.props.region === 'US East') || (this.props.region === 'US West') ?

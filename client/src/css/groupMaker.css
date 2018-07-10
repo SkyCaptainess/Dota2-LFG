@@ -1,7 +1,7 @@
 .GroupMaker {
-  box-shadow: -10px 10px 1px 0px rgba(0,0,0,.4);
   background-color: rgb(225, 225, 225);
   width: 59%;
+  max-width: 950px;
   display: inline-block;
   border-radius: 5px;
   border-color: black;
@@ -20,7 +20,7 @@
 form > div {
   background-color: white;
   border: 1px solid black;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
+  border-radius: 2px;
   padding: 8px 0px;
 }
 
@@ -70,16 +70,16 @@ input[type=checkbox] {
 
 .GMHeroes {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding: 5px;
+  margin: 10px auto;
+  max-width: 900px;
 }
 
 .GMHeroes div {
   border: 1px solid black;
+  border-radius: 2px;
   padding: 5px 0px;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
   background-color: snow;
 }
 
@@ -96,7 +96,6 @@ input[type=checkbox] {
   background-color: #444;
   border: 2px solid purple;
   padding: 4px;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.51);
 }
 
 .GMHeroes img:hover {
@@ -117,4 +116,9 @@ input[type=checkbox] {
   border: 1px solid black;
   color: white;
   box-shadow: none;
+}
+
+.gmSelects {
+  max-width: 900px;
+  margin: 0 auto;
 }

@@ -8,7 +8,6 @@
   background-color:rgb(244, 244, 244);
   color: black;
   font-size: 17px;
-  box-shadow: -10px 10px 1px 0px rgba(0,0,0, .4);
 }
 
 .Group img {
@@ -36,7 +35,7 @@
   background-color: #444;
   border: 2px solid purple;
   padding: 4px;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.4);
+  border-radius: 2px;
 }
 
 .groupHeroes .heroImg {
@@ -58,7 +57,7 @@
   align-items: center;
   padding: 5px;
   border: 1px solid black;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.4);
+  border-radius: 2px;
 }
 
 .groupProfile img {
@@ -84,10 +83,10 @@
   background-color: snow;
   color: black;
   border: 1px solid black;
-  box-shadow: -4px 4px 1px 0px rgba(0,0,0,0.4);
   min-width: 200px;
   text-align: center;
   font-size: 15px;
+  border-radius: 2px;
 }
 
 .groupInfo p {
