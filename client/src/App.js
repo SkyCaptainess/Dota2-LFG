@@ -7,12 +7,20 @@ import GroupMaker from './components/UserControl/GroupMaker';
 import MiniProfile from './components/UserControl/MiniProfile';
 import LoginModal from './components/auth/LoginModal';
 import GroupTab from './components/Group/GroupTab'
+import Fountain from './components/Fountain/fountain'
 import {connect} from 'react-redux';
 import './css/reset.css'
 import './css/app.css'
 
 class App extends Component {
   render() {
+    return (
+      <div className="App">
+        <Nav/>
+        <Fountain/>
+      </div>
+      
+      )
     return (
       <div className="App">
         <Nav/>
