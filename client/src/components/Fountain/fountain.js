@@ -14,14 +14,12 @@ class Fountain extends Component {
             <p className="secondP">Looking for the perfect group? 😍</p>
           </div>
           <div className="info">
-            <p style={{color: 'white'}}>Dota 2 LFG gives you the tools you need to find a group just to your liking!</p>
-            <ul>
-             <li>Create a group with the exact heroes you're looking for</li>
-             <li>Join a group and chat with other users</li>
-             <li>View other players stats, including their win rate for the hero they chose</li>
-            </ul>
+            <p className="tools">Dota 2 LFG gives you the tools you need to find a group just to your liking!</p>
+            <p className="tools">Login below or click help for more information. Thanks for stopping by!</p>
           </div>
-          
+          <div className="buttons">
+            
+          </div>
         </div>
       </section>
     );

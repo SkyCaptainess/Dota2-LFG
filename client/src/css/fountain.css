@@ -9,25 +9,30 @@
 }
 
 
-
-.fountain .header p {
+.fountainContainer p {
   text-align: center;
   color: white;
   display: block;
-  margin: 20px auto;
-  padding: 20px;
+  margin: 0px auto;
+  padding: 10px;
 }
 
-.title {
+.fountainContainer .title {
   font-size: 46px;
   border-bottom: 1px solid white;
+  font-weight: bold;
   padding-bottom: 10px;
   border-radius: 2px;
   width: 350px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
-.secondP {
-  margin-top: 25px;
-  font-size: 22px;
+.fountainContainer .secondP {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.fountainContainer .tools {
+  margin-top: 5px;
+  font-size: 18px;
 }
