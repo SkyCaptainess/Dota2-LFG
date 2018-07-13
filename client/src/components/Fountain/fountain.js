@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import '../../css/fountain.css'
 
+//The Fountain is a reference to the home base in Dota 2.
+
 class Fountain extends Component {
   render() {
     return (
       <section className="fountainContainer">
+        <img src="/images/calm.jpg"/>
         <div className="fountain">
           <div className="header">
             <p className="title">Dota 2&nbsp; 
@@ -18,7 +21,7 @@ class Fountain extends Component {
             <p className="tools">Login below or click help for more information. Thanks for stopping by!</p>
           </div>
           <div className="buttons">
-            
+
           </div>
         </div>
       </section>
