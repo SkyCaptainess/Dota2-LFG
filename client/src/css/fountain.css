@@ -1,18 +1,23 @@
 .fountainContainer {
-  margin-top: 60px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .fountainContainer img {
+  margin-top: 63px;
+  max-height: calc(100vh - 66px);
+  max-width: 100vw;
+  z-index: -1;
+  opacity: .78;
+  background-color: black;
+}
+
+.fountain {
   position: absolute;
-  top: 0px;
+  top: 70px;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  max-width: 100%;
-  margin: auto;
-  z-index: -1;
-  opacity: .8;
-  background-color: black;
 }
 
 
