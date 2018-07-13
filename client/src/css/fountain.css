@@ -1,15 +1,26 @@
-.fountain {
-  background: url(/images/linaandmaiden.png) no-repeat center center;
-  background-size: contain;
-  background-color: black;
-  min-height: calc(100vh - 60px);
-  margin: 0px -20px;
+.fountainContainer {
   margin-top: 60px;
-  padding-top: 50px;
+}
+
+.fountainContainer img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  overflow: none;
+  z-index: -1;
+  opacity: .8;
+  background-color: black;
 }
 
 
 .fountainContainer p {
+  opacity: 1;
+  z-index: 3;
   text-align: center;
   color: white;
   display: block;
