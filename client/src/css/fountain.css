@@ -1,3 +1,4 @@
+
 .fountainContainer {
   margin-left: -20px;
   margin-right: -20px;
@@ -8,7 +9,7 @@
   max-height: calc(100vh - 66px);
   max-width: 100vw;
   z-index: -1;
-  opacity: .78;
+  opacity: .6;
   background-color: black;
 }
 
@@ -18,6 +19,11 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
+}
+
+.fountain button {
+  border-color: black;
+  width: 150px;
 }
 
 
@@ -33,7 +39,6 @@
 
 .fountainContainer .title {
   font-size: 46px;
-  border-bottom: 1px solid white;
   font-weight: bold;
   padding-bottom: 10px;
   border-radius: 2px;
@@ -47,6 +52,14 @@
 }
 
 .fountainContainer .tools {
-  margin-top: 5px;
-  font-size: 18px;
+  margin-top: 0px;
+  font-size: 19px;
+}
+
+.firstInfo {
+  display: flex;
+}
+
+.infoHeader {
+  font-size: 26px;
 }
