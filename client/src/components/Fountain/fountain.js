@@ -8,7 +8,7 @@ class Fountain extends Component {
   render() {
     return (
       <section className="fountainContainer">
-        <img src="/images/calm.jpg"/>
+        <img src="/images/linaandmaiden.png"/>
         <div className="fountain">
           <div className="header">
             <p className="title">Dota 2&nbsp; 
@@ -26,27 +26,33 @@ class Fountain extends Component {
             <Button bsStyle="success">About Dota 2 LFG</Button>
             <Button bsStyle="primary">Contribute</Button>
           </div>
+          <p className="poweredBy">Powered by <span className="opendotaBrand"><a target="_blank" href="https://www.opendota.com">{'\<OPENDOTA\/\>'}</a></span></p>
         </div>
-        <div className="firstInfo">
+        <div className="lfgInfo createAGroup">
           <div>
-            <p className="infoHeader">Create a group</p>
+            <p className="infoHeader">Create a Group</p>
             <p>
               Use the Group Maker to create a group exactly how you want it. Want to play
               only with serious players who are looking to make a team? Choose Looking for
-              Teammates or Winners Only. Or maybe you're looking to kill Roshan before the horn
-              and so you can choose Crazy Strats. Create whatever kind of group you can imagine!
+              Teammates or Winners Only. Or maybe you're looking to kill Roshan before the horn, so
+              you choose Crazy Strats. Create whatever kind of group you can imagine!
             </p>
           </div>
+          <img src="images/groupmaker.png"/>
+        </div>
+        <div className="lfgInfo joinAGroup">
+        <img className="joinImg1" src="images/group.png"/>
           <div>
-            <p className="infoHeader">Create a group</p>
-            <p>
-              Use the Group Maker to create a group exactly how you want it. Want to play
-              only with serious players who are looking to make a team? Choose Looking for
-              Teammates or Winners Only. Or maybe you're looking to kill Roshan before the horn
-              and so you can choose Crazy Strats. Create whatever kind of group you can imagine!
-            </p>
+            <p className="infoHeader">Join a Group</p>
+            <div>
+              <p>
+              You can join a group by clicking on a hero portrait in
+              one of the groups listed. You can only join one group at a time, but you can join one
+              while waiting for others to join your own group. Ultimately, just like when picking a hero,
+              you'll have to decide on one!
+              </p>
+            </div>
           </div>
-          <img src="images/miniprofile.png"/>
         </div>
       </section>
     );

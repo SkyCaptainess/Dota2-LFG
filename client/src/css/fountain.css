@@ -5,11 +5,11 @@
 }
 
 .fountainContainer img {
-  margin-top: 63px;
+  margin-top: 61px;
   max-height: calc(100vh - 66px);
   max-width: 100vw;
   z-index: -1;
-  opacity: .6;
+  opacity: .8;
   background-color: black;
 }
 
@@ -56,10 +56,76 @@
   font-size: 19px;
 }
 
-.firstInfo {
-  display: flex;
+.fountainContainer .poweredBy {
+  font-size: 26px;
+  margin-top: 20px;
+  width: 400px;
+  border-radius: 5px;
 }
 
-.infoHeader {
+.opendotaBrand a {
+  font-weight: bolder;
+  color: crimson;
+  cursor: pointer;
+}
+
+.opendotaBrand a:visited {
+  color: crimson;
+}
+
+.opendotaBrand a:hover {
+  color: dodgerblue;
+  text-decoration: underline;
+}
+
+.lfgInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+
+.fountainContainer .createAGroup {
+  background-color: snow;
+}
+
+.createAGroup p {
+  color: black;
+}
+
+.lfgInfo p {
+  line-height: 1.5;
+  max-width: 425px;
+  text-align: left;
+}
+
+.lfgInfo .infoHeader {
   font-size: 26px;
+  text-align: center;
+}
+
+.joinAGroup .infoHeader {
+  color: seagreen;
+}
+
+.joinAGroup .joinImg1 {
+  order: 1;
+}
+
+.joinAGroup div {
+  align-self: baseline;
+  order: 2;
+  text-align: center;
+}
+
+.createAGroup .infoHeader {
+  color: crimson;
+}
+
+.fountainContainer .lfgInfo img {
+  margin: 0px;
+  opacity: 1;
+  z-index: 1;
+  max-width: 50%;
+  max-height: 400px;
 }
