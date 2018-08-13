@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
   const username = req.username;
 
   let group = req.body
+  console.log(group);
   group.steamid32 = steamid32;
   group.username = username;
   group.createdAt = Date.now();
