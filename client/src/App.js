@@ -14,7 +14,6 @@ import './css/app.css'
 
 class App extends Component {
   render() {
-<<<<<<< HEAD
     /*Maybe I should use react router instead, but since there are only two pages and I don't want to
     have different URLs (e.g. /home /app) I have opted for this simple solution. I believe I could
     also look into using memory router to avoid having different URLS, but I'll look at that later */
@@ -27,15 +26,6 @@ class App extends Component {
         
         )
     }
-=======
-    //return (
-    //   <div className="App">
-    //     <Nav/>
-    //     <Fountain/>
-    //   </div>
-      
-      //)
->>>>>>> 12b77605a8192b1dd91db38bfabb4726dd5acfa7
     return (
       <div className="App">
         <Nav/>
