@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 import '../../css/fountain.css'
+import {toggleHome} from './../../_actions/misc.js'
+import {connect} from 'react-redux'
 
 //The Fountain is a reference to the home base in Dota 2.
 
 class Fountain extends Component {
+  handleFindClicked = () => {
+    this.props.dispatch(toggleHome(false))
+  }
   render() {
     return (
       <section className="fountainContainer">
@@ -22,7 +27,7 @@ class Fountain extends Component {
             <p className="tools">Login below or click help for more information. Thanks for stopping by!</p>
           </div>
           <div className="buttons">
-            <Button bsStyle="danger">Find a group!</Button>
+            <Button bsStyle="danger" onClick={this.handleFindClicked}>Find a group!</Button>
             <Button bsStyle="success">About Dota 2 LFG</Button>
             <Button bsStyle="primary">Contribute</Button>
           </div>
@@ -59,4 +64,4 @@ class Fountain extends Component {
   }
 }
 
-export default Fountain;
+export default connect(null)(Fountain);

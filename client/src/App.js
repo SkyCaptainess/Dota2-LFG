@@ -14,13 +14,18 @@ import './css/app.css'
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <Nav/>
-        <Fountain/>
-      </div>
-      
-      )
+    /*Maybe I should use react router instead, but since there are only two pages and I don't want to
+    have different URLs (e.g. /home /app) I have opted for this simple solution. I believe I could
+    also look into using memory router to avoid having different URLS, but I'll look at that later */
+    if(this.props.onHome) {
+      return (
+        <div className="App">
+          <Nav/>
+          <Fountain/>
+        </div>
+        
+        )
+    }
     return (
       <div className="App">
         <Nav/>
@@ -43,8 +48,9 @@ class App extends Component {
 }
 
 export const mapStateToProps = state => ({
-  loginModalVisible: state.loginModalVisible,
-  whereFrom: state.whereFrom
+  loginModalVisible: state.misc.loginModalVisible,
+  whereFrom: state.misc.whereFrom,
+  onHome: state.misc.onHome
 });
 
 export default connect(mapStateToProps)(App);

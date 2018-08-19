@@ -1,12 +1,14 @@
 import {
   TOGGLE_HERO_SELECTOR_VISIBILITY,
   TOGGLE_LOGIN_MODAL_VISIBILITY,
+  TOGGLE_HOME
 } from '../_actions/misc.js';
 
 const initialState = {
   heroSelectorVisible: false,
   loginModalVisible: false,
-  whereFrom: ''
+  whereFrom: '',
+  onHome: true
 };
 
 export const miscReducer = (state=initialState, action) => {
@@ -19,7 +21,11 @@ export const miscReducer = (state=initialState, action) => {
       loginModalVisible: action.visibility,
       whereFrom: action.whereFrom
     })
-  } 
+  }  else if (action.type === TOGGLE_HOME) {
+    return Object.assign({}, state, {
+      onHome: action.onHome
+    })
+  }
 
   return state;
 }

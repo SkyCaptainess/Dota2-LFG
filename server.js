@@ -71,17 +71,10 @@ app.use(express.static('public', {maxAge: '1d'}));
 
 app.use(express.static(path.resolve(__dirname + '/client/build'), {maxAge: '1d'}));
 
-// Answer API requests.
-app.get('/api', function (req, res) {
-  res.set('Content-Type', 'application/json');
-  res.json('{"message":"Hello from the custom server!"}');
-});
-
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname +  '/client/build', 'index.html'));
 });
   
-
 let server;
 
 function runServer(dbUrl, port) {

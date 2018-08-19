@@ -10,3 +10,9 @@ export const toggleLoginModalVisibility = (visibility, whereFrom) => ({
   visibility,
   whereFrom
 })
+
+export const TOGGLE_HOME = 'TOGGLE_HOME';
+export const toggleHome = (onHome) => ({
+  type: TOGGLE_HOME,
+  onHome
+})
