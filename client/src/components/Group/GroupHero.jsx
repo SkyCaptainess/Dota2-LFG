@@ -44,8 +44,6 @@ class GroupHero extends Component {
         return h.id === hero_id
       });
 
-      console.log(name, localized_name, primary_attr);
-
       src=`/images/heroes/${name}_hphover.png`;
       alt=`${localized_name}`
 

@@ -48,7 +48,6 @@ class GroupList extends Component {
   }
 
   render() {
-    console.log(this.props.createdGroup);
     return (
       <div className="GroupList">
         {this.getGroups()}

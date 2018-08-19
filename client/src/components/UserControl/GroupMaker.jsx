@@ -49,8 +49,9 @@ class GroupMaker extends Component {
   }
 
   prepareGroup = () => {
+    console.log(this.props.region, typeof this.props.region);
     let location = this.props.location;
-    if (this.props.region !== 'US East' || this.props.region !== 'US West') {
+    if (this.props.region !== 'US East' && this.props.region !== 'US West') {
       location = 'Prefer not to say';
     }
     let group = {
@@ -175,6 +176,7 @@ class GroupMaker extends Component {
   }
   
   render() {
+    console.log(this.props);
     return (
       <section className="GroupMaker">
         <form inline="true">

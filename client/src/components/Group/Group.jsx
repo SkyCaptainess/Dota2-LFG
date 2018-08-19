@@ -5,10 +5,9 @@ import '../../css/group.css'
 
 class Group extends Component {
   render() {
-   
     let {mood, mode, region, location,
       username, groupAvatar, slot0, slot1, slot2, slot3, slot4, steamid32} = this.props.group;
-      if(location = 'Prefer not to say') {
+      if(location === 'Prefer not to say') {
         location = 'Somewhere';
       }
     return (
