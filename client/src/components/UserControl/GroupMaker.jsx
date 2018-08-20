@@ -164,19 +164,24 @@ class GroupMaker extends Component {
       if(atLeastOneHero) {
         text = "Change heroes";      
       }
+
+      let buttonsOrInfo = <p className='info'>See your group below. Edit functionality coming soon!</p>;
+                          
+      if(!this.props.createdGroup) {
+        buttonsOrInfo = <div>
+                          <LFHeroes LFHeroesText={text} onClick={this.handleLFHeroesClicked}/>
+                          <CreateGroupButton onCreateGroup={this.handleCreateGroup}/>
+                        </div>
+      }
       return (<div className="GMHeroes">
         <div className="heroImages">
           {heroImages}
         </div>
-        <div>
-          <LFHeroes LFHeroesText={text} onClick={this.handleLFHeroesClicked}/>
-          <CreateGroupButton onCreateGroup={this.handleCreateGroup}/>
-        </div>
+        {buttonsOrInfo}
       </div>);
   }
   
   render() {
-    console.log(this.props);
     return (
       <section className="GroupMaker">
         <form inline="true">
@@ -202,6 +207,7 @@ class GroupMaker extends Component {
 export const mapStateToProps = state => {
   const {mode, region, location, mood, heroes, selectedSlot} = state.groupMaker;
   const {loginModalVisible, heroSelectorVisible} = state.misc;
+  const {createdGroup} = state.group
   return {
     mode,
     region,
@@ -210,7 +216,8 @@ export const mapStateToProps = state => {
     heroSelectorVisible,
     heroes,
     selectedSlot,
-    loginModalVisible
+    loginModalVisible,
+    createdGroup
   }
 }
 

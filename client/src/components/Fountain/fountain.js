@@ -28,7 +28,6 @@ class Fountain extends Component {
           </div>
           <div className="buttons">
             <Button bsStyle="danger" onClick={this.handleFindClicked}>Find a group!</Button>
-            <Button bsStyle="success">About Dota 2 LFG</Button>
             <Button bsStyle="primary">Contribute</Button>
           </div>
           <p className="poweredBy">Powered by <span className="opendotaBrand"><a target="_blank" href="https://www.opendota.com">{'\<OPENDOTA\/\>'}</a></span></p>

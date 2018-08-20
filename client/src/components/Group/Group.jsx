@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
+import {Button} from 'react-bootstrap';
 import GroupHero from './GroupHero'
 import '../../css/group.css'
+import {withCookies} from 'react-cookie';
 
 
 class Group extends Component {
+  handleDeleteClicked = () => {
+    
+  }
   render() {
     let {mood, mode, region, location,
       username, groupAvatar, slot0, slot1, slot2, slot3, slot4, steamid32} = this.props.group;
       if(location === 'Prefer not to say') {
         location = 'Somewhere';
+      }
+
+      let groupInfo = '';
+      if(this.props.cookies.get('user') && this.props.cookies.get('user').steamid32 === steamid32)
+      {
+        groupInfo = <div>
+                      <p>More features to manage your group coming soon.</p>
+                      <Button onClick={this.handleDeleteClicked} bsStyle="danger">Delete Group</Button>
+                    </div>
       }
     return (
       <div className="Group">
@@ -22,14 +36,14 @@ class Group extends Component {
               <p className="groupMode">{mode}</p>
             </div>
           </div>
-          <div className="groupMode">
-            
-          </div>
           <div className="groupInfo">
             <p>{mood}</p>
             <p>{region}</p>
             <p>{location}</p>
           </div>
+        </div>
+        <div className="comingSoon">
+          {groupInfo}
         </div>
         <div className="groupBottomRow">
           <div className="groupHeroes">
@@ -45,4 +59,4 @@ class Group extends Component {
   }
 }
 
-export default Group;
+export default withCookies(Group);
