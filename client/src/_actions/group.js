@@ -21,3 +21,9 @@ export const setCreatedGroup = createdGroup => ({
   type: SET_CREATED_GROUP,
   createdGroup
 })
+
+export const DELETE_GROUP = 'DELETE_GROUP';
+export const deleteGroup = groupToDelete => ({
+  type: DELETE_GROUP,
+  groupToDelete
+})

@@ -6,8 +6,17 @@ import {withCookies} from 'react-cookie';
 
 
 class Group extends Component {
-  handleDeleteClicked = () => {
-    
+  handleDeleteClicked = async () => {
+    try {
+      const response = await fetch('/api/groups', {
+        credentials: 'same-origin',
+        method: 'DELETE'
+      })
+      const responseJson = await response.json();
+      console.log(responseJson);
+    } catch(error) {
+      console.error(error);
+    }
   }
   render() {
     let {mood, mode, region, location,

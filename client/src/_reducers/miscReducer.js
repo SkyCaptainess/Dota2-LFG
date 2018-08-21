@@ -8,7 +8,7 @@ const initialState = {
   heroSelectorVisible: false,
   loginModalVisible: false,
   whereFrom: '',
-  onHome: false
+  onHome: true
 };
 
 export const miscReducer = (state=initialState, action) => {

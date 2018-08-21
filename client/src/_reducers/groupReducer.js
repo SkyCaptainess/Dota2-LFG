@@ -2,7 +2,8 @@ import {
   CREATE_GROUP,
   ADD_ALL_GROUPS,
   UPDATE_GROUP,
-  SET_CREATED_GROUP
+  SET_CREATED_GROUP,
+  DELETE_GROUP
 } from '../_actions/group.js';
 
 const initialState = {

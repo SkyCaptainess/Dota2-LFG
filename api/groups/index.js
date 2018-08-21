@@ -56,13 +56,23 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/', (req, res) => {
-  
+  Group.remove({steamid32: req.steamid32})
+  .then(_group => {
+    res.json({'deleted': 'group delete'});
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(500).json(err);
+  })
 });
 
+//coming soon
 router.put('/removeuser', (req, res) => {
   console.log(req.steamid32, 'USER');
 });
 
+
+//coming soon
 router.put('/editinfo', (req, res) => {
   
 });

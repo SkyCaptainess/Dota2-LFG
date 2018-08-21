@@ -116,7 +116,6 @@ class HeroSelector extends Component {
     let removedHero = document.getElementById(id);
     removedHero.style.opacity = '1';
     removedHero.style.cursor = 'pointer';
-    console.log(removedHero);
     let selectedHeroes = this.state.selectedHeroes.heroes;
     let slotsFree = this.state.selectedHeroes.slotsFree;
     

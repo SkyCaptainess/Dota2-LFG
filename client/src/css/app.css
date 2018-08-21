@@ -63,4 +63,15 @@ body {
   display: inline-block;
 }
 
+.topRow {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+@media only screen and (max-width: 580px) {
+  .topRow {
+    margin-top: 100px;
+  }
+}

@@ -8,10 +8,8 @@ class LoginModal extends Component {
   handleLogin = () => {
     if(window.location.href.includes('local')) {
       window.location.href = "http://localhost:3000/api/auth/steam"
-    } else if(window.location.href.includes('heroku')) {
-      window.location.href = "https://evening-shelf-99951.herokuapp.com/api/auth/steam"
-    } else {
-      window.location.href="https://dota2lfg-flooyd.c9users.io:8080/api/auth/steam"
+    } else if(window.location.href.includes('dota2')) {
+      window.location.href = "https://www.dota2lfg.com/api/auth/steam"
     }
   }
 
@@ -38,8 +36,7 @@ class LoginModal extends Component {
       src = '/images/emoticons/pudge_troll.gif';
       alt = 'Pudge trolling you';
     } else if (this.props.whereFrom === 'editHero') {
-      catchyPhrase = 'If you were the shopkeeper, would you sell a Divine Rapier to someone without identification? I reckon you would be like nah, bro! You\'ll just go feed with it.'
-      more = 'Same concept here! Nobody wants feeders and bots in their group, so you\'ll have to login to join a group!'
+      catchyPhrase = "You can't join a group without logging in. You could be a feeder!"
     }
     return (
       <section style={style} className="loginModal">

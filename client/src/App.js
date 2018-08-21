@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Footer from './components/Footer/Footer';
+
 import GroupList from './components/Groups/GroupList';
 import Nav from './components/Navigation/Nav';
 import Filter from './components/UserControl/Filter';
@@ -31,18 +31,11 @@ class App extends Component {
       <div className="App">
         <Nav/>
         <LoginModal whereFrom={this.props.whereFrom} visible={this.props.loginModalVisible}/>
-        <div className="groupTabs">
-          <GroupTab text="Group Maker"/>
-          <GroupTab text="My Group"/>
-          <GroupTab text="Joined Group"/>
-        </div>
         <div className="topRow">
           <GroupMaker/>
           <MiniProfile/>
         </div>
-        <Filter/>
         <GroupList/>
-        <Footer/>
       </div>
     );
   }

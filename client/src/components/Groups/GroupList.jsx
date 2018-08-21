@@ -6,7 +6,21 @@ import {addAllGroups, setCreatedGroup} from './../../_actions/group.js'
 import '../../css/groupList.css'
 
 class GroupList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      groupsAvailable: 'Loading groups...'
+    }
+  }
   componentDidMount = async () => {
+    setTimeout(() => {
+      if(this.props.groups.length === 0) 
+      {
+        this.setState({
+          groupsAvailable: 'It looks like no groups have been created. Be the first to create one!'
+        });
+      }
+    }, 3000)
     try {
       const response = await fetch('/api/groups', {
         method: 'GET',
@@ -38,12 +52,12 @@ class GroupList extends Component {
 
     this.props.groups.forEach(group => {
       groups.push(<Group group={group} key={group._id}/>)
-    })
-    
-    if(groups.length === 0) {
-      return <p className="groupListLoading">Loading Groups!</p>
-    }
+    });
 
+    if(this.props.groups.length === 0 ) {
+      return <p className="groupsAvailable">{this.state.groupsAvailable}</p>
+    }
+    
     return groups;
   }
 

@@ -11,11 +11,11 @@
 }
 
 .loginInfo {
-  min-height: 25%;
-  width: 50%;
-  position: absolute;
-  left: 25%;
+  
+  width: 90%;
+  position: relative;
   top: 30%;
+  margin: 0 auto;
   background-color: snow;
   border: 2px solid purple;
   border-radius: 3px;
@@ -23,7 +23,7 @@
 
 .loginModal .pudge {
   margin-top: 25px;
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 15px;
 }
 

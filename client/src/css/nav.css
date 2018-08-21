@@ -7,7 +7,6 @@
   align-items: center;
   background-color: #111;
   color: white;
-  margin-bottom: 15px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -47,6 +46,24 @@
   border-left-color: dodgerblue;
 }
 
+.loginLink {
+  color: white;
+  padding: 6px 10px;
+  font-size: 18px;
+  border: 2px solid purple;
+  border-radius: 2px;
+}
+
+.loginLink:visited {
+  color: white;
+}
+
+.loginLink:hover {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
 
 .L {
   color:crimson;
@@ -64,3 +81,11 @@
   color: white;
   font-size: 16px;
 }
+
+@media only screen and (max-width: 580px) {
+  .navOptions {
+    text-align: center;
+    margin: 0px;
+  }
+}
+

@@ -1,11 +1,10 @@
 .miniProfile {
-  width: 40%;
   display: flex;
+  flex-wrap: wrap;
   margin-left: 10px;
   background-color: rgb(224, 224, 224);
   padding: 7px;
   border-radius: 5px;
-
   justify-content: space-around;
 }
 
@@ -23,10 +22,9 @@
 
 .profile {
   display: flex;
-  justify-content: center;
+  align-content: center;
   flex-direction: column;
-  background-color: white;
-  border: 1px solid black;
+  
   padding: 8px;
   
 }
@@ -39,14 +37,11 @@
 
 .profile img {
   border: 1px solid black;
+  max-width: 184px;
 }
 
 .stats {
-  border: 1px solid black;
   color: black;
-  margin-left: 5px;
-  padding: 10px;
-  background-color: white;
 
 }
 
@@ -82,4 +77,11 @@
 
 .opendota a:hover {
   color: black;
+}
+
+@media only screen and (max-width: 1450px) {
+ .stats {
+   margin-top: 15px;
+ }
+
 }

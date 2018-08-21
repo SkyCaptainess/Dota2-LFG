@@ -62,7 +62,6 @@ class MiniProfile extends Component {
       content =
       <section className="miniProfile">
         <div className="profile">
-          <p>{user.username}</p>
           <img src={user.avatarFull} alt="User's profile"/>
         </div>
         <div className="stats">

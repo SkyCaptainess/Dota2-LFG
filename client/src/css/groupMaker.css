@@ -1,6 +1,5 @@
 .GroupMaker {
   background-color: rgb(225, 225, 225);
-  width: 59%;
   max-width: 950px;
   display: inline-block;
   border-radius: 5px;
@@ -77,10 +76,7 @@ input[type=checkbox] {
 }
 
 .GMHeroes div {
-  border: 1px solid black;
-  border-radius: 2px;
-  padding: 5px 0px;
-  background-color: snow;
+  
 }
 
 .GMHeroes img {
@@ -125,4 +121,14 @@ input[type=checkbox] {
 
 .info {
   color: black;
+}
+
+@media only screen and (max-width: 1560px) {
+  .GMHeroes {
+    display: initial;
+  }
+
+  .GMHeroes div, .GMHeroes p {
+    margin-bottom: 10px;
+  }
 }
