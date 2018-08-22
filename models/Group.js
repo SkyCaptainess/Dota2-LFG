@@ -6,7 +6,7 @@ const GroupSchema = mongoose.Schema({
   steamid32: {
     type: Number,
     required: true,
-    unique: true
+    //unique: true
   },
   username: {
     type: String,
