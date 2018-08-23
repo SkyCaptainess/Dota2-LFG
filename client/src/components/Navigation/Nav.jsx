@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {withCookies} from 'react-cookie';
+import {connect} from 'react-redux';
 import '../../css/nav.css'
+import {toggleHome} from './../../_actions/misc.js'
 
 class Nav extends Component {
   constructor(props) {
@@ -31,30 +33,37 @@ class Nav extends Component {
   }
 
   handleLogout(e) {
-    e.preventDefault();
-    console.log('Goodbye!');
-    this.props.cookies.remove('user');
-    //this cookie is not actually removed because it is httpOnly. I will need to logout the user from the server at some point.
-    this.props.cookies.remove('token');
-    let href= '/api/auth/steam';
-    let loggedOut = true;
-    let text = 'Login with Steam';
+    if(this.props.cookies.get('user')) {
+      e.preventDefault();
+      console.log('Goodbye!');
+      this.props.cookies.remove('user');
+       //this cookie is not actually removed because it is httpOnly. I will need to logout the user from the server at some point.
+      this.props.cookies.remove('token');
+      let href= '/api/auth/steam';
+      let loggedOut = true;
+      let text = 'Login with Steam';
 
-    this.setState({
-      text,
-      href,
-      loggedOut
-    })
+      this.setState({
+        text,
+        href,
+        loggedOut
+      })
+    }
+  }
+
+  handleBrandClicked() {
+    this.props.dispatch(toggleHome(true));
+    localStorage.setItem('onHome', '1');
   }
 
   //the link url won't work locally. need to change 3001 to 3000 in address bar, same on return. works fine on production
   render() {
     return (
       <section className="nav">
-        <p className="brand">Dota 2 &nbsp; 
+        <p className="brand" onClick={this.handleBrandClicked.bind(this)}>Dota 2 &nbsp; 
         <span className="L">L<span className="e">ooking</span></span>
-        <span className="F">F<span className="e">or</span></span>
-        <span className="G">G<span className="e">roup</span></span></p>
+        <span className="F">&nbsp;F<span className="e">or</span></span>
+        <span className="G">&nbsp;G<span className="e">roup</span></span></p>
         <div className="navOptions">
           <a onClick={e => this.handleLogout(e)} className="loginLink" href={this.state.href}>{this.state.text}</a>
         </div>
@@ -63,4 +72,4 @@ class Nav extends Component {
   }
 }
 
-export default withCookies(Nav);
+export default connect()(withCookies(Nav));

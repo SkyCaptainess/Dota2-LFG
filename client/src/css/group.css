@@ -126,3 +126,19 @@
 .groupHeroes .dodgerblue {
   border-color: dodgerblue;
 }
+
+@media only screen and (max-width: 1477px) {
+  .groupTopRow {
+    display: initial;
+  }
+
+  .groupProfile {
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .groupInfo {
+    margin: 0px 15px;
+  }
+ 
+ }

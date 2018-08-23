@@ -17,7 +17,8 @@ class App extends Component {
     /*Maybe I should use react router instead, but since there are only two pages and I don't want to
     have different URLs (e.g. /home /app) I have opted for this simple solution. I believe I could
     also look into using memory router to avoid having different URLS, but I'll look at that later */
-    if(this.props.onHome) {
+    if(!localStorage.getItem('onHome') || this.props.onHome)
+    {
       return (
         <div className="App">
           <Nav/>
@@ -26,6 +27,7 @@ class App extends Component {
         
         )
     }
+
     console.log(this.props);
     return (
       <div className="App">

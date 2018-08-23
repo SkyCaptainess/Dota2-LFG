@@ -4,11 +4,19 @@ import {
   TOGGLE_HOME
 } from '../_actions/misc.js';
 
+let onHome = localStorage.getItem('onHome');
+
+if(!onHome || onHome === '1') {
+  onHome = true;
+} else {
+  onHome = false;
+}
+
 const initialState = {
   heroSelectorVisible: false,
   loginModalVisible: false,
   whereFrom: '',
-  onHome: false
+  onHome
 };
 
 export const miscReducer = (state=initialState, action) => {

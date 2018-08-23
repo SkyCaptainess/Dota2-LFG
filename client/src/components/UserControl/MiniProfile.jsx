@@ -55,6 +55,7 @@ class MiniProfile extends Component {
 
   render() {
     const {cookies} = this.props;
+    console.log(cookies.get('user'));
     const user = cookies.get('user');
     let content;
     

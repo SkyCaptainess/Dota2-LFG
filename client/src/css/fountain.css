@@ -5,7 +5,7 @@
 }
 
 .fountainContainer img {
-  margin-top: 61px;
+  margin-top: 53px;
   max-height: calc(100vh - 66px);
   max-width: 100vw;
   z-index: -1;
@@ -22,8 +22,19 @@
 }
 
 .fountain button {
-  border-color: black;
+  border-color: white;
   width: 150px;
+  color: black;
+  box-shadow: none;
+}
+
+.fountain button a {
+  color: black;
+}
+
+.fountain button a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 

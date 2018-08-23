@@ -9,6 +9,7 @@ import {connect} from 'react-redux'
 class Fountain extends Component {
   handleFindClicked = () => {
     this.props.dispatch(toggleHome(false))
+    localStorage.setItem('onHome', '0');
   }
   render() {
     return (

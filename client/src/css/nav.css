@@ -24,10 +24,13 @@
   display: inline;
   font-family: 'Cabin', sans-serif;
   font-size: 26px;
-  font-style: bold;
   color: snow;
+  font-weight: 500;
   margin-left: 20px;
-  
+}
+
+.brand:hover {
+  cursor:pointer;
 }
 
 .about {
