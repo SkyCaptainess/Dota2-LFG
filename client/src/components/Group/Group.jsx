@@ -19,7 +19,6 @@ class Group extends Component {
         method: 'DELETE'
       });
       const responseJson = await response.json();
-      console.log(this.props.group);
       this.props.dispatch(deleteGroup(this.props.group));
       this.props.dispatch(setCreatedGroup(null));
     } catch(error) {
@@ -34,7 +33,9 @@ class Group extends Component {
         location = 'Somewhere';
       }
 
-      let groupInfo = "In the full version, you will be able to add a description to your group, which will be listed here."
+      let groupInfo = `In the full version, you will be able to add a description to your group, which will be listed here.
+      You be able to click on the portrait of a selected hero below to view the player's stats, as well as chat with others in the group.`;
+      
       if(this.props.cookies.get('user') && this.props.cookies.get('user').steamid32 === steamid32)
       {
         groupInfo = <div>
