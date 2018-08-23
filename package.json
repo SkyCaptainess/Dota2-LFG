@@ -39,6 +39,6 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
   }
 }
