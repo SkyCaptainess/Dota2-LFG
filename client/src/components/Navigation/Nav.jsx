@@ -30,7 +30,9 @@ class Nav extends Component {
     }
   }
 
-  handleLogout() {
+  handleLogout(e) {
+    e.preventDefault();
+    console.log('Goodbye!');
     this.props.cookies.remove('user');
     //this cookie is not actually removed because it is httpOnly. I will need to logout the user from the server at some point.
     this.props.cookies.remove('token');
@@ -54,7 +56,7 @@ class Nav extends Component {
         <span className="F">F<span className="e">or</span></span>
         <span className="G">G<span className="e">roup</span></span></p>
         <div className="navOptions">
-          <a onClick={this.handleLogout.bind(this)} className="loginLink" href={this.state.href}>{this.state.text}</a>
+          <a onClick={e => this.handleLogout(e)} className="loginLink" href={this.state.href}>{this.state.text}</a>
         </div>
       </section>
     );
