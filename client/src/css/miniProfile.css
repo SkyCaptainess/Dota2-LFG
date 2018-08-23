@@ -79,9 +79,9 @@
   color: black;
 }
 
-@media only screen and (max-width: 1450px) {
- .stats {
-   margin-top: 15px;
+@media only screen and (max-width: 1477px) {
+ .miniProfile {
+   margin-top: 20px;
  }
 
 }
