@@ -14,8 +14,6 @@ before_deploy:
   - npm run build
 
 deploy:
-  provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
-  skip_cleanup: true
-  on:
-    branch: master
+  provider: heroku
+  api_key:
+    secure: 8a0b8e04-57c6-47be-af50-e06dee24b035
