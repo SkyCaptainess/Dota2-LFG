@@ -4,7 +4,7 @@
   "description": "Dota 2 LFG",
   "main": "server.js",
   "scripts": {
-    "test": "mocha",
+    "test": "",
     "client": "cd client && npm start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\"",
@@ -38,7 +38,6 @@
     "steamid": "^1.1.0"
   },
   "devDependencies": {
-    "concurrently": "^3.5.1",
-    "mocha": "^5.2.0"
+    "concurrently": "^3.5.1"
   }
 }
