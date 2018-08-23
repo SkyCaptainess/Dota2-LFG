@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 import GroupHero from './GroupHero'
+import {connect} from 'react-redux';
 import '../../css/group.css'
 import {withCookies} from 'react-cookie';
+
+import {
+  deleteGroup,
+  setCreatedGroup
+} from '../../_actions/group.js'
 
 
 class Group extends Component {
@@ -11,13 +17,16 @@ class Group extends Component {
       const response = await fetch('/api/groups', {
         credentials: 'same-origin',
         method: 'DELETE'
-      })
+      });
       const responseJson = await response.json();
-      console.log(responseJson);
+      console.log(this.props.group);
+      this.props.dispatch(deleteGroup(this.props.group));
+      this.props.dispatch(setCreatedGroup(null));
     } catch(error) {
       console.error(error);
     }
   }
+
   render() {
     let {mood, mode, region, location,
       username, groupAvatar, slot0, slot1, slot2, slot3, slot4, steamid32} = this.props.group;
@@ -25,12 +34,12 @@ class Group extends Component {
         location = 'Somewhere';
       }
 
-      let groupInfo = '';
+      let groupInfo = "In the full version, you will be able to add a description to your group, which will be listed here."
       if(this.props.cookies.get('user') && this.props.cookies.get('user').steamid32 === steamid32)
       {
         groupInfo = <div>
                       <p>More features to manage your group coming soon.</p>
-                      <Button onClick={this.handleDeleteClicked} bsStyle="danger">Delete Group</Button>
+                      <Button onClick={this.handleDeleteClicked.bind(this)} bsStyle="danger">Delete Group</Button>
                     </div>
       }
     return (
@@ -68,4 +77,4 @@ class Group extends Component {
   }
 }
 
-export default withCookies(Group);
+export default connect()(withCookies(Group));

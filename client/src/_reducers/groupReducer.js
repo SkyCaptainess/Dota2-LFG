@@ -25,16 +25,22 @@ export const groupReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       groups: state.groups.map(group => {
         if(group.steamid32 === action.group.steamid32) {
-          return action.group
+          return action.group;
         } else {
-          return group
+          return group;
         }
       })
-    })
+    });
   } else if (action.type === SET_CREATED_GROUP) {
     return Object.assign({}, state, {
       createdGroup: action.createdGroup
-    })
+    });
+  } else if (action.type === DELETE_GROUP) {
+      return Object.assign({}, state, {
+        groups: state.groups.filter(g => {
+          return g.steamid32 !== action.groupToDelete.steamid32;
+        })
+      });
   }
 
   return state;
