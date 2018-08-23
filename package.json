@@ -38,6 +38,7 @@
     "steamid": "^1.1.0"
   },
   "devDependencies": {
-    "concurrently": "^3.5.1"
+    "concurrently": "^3.5.1",
+    "mocha": "^5.2.0"
   }
 }
