@@ -1,15 +1,13 @@
 import React from 'react';
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
+import {shallowWithStore} from 'enzyme-redux';
+import {createMockStore} from 'react-test-utils';
+//import store from '../store';
 
-import LoginModal from '../components/auth/LoginModal';
-
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({adapter: new Adapter()});
+import Filter from '../components/UserControl/Filter';
 
 describe('Main components', () => {
-  it('renders', () => {
-    shallow(<LoginModal/>);
+  it('renders the login modal', () => {
+    shallow(<Filter/>);
   })
 })

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import '../../css/loginModal.css'
 import { toggleLoginModalVisibility } from '../../_actions/misc.js';
 
-class LoginModal extends Component {
+export class LoginModal extends Component {
   handleLogin = () => {
     if(window.location.href.includes('local')) {
       window.location.href = "http://localhost:3000/api/auth/steam"

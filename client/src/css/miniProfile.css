@@ -6,6 +6,7 @@
   padding: 7px;
   border-radius: 5px;
   justify-content: space-around;
+  border: 3px solid black;
 }
 
 .login {
