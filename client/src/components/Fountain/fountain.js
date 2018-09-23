@@ -14,7 +14,7 @@ class Fountain extends Component {
   render() {
     return (
       <section className="fountainContainer">
-        <img src="/images/linaandmaiden.png"/>
+        <img src="/images/calm.jpg"/>
         <div className="fountain">
           <div className="header">
             <p className="title">Dota 2&nbsp; 
