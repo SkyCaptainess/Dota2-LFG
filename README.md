@@ -1,7 +1,3 @@
-No license is intentional. This work is exclusively copyrighted. For more information, please read below:
-
-https://choosealicense.com/no-permission/
-
 Created by: https://flooyd.github.io/portfolio/
 
 # Dota 2 LFG
@@ -11,7 +7,7 @@ Created by: https://flooyd.github.io/portfolio/
 #### Technology
 
 * React / Redux
-* Node / Express (with Router) / Mongoose (with aggregation)
+* Node / Express (with Router) / Mongoose (with [aggregation](https://github.com/flooyd/dota2lfg/blob/master/api/matchStats/index.js#L45))
 * JWT / LocalStorage
 * CSS3 Flex (Bootstrap for colors and buttons only)
 * Heroku (live) and TravisCI (disabled at the moment)
@@ -61,3 +57,7 @@ Created by: https://flooyd.github.io/portfolio/
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 See the progress at https://www.dota2lfg.com
+
+No license is intentional. This work is exclusively copyrighted. For more information, please read below:
+
+https://choosealicense.com/no-permission/
