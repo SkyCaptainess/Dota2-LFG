@@ -25,7 +25,6 @@ class Fountain extends Component {
           </div>
           <div className="info">
             <p className="tools">Dota 2 LFG gives you the tools you need to find a group just to your liking!</p>
-            <p className="tools">Login below or click help for more information. Thanks for stopping by!</p>
           </div>
           <div className="buttons">
             <Button bsStyle="danger" onClick={this.handleFindClicked}>Find a group!</Button>
