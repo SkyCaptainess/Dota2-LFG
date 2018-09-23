@@ -26,9 +26,11 @@ Created by: https://flooyd.github.io/portfolio/
 * Join a Group by clicking a Hero in one of the Groups below the Group Maker
 * More Group management (edit, change Heroes, kick user) and group features (chat, view players' stats) coming soon!
 
-### Home Page
+### [Home Page](https://github.com/flooyd/dota2lfg/blob/master/client/src/components/Fountain/fountain.js)
 ![Home Page](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/Homepage.PNG)
 * Self explanatory :smiley:
+
+Code
 
 ### Dota 2 LFG
 ![Dota 2 LFG](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/dota2lfg.PNG)
