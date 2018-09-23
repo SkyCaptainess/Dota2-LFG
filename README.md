@@ -53,6 +53,8 @@ Created by: https://flooyd.github.io/portfolio/
 ![Joined Group](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/JoinedGroup.PNG)
 * The border colors of the Hero portraits (red, green, blue and white) depend on the Hero's primary stat and who is the group owner.
   There is currently a bug with this :cry: but it will be corrected soon :smiley:
+* The visual state of joined groups may be incorrect if joining one group from another. Corrected on refresh. Redux and socket.io will
+  be used in the future to create a live feed of groups.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
