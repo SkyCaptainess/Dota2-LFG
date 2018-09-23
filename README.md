@@ -8,9 +8,9 @@ https://choosealicense.com/no-permission/
 
 #### Technology
 
-* React/Redux
-* Node/Express/Mongoose
-* JWT/LocalStorage
+* React / Redux
+* Node / Express (with Router) / Mongoose (with aggregation)
+* JWT / LocalStorage
 * CSS3 Flex (Bootstrap for colors and buttons only)
 * Heroku (live) and TravisCI (disabled at the moment)
 * [steamid](https://www.npmjs.com/package/steamid)
@@ -24,7 +24,23 @@ https://choosealicense.com/no-permission/
 * Join a Group by clicking a Hero in one of the Groups below the Group Maker
 * More Group management (edit, change Heroes, kick user) and group features (chat, view players' stats) coming soon!
 
-More details coming soon!
+### Home Page
+![Home Page](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/Homepage.PNG)
+
+### Dota 2 LFG
+![Dota 2 LFG](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/dota2lfg.PNG)
+
+### Group Maker
+![Group Maker](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/Groupmaker.PNG)
+
+### Mini Profile
+![Mini Profile](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/Miniprofile.PNG)
+
+### Created Group
+![Created Group](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/CreatedGroup.PNG)
+
+### Joined Group
+![Joined Group](https://github.com/flooyd/dota2lfg/blob/master/readme%20images/JoinedGroup.PNG)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
