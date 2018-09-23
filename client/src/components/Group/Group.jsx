@@ -36,7 +36,7 @@ class Group extends Component {
       let groupInfo = `In the full version, you will be able to add a description to your group, which will be listed here.
       You be able to click on the portrait of a selected hero below to view the player's stats, as well as chat with others in the group.`;
       
-      if(this.props.cookies.get('user') && this.props.cookies.get('user').steamid32 === steamid32)
+      if(this.props.createdGroup && this.props.cookies.get('user') && this.props.cookies.get('user').steamid32 === steamid32)
       {
         groupInfo = <div>
                       <p>More features to manage your group coming soon.</p>
@@ -78,4 +78,11 @@ class Group extends Component {
   }
 }
 
-export default connect()(withCookies(Group));
+export const mapStateToProps = state => {
+  const {createdGroup} = state.group
+  return {
+    createdGroup
+  }
+}
+
+export default connect(mapStateToProps)(withCookies(Group));

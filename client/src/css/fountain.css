@@ -5,21 +5,18 @@
 }
 
 .fountainContainer img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   margin-top: 53px;
-  max-height: calc(100vh - 66px);
+  max-height: calc(100vh - 60px);
   max-width: 100vw;
   z-index: -1;
   opacity: .8;
   background-color: black;
 }
 
-.fountain {
-  position: absolute;
-  top: 70px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
 
 .fountain button {
   border-color: white;
@@ -37,6 +34,10 @@
   text-decoration: none;
 }
 
+.fountainContainer {
+  margin-top: 52px;
+}
+
 
 .fountainContainer p {
   opacity: 1;
@@ -49,12 +50,13 @@
 }
 
 .fountainContainer .title {
+  width: 100%;
+  text-align: center;
   font-size: 46px;
   font-weight: bold;
-  padding-bottom: 10px;
   border-radius: 2px;
-  width: 350px;
-  margin: 20px auto;
+  margin: 75px auto;
+  margin-bottom: 10px;
 }
 
 .fountainContainer .secondP {
@@ -70,7 +72,6 @@
 .fountainContainer .poweredBy {
   font-size: 26px;
   margin-top: 20px;
-  width: 400px;
   border-radius: 5px;
 }
 
@@ -140,3 +141,38 @@
   max-width: 50%;
   max-height: 400px;
 }
+
+@media only screen and (max-width: 496px) {
+  .fountainContainer img {
+    padding: 20px;
+  }
+
+  .fountainContainer .title {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .fountainContainer img {
+    position: relative;
+    margin-top: 0px;
+  }
+
+  .fountainContainer .title {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    right: 0px;
+  }
+
+  .fountainContainer .secondP{
+    position: absolute;
+    top: 180px;
+    left: 0px;
+    right: 0px;
+  }
+}
+

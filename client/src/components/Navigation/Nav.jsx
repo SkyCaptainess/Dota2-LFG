@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {withCookies} from 'react-cookie';
 import {connect} from 'react-redux';
-import '../../css/nav.css'
-import {toggleHome} from './../../_actions/misc.js'
+import '../../css/nav.css';
+import {toggleHome} from './../../_actions/misc.js';
+import {setCreatedGroup} from './../../_actions/group';
 
 class Nav extends Component {
   constructor(props) {
@@ -23,7 +24,6 @@ class Nav extends Component {
       let text = this.props.cookies.get('user').username + ' - Logout';
       let href= '#';
       let loggedOut = false;
-
       this.setState({
         text,
         href,
@@ -35,6 +35,7 @@ class Nav extends Component {
   handleLogout(e) {
     if(this.props.cookies.get('user')) {
       e.preventDefault();
+      this.props.dispatch(setCreatedGroup(null));
       console.log('Goodbye!');
       this.props.cookies.remove('user');
        //this cookie is not actually removed because it is httpOnly. I will need to logout the user from the server at some point.
