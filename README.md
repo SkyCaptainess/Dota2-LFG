@@ -1,5 +1,3 @@
-Created by: https://flooyd.github.io/portfolio/
-
 # Dota 2 LFG
 
 ### Dota 2 LFG is a site for finding friends and teammates.
@@ -55,11 +53,3 @@ Created by: https://flooyd.github.io/portfolio/
   There is currently a bug with this :cry: but it will be corrected soon :smiley:
 * The visual state of joined groups may be incorrect if joining one group from another. Corrected on refresh. Redux and socket.io will
   be used in the future to create a live feed of groups.
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-See the progress at https://www.dota2lfg.com
-
-No license is intentional. This work is exclusively copyrighted. For more information, please read below:
-
-https://choosealicense.com/no-permission/
